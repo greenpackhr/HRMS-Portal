@@ -1,82 +1,97 @@
-body {
+/* ===== Global Style ===== */
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #f4f7f6;
 }
 
-
-/* Header */
-
-.header {
-    background: #1b5e20;
-    text-align: center;
-    padding: 25px 10px;
-    color: white;
-}
-
-
-.header h1 {
-    margin: 0;
-    font-size: 32px;
-    font-weight: 700;
-}
-
-
-.header p {
-    margin: 8px 0 0;
-    font-size: 16px;
-}
-
-
-/* Login Area */
-
-.container {
+body {
+    min-height: 100vh;
+    background: #f4f6f9;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
 }
 
 
-.login-box {
+/* ===== Main Container ===== */
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ===== Welcome Card ===== */
+
+.welcome-box {
+    width: 420px;
     background: white;
-    width: 380px;
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    padding: 40px;
+    border-radius: 15px;
     text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
 
-.login-box h2 {
-    color:#1b5e20;
-    margin-bottom:25px;
+/* ===== Welcome Text ===== */
+
+.welcome-box h1 {
+    font-size: 28px;
+    color: #1B5E20;
+    margin-bottom: 15px;
 }
 
 
-input {
-    width:90%;
-    padding:12px;
-    margin:10px;
-    border:1px solid #ccc;
-    border-radius:6px;
-    font-size:15px;
+.welcome-box p {
+    font-size: 17px;
+    color: #555;
+    margin-bottom: 25px;
 }
 
 
-button {
-    width:95%;
-    padding:12px;
-    margin-top:15px;
-    background:#1b5e20;
-    color:white;
-    border:none;
-    border-radius:6px;
-    font-size:16px;
-    cursor:pointer;
+/* ===== Logout Button ===== */
+
+.logout-btn {
+    background: #1B5E20;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 
-button:hover {
-    background:#0d3d12;
+.logout-btn:hover {
+    background: #0d3d12;
+}
+
+
+/* ===== Logo ===== */
+
+.logo {
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+
+/* ===== Mobile Responsive ===== */
+
+@media(max-width:600px){
+
+    .welcome-box {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .welcome-box h1 {
+        font-size:22px;
+    }
+
 }
