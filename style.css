@@ -2,192 +2,283 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
 
 body {
+
     background: #ffffff;
     color: #222;
+
 }
 
 
-/* Header */
+
+/* ================= HEADER ================= */
+
 
 .header {
+
     background: #1B5E20;
     color: white;
-    padding: 25px;
+    padding: 18px;
     text-align: center;
     border-bottom: 2px solid black;
+
 }
+
 
 .header h1 {
-    font-size: 32px;
+
+    font-size: 28px;
+    font-weight: bold;
+
 }
+
 
 .header p {
-    margin-top: 8px;
+
+    margin-top: 5px;
+    font-size: 14px;
+
 }
 
 
 
-/* Container */
+/* ================= MAIN CONTAINER ================= */
+
 
 .container {
-    width: 95%;
-    margin: 25px auto;
+
+    width: 94%;
+    max-width: 1400px;
+    margin: 20px auto;
+
 }
 
 
 
-/* Welcome */
+/* ================= WELCOME ================= */
+
 
 .welcome {
 
     background: white;
-    padding: 20px;
+    padding: 12px 18px;
     border: 1px solid black;
-    border-radius: 8px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+
+}
+
+
+.welcome h2 {
+
+    font-size: 20px;
+
+}
+
+
+
+/* ================= EMPLOYEE DETAILS ================= */
+
+
+.employee-card {
+
+    display: flex;
+    gap: 15px;
     margin-bottom: 20px;
 
 }
 
 
 
-/* Employee Details */
-
-.employee-card {
-
-    display:flex;
-    gap:20px;
-    margin-bottom:25px;
-
-}
-
-
 .employee-card div {
 
-    flex:1;
-    background:white;
-    padding:20px;
-    text-align:center;
-    border:1px solid black;
-    border-radius:8px;
+    flex: 1;
+    background: white;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 6px;
 
 }
+
+
+
+.employee-card label {
+
+    font-size: 13px;
+    color: #555;
+
+}
+
 
 
 .employee-card h3 {
 
-    color:#1B5E20;
-    margin-top:10px;
+    margin-top: 6px;
+    font-size: 18px;
+    color: #1B5E20;
 
 }
 
 
 
-/* Summary */
+/* ================= SUMMARY CARDS ================= */
+
 
 .summary {
 
-    display:flex;
-    gap:20px;
-    margin-bottom:30px;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
 
 }
+
 
 
 .box {
 
-    flex:1;
-    background:white;
-    padding:20px;
-    text-align:center;
-    border:1px solid black;
-    border-radius:8px;
+    flex: 1;
+    background: white;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 6px;
 
 }
+
 
 
 .box h2 {
 
-    color:#1B5E20;
-    font-size:30px;
+    color: #1B5E20;
+    font-size: 26px;
+    margin-bottom: 5px;
 
 }
 
 
 
-/* Attendance Table */
+.box p {
+
+    font-size: 14px;
+    color: #555;
+
+}
+
+
+
+/* ================= ATTENDANCE TITLE ================= */
+
+
+.container > h2 {
+
+    margin-bottom: 10px;
+    font-size: 22px;
+
+}
+
+
+
+/* ================= TABLE ================= */
+
 
 table {
 
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    border:2px solid black;
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: 2px solid black;
 
 }
+
 
 
 th {
 
-    background:#1B5E20;
-    color:white;
-    padding:12px;
-    border:1px solid black;
+    background: #1B5E20;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 14px;
 
 }
+
 
 
 td {
 
-    padding:10px;
-    text-align:center;
-    border:1px solid black;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid black;
+    font-size: 14px;
 
 }
+
 
 
 tr:hover {
 
-    background:#E8F5E9;
+    background: #E8F5E9;
 
 }
 
 
 
-/* Logout Button */
+/* ================= BUTTON ================= */
+
 
 button {
 
-    background:#1B5E20;
-    color:white;
-    border:1px solid black;
-    padding:12px 30px;
-    border-radius:5px;
-    cursor:pointer;
+    background: #1B5E20;
+    color: white;
+    border: 1px solid black;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
 
 }
+
 
 
 button:hover {
 
-    background:#2E7D32;
+    background: #2E7D32;
 
 }
 
 
 
-/* Mobile */
+/* ================= MOBILE VIEW ================= */
+
 
 @media(max-width:768px){
+
 
 .employee-card,
 .summary {
 
-    flex-direction:column;
+    flex-direction: column;
 
 }
+
+
+table {
+
+    font-size:12px;
+
+}
+
+
+.container {
+
+    width:98%;
+
+}
+
 
 }
