@@ -1,219 +1,82 @@
-/* ==========================
-   HRMS LOGIN PAGE CSS
-========================== */
-
-
-/* Reset */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
-}
-
-
-/* Page Center Alignment */
-
 body {
-
-    min-height: 100vh;
-
-    background: #f4f6f9;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f7f6;
 }
 
 
-/* Main Container */
+/* Header */
+
+.header {
+    background: #1b5e20;
+    text-align: center;
+    padding: 25px 10px;
+    color: white;
+}
+
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+
+.header p {
+    margin: 8px 0 0;
+    font-size: 16px;
+}
+
+
+/* Login Area */
 
 .container {
-
-    width: 100%;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
+    height: 70vh;
 }
 
 
-/* Login Card */
-
-.welcome-box {
-
-    width: 380px;
-
+.login-box {
     background: white;
-
+    width: 380px;
     padding: 35px;
-
-    border-radius: 15px;
-
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     text-align: center;
-
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
-
 }
 
 
-
-/* Company Logo */
-
-.logo {
-
-    width: 80px;
-
-    height: 80px;
-
-    object-fit: contain;
-
-    display: block;
-
-    margin: 0 auto 20px auto;
-
+.login-box h2 {
+    color:#1b5e20;
+    margin-bottom:25px;
 }
 
 
-
-/* Heading */
-
-.welcome-box h1 {
-
-    font-size: 26px;
-
-    color: #1B5E20;
-
-    margin-bottom: 25px;
-
+input {
+    width:90%;
+    padding:12px;
+    margin:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:15px;
 }
 
 
-
-/* Input Fields */
-
-.welcome-box input {
-
-    width: 100%;
-
-    height: 45px;
-
-    padding: 10px 15px;
-
-    margin-bottom: 15px;
-
-    border: 1px solid #ccc;
-
-    border-radius: 8px;
-
-    font-size: 15px;
-
-    outline: none;
-
+button {
+    width:95%;
+    padding:12px;
+    margin-top:15px;
+    background:#1b5e20;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
 }
 
 
-
-.welcome-box input:focus {
-
-    border-color: #1B5E20;
-
-}
-
-
-
-/* Login Button */
-
-.logout-btn {
-
-    width: 100%;
-
-    height: 45px;
-
-    background: #1B5E20;
-
-    color: white;
-
-    border: none;
-
-    border-radius: 8px;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    margin-top: 5px;
-
-}
-
-
-
-.logout-btn:hover {
-
-    background: #0d3d12;
-
-}
-
-
-
-/* Message */
-
-#message {
-
-    margin-top: 15px;
-
-    font-size: 14px;
-
-    color: red;
-
-}
-
-
-
-/* Dashboard Welcome */
-
-#welcomeName {
-
-    color: #1B5E20;
-
-}
-
-
-
-/* Mobile Responsive */
-
-@media(max-width:600px) {
-
-
-    .welcome-box {
-
-        width: 90%;
-
-        padding: 25px;
-
-    }
-
-
-    .welcome-box h1 {
-
-        font-size: 22px;
-
-    }
-
-
-    .logo {
-
-        width: 70px;
-
-        height: 70px;
-
-    }
-
+button:hover {
+    background:#0d3d12;
 }
