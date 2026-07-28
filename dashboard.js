@@ -6,6 +6,10 @@ let empId = localStorage.getItem("empId");
 
 document.getElementById("empId").innerText = empId;
 
+let empName = localStorage.getItem("empName");
+
+document.getElementById("empName").innerText = empName;
+
 
 fetch(ATTENDANCE_API_URL + "?orgId=" + empId)
 
