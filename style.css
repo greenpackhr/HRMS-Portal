@@ -1,107 +1,84 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
 body {
-
-    background: #ffffff;
-    color: #222;
-
+    margin:0;
+    background:#f5f7f6;
+    font-family:"Segoe UI", Arial, sans-serif;
 }
 
 
-
-/* ================= HEADER ================= */
-
+/* Header */
 
 .header {
-
-    background: #1B5E20;
-    color: white;
-    padding: 18px;
-    text-align: center;
-    border-bottom: 2px solid black;
-
+    background:#1B5E20;
+    color:white;
+    padding:25px;
+    text-align:center;
 }
 
 
 .header h1 {
-
-    font-size: 28px;
-    font-weight: bold;
-
+    margin:0;
+    font-size:32px;
 }
 
 
 .header p {
-
-    margin-top: 5px;
-    font-size: 14px;
-
+    margin-top:8px;
 }
 
 
 
-/* ================= MAIN CONTAINER ================= */
-
+/* Main */
 
 .container {
 
-    width: 94%;
-    max-width: 1400px;
-    margin: 20px auto;
+    width:90%;
+    max-width:1200px;
+    margin:25px auto;
 
 }
 
 
 
-/* ================= WELCOME ================= */
-
+/* Welcome Card */
 
 .welcome {
 
-    background: white;
-    padding: 12px 18px;
-    border: 1px solid black;
-    border-radius: 6px;
-    margin-bottom: 15px;
+    background:white;
+    padding:18px 25px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+    margin-bottom:20px;
 
 }
 
 
 .welcome h2 {
 
-    font-size: 20px;
+    margin:0;
+    font-size:22px;
 
 }
 
 
 
-/* ================= EMPLOYEE DETAILS ================= */
-
+/* Employee Information */
 
 .employee-card {
 
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-bottom:20px;
 
 }
-
 
 
 .employee-card div {
 
-    flex: 1;
-    background: white;
-    padding: 12px;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 6px;
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.12);
 
 }
 
@@ -109,31 +86,31 @@ body {
 
 .employee-card label {
 
-    font-size: 13px;
-    color: #555;
+    color:#666;
+    font-size:14px;
 
 }
-
 
 
 .employee-card h3 {
 
-    margin-top: 6px;
-    font-size: 18px;
-    color: #1B5E20;
+    margin-top:8px;
+    color:#1B5E20;
+    font-size:18px;
 
 }
 
 
 
-/* ================= SUMMARY CARDS ================= */
+/* Attendance Summary */
 
 
 .summary {
 
-    display: flex;
-    gap: 15px;
-    margin-bottom: 25px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:25px;
 
 }
 
@@ -141,12 +118,11 @@ body {
 
 .box {
 
-    flex: 1;
-    background: white;
-    padding: 12px;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 6px;
+    background:white;
+    padding:18px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.12);
 
 }
 
@@ -154,131 +130,70 @@ body {
 
 .box h2 {
 
-    color: #1B5E20;
-    font-size: 26px;
-    margin-bottom: 5px;
+    margin:0;
+    font-size:28px;
+    color:#1B5E20;
 
 }
-
 
 
 .box p {
 
-    font-size: 14px;
-    color: #555;
+    margin-top:8px;
+    color:#555;
 
 }
 
 
 
-/* ================= ATTENDANCE TITLE ================= */
-
-
-.container > h2 {
-
-    margin-bottom: 10px;
-    font-size: 22px;
-
-}
-
-
-
-/* ================= TABLE ================= */
-
+/* Attendance Table */
 
 table {
 
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border: 2px solid black;
+    width:100%;
+    background:white;
+    border-collapse:collapse;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
 
 }
-
 
 
 th {
 
-    background: #1B5E20;
-    color: white;
-    padding: 10px;
-    border: 1px solid black;
-    font-size: 14px;
+    background:#1B5E20;
+    color:white;
+    padding:12px;
 
 }
-
 
 
 td {
 
-    padding: 8px;
-    text-align: center;
-    border: 1px solid black;
-    font-size: 14px;
+    padding:10px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
 
 }
-
 
 
 tr:hover {
 
-    background: #E8F5E9;
+    background:#e8f5e9;
 
 }
 
 
 
-/* ================= BUTTON ================= */
-
+/* Logout */
 
 button {
 
-    background: #1B5E20;
-    color: white;
-    border: 1px solid black;
-    padding: 10px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 15px;
-
-}
-
-
-
-button:hover {
-
-    background: #2E7D32;
-
-}
-
-
-
-/* ================= MOBILE VIEW ================= */
-
-
-@media(max-width:768px){
-
-
-.employee-card,
-.summary {
-
-    flex-direction: column;
-
-}
-
-
-table {
-
-    font-size:12px;
-
-}
-
-
-.container {
-
-    width:98%;
-
-}
-
+    background:#1B5E20;
+    color:white;
+    border:none;
+    padding:10px 25px;
+    border-radius:6px;
 
 }
