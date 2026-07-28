@@ -1,54 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+
+<title>Greenpack HRMS Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
+
 <body>
 
+
 <div class="header">
-    <img src="images/logo.png" alt="Company Logo" height="60">
-    <h2>Greenpack Industries HRMS</h2>
+
+<h1>Greenpack HRMS</h1>
+<p>Employee Attendance Portal</p>
+
 </div>
+
+
 
 <div class="container">
 
-    <h2>Welcome</h2>
 
-    <p id="empName"></p>
-    <p><strong>Employee ID:</strong> <span id="empId"></span></p>
+<div class="welcome">
 
-    <hr>
-
-    <h3>My Attendance</h3>
-
-    <table border="1" width="100%">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Schedule</th>
-                <th>In Time</th>
-                <th>Out Time</th>
-                <th>Work Time</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-
-        <tbody id="attendanceTable">
-
-        </tbody>
-
-    </table>
-
-    <br>
-
-    <button onclick="logout()">Logout</button>
+<h2>
+Welcome, <span id="empName">Employee</span>
+</h2>
 
 </div>
 
+
+
+<div class="employee-card">
+
+
+<div>
+<label>Employee ID</label>
+<h3 id="empId"></h3>
+</div>
+
+
+<div>
+<label>Department</label>
+<h3 id="department">-</h3>
+</div>
+
+
+<div>
+<label>Designation</label>
+<h3 id="designation">-</h3>
+</div>
+
+
+</div>
+
+
+
+
+<div class="summary">
+
+
+<div class="box">
+<h2 id="present">0</h2>
+<p>Present</p>
+</div>
+
+
+<div class="box">
+<h2 id="absent">0</h2>
+<p>Absent</p>
+</div>
+
+
+<div class="box">
+<h2 id="wo">0</h2>
+<p>Weekly Off</p>
+</div>
+
+
+<div class="box">
+<h2 id="payday">0</h2>
+<p>Pay Days</p>
+</div>
+
+
+</div>
+
+
+
+
+
+<h2>Attendance Details</h2>
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+<th>Schedule</th>
+<th>In Time</th>
+<th>Out Time</th>
+<th>Work Time</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="attendanceTable">
+
+
+</tbody>
+
+
+</table>
+
+
+
+<br>
+
+<button onclick="logout()">Logout</button>
+
+
+
+</div>
+
+
+
 <script src="dashboard.js"></script>
 
+
 </body>
+
 </html>
