@@ -22,6 +22,7 @@ function login() {
             localStorage.setItem("empId", data.empId);
             localStorage.setItem("empName", data.empName);
             localStorage.setItem("role", data.role);
+            
             window.location.href = "dashboard.html";
 
         } 
