@@ -1,4 +1,4 @@
-const WEB_APP_URL = "PASTE_YOUR_WEB_APP_URL_HERE";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
 
 
 function login() {
@@ -13,14 +13,14 @@ function login() {
 
     .then(data => {
 
-        if(data.status == "success") {
+        console.log(data);
+
+        if(data.status === "success") {
 
             alert("Login Successful");
 
             localStorage.setItem("empId", data.empId);
             localStorage.setItem("role", data.role);
-
-            window.location.href = "dashboard.html";
 
         } 
         else {
@@ -33,8 +33,8 @@ function login() {
 
     .catch(error => {
 
-        alert("Connection Error");
         console.log(error);
+        alert("API Connection Error");
 
     });
 
