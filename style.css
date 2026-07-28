@@ -1,73 +1,220 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-body{
-    background:#f4f6f9;
+
+body {
+
+    background: #f4f7f6;
+    color: #333;
+
 }
 
-.header{
-    background:#0B5ED7;
-    color:#fff;
-    padding:15px 30px;
-    display:flex;
-    align-items:center;
-    gap:20px;
-    box-shadow:0 2px 10px rgba(0,0,0,.2);
+
+/* Header */
+
+.header {
+
+    background: #1B5E20;
+    color: white;
+    padding: 25px;
+    text-align: center;
+
 }
 
-.header img{
-    height:60px;
+
+.header h1 {
+
+    font-size: 32px;
+
 }
 
-.container{
-    width:95%;
-    max-width:1200px;
-    margin:30px auto;
-    background:#fff;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 3px 12px rgba(0,0,0,.15);
+
+.header p {
+
+    margin-top: 8px;
+    font-size: 16px;
+
 }
 
-h2,h3{
-    margin-bottom:15px;
+
+
+/* Main Container */
+
+.container {
+
+    width: 95%;
+    margin: 25px auto;
+
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:15px;
+
+
+/* Welcome */
+
+.welcome {
+
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px #ccc;
+
 }
 
-table th{
-    background:#0B5ED7;
-    color:#fff;
-    padding:10px;
+
+
+/* Employee Card */
+
+.employee-card {
+
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+
 }
 
-table td{
-    padding:10px;
-    text-align:center;
-    border:1px solid #ddd;
+
+.employee-card div {
+
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px #ccc;
+
 }
 
-tr:nth-child(even){
-    background:#f8f8f8;
+
+.employee-card label {
+
+    color: #777;
+
 }
 
-button{
-    background:#dc3545;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:5px;
-    cursor:pointer;
+
+.employee-card h3 {
+
+    margin-top: 10px;
+    color: #1B5E20;
+
 }
 
-button:hover{
-    background:#bb2d3b;
+
+
+/* Summary Cards */
+
+.summary {
+
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+
+}
+
+
+.box {
+
+    flex: 1;
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #ccc;
+
+}
+
+
+.box h2 {
+
+    color: #1B5E20;
+    font-size: 30px;
+
+}
+
+
+.box p {
+
+    margin-top: 8px;
+
+}
+
+
+
+/* Table */
+
+table {
+
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px #ccc;
+
+}
+
+
+th {
+
+    background: #1B5E20;
+    color: white;
+    padding: 12px;
+
+}
+
+
+td {
+
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+
+}
+
+
+tr:hover {
+
+    background: #f1f8f1;
+
+}
+
+
+
+/* Button */
+
+button {
+
+    background: #1B5E20;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+
+button:hover {
+
+    background: #2E7D32;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.employee-card,
+.summary {
+
+    flex-direction: column;
+
+}
+
 }
