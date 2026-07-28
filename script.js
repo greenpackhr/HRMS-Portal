@@ -3,27 +3,36 @@ const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il
 
 function login() {
 
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+    var username = document.getElementById("username").value.trim();
+    var password = document.getElementById("password").value.trim();
 
 
-    fetch(WEB_APP_URL + "?username=" + username + "&password=" + password)
+    fetch(WEB_APP_URL + "?username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password))
 
     .then(response => response.json())
 
     .then(data => {
 
-        console.log(data);
+        console.log("LOGIN RESPONSE:", data);
+
 
         if(data.status === "success") {
 
-            alert("Login Successful");
 
             localStorage.setItem("empId", data.empId);
             localStorage.setItem("empName", data.empName);
             localStorage.setItem("role", data.role);
-            
-            window.location.href = "dashboard.html";
+
+
+            alert("Login Successful");
+
+
+            setTimeout(function(){
+
+                window.location.href = "dashboard.html";
+
+            },500);
+
 
         } 
         else {
