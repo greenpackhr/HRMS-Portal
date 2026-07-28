@@ -55,3 +55,12 @@ fetch(ATTENDANCE_API_URL + "?orgId=" + empId)
     alert("Attendance API Error");
 
 });
+
+
+function logout() {
+
+    localStorage.clear();
+
+    window.location.href = "index.html";
+
+}
