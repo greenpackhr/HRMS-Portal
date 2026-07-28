@@ -1,29 +1,48 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>HRMS Attendance Portal</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<div id="dashboard" class="dashboard">
 
-<body>
+    <header class="top-header">
 
-<div class="login-container">
+        <div class="company-section">
+            <img src="images/logo.png" class="company-logo">
+            <div>
+                <h2>HRMS Portal</h2>
+                <span>Employee Attendance System</span>
+            </div>
+        </div>
 
-    <img src="images/logo.png" alt="Company Logo" class="logo">
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
 
-    <h2>Attendance Portal</h2>
+    </header>
 
-    <input type="text" id="username" placeholder="Username">
 
-    <input type="password" id="password" placeholder="Password">
+    <main class="dashboard-content">
 
-    <button onclick="login()">Login</button>
+        <div class="welcome-card">
 
-    <p id="message"></p>
+            <h1>
+                Welcome, <span id="empName"></span>
+            </h1>
+
+            <p>
+                Your attendance dashboard
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>Attendance Information</h3>
+
+            <p>
+                View your attendance records, working hours and status.
+            </p>
+
+        </div>
+
+
+    </main>
 
 </div>
-
-<script src="script.js"></script>
-
-</body>
-</html>
