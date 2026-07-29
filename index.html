@@ -1,29 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>HRMS Attendance Portal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenpack HRMS - Employee Attendance Portal</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<div class="login-container">
+<div class="background">
 
-    <img src="images/logo.png" alt="Company Logo" class="logo">
+    <div class="login-card">
 
-    <h2>Attendance Portal</h2>
+        <img src="images/logo.png" class="logo" alt="Greenpack Logo">
 
-    <input type="text" id="username" placeholder="Username">
+        <h1>GREENPACK INDUSTRIES</h1>
 
-    <input type="password" id="password" placeholder="Password">
+        <p class="subtitle">Employee Attendance Portal</p>
 
-    <button onclick="login()">Login</button>
+        <div class="input-group">
 
-    <p id="message"></p>
+            <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                autocomplete="username">
+
+        </div>
+
+        <div class="input-group">
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                autocomplete="current-password">
+
+        </div>
+
+        <div class="show-password">
+
+            <input
+                type="checkbox"
+                id="showPass">
+
+            <label for="showPass">
+                Show Password
+            </label>
+
+        </div>
+
+        <button class="login-btn" onclick="login()">
+
+            SIGN IN
+
+        </button>
+
+        <p id="message"></p>
+
+        <div class="footer">
+
+            © 2026 Greenpack Industries
+
+        </div>
+
+    </div>
 
 </div>
+
+<script>
+
+document.getElementById("showPass").addEventListener("change", function(){
+
+    const pwd = document.getElementById("password");
+
+    pwd.type = this.checked ? "text" : "password";
+
+});
+
+</script>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
