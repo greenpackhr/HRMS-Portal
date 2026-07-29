@@ -1,11 +1,9 @@
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
 
-
 function login() {
 
     var username = document.getElementById("username").value.trim();
     var password = document.getElementById("password").value.trim();
-
 
     fetch(WEB_APP_URL + "?username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password))
 
@@ -15,27 +13,23 @@ function login() {
 
         console.log("LOGIN RESPONSE:", data);
 
-
-        if(data.status === "success") {
-
+        if (data.status === "success") {
 
             localStorage.setItem("empId", data.empId);
             localStorage.setItem("empName", data.empName);
+            localStorage.setItem("department", data.department);      // NEW
+            localStorage.setItem("designation", data.designation);    // NEW
             localStorage.setItem("role", data.role);
-
 
             alert("Login Successful");
 
-
-            setTimeout(function(){
+            setTimeout(function () {
 
                 window.location.href = "dashboard.html";
 
-            },500);
+            }, 500);
 
-
-        } 
-        else {
+        } else {
 
             alert("Invalid Username or Password");
 
