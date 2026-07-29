@@ -1,3 +1,116 @@
+/* ================= LOGIN PAGE ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    min-height:100vh;
+}
+
+.login-container{
+
+    width:420px;
+
+    background:#ffffff;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    text-align:center;
+
+}
+
+.logo{
+
+    width:180px;
+
+    display:block;
+
+    margin:0 auto 20px;
+
+}
+
+.login-container h2{
+
+    color:#1B5E20;
+
+    margin-bottom:25px;
+
+}
+
+.login-container input{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+}
+
+.login-container input:focus{
+
+    border-color:#1B5E20;
+
+    outline:none;
+
+}
+
+.login-container button{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#1B5E20;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.login-container button:hover{
+
+    background:#145a1d;
+
+}
+
+#message{
+
+    margin-top:15px;
+
+    color:red;
+
+}
 .employee-card {
 
     display:flex;
