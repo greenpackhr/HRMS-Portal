@@ -138,46 +138,7 @@ Welcome, <span id="empName">Employee</span>
 
 <script src="dashboard.js"></script>
 
-<script>
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    const empId = localStorage.getItem("empId");
-
-    if (!empId) {
-
-        window.location.href = "index.html";
-
-        return;
-
-    }
-
-    const empName = localStorage.getItem("empName");
-
-    if (empName) {
-
-        const welcome = document.getElementById("welcomeName");
-
-        if (welcome) {
-
-            welcome.innerHTML = "Welcome, " + empName;
-
-        }
-
-    }
-
-});
-
-
-function logout() {
-
-    localStorage.clear();
-
-    window.location.href = "index.html";
-
-}
-
-</script>
 </body>
 
 </html>
