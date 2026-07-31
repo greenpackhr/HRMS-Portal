@@ -34,14 +34,59 @@ fetch(ATTENDANCE_API_URL + "?orgId=" + encodeURIComponent(empId))
 
         let tr = document.createElement("tr");
 
-        tr.innerHTML = `
-            <td>${row.shiftDate}</td>
-            <td>${row.schedule}</td>
-            <td>${row.actualIn}</td>
-            <td>${row.actualOut}</td>
-            <td>${row.workTime}</td>
-            <td>${row.status}</td>
-        `;
+        let statusClass = "";
+
+switch (row.status) {
+
+    case "P":
+        statusClass = "status-p";
+        break;
+
+    case "A":
+        statusClass = "status-a";
+        break;
+
+    case "P | A":
+    case "A | P":
+        statusClass = "status-halfday";
+        break;
+
+    case "WO":
+        statusClass = "status-wo";
+        break;
+
+    case "PH":
+        statusClass = "status-ph";
+        break;
+
+    case "CL":
+        statusClass = "status-cl";
+        break;
+
+    case "SL":
+        statusClass = "status-sl";
+        break;
+
+    case "PL":
+        statusClass = "status-pl";
+        break;
+
+    case "OD":
+        statusClass = "status-od";
+        break;
+
+    default:
+        statusClass = "status-default";
+}
+
+tr.innerHTML = `
+    <td>${row.shiftDate}</td>
+    <td>${row.schedule}</td>
+    <td>${row.actualIn}</td>
+    <td>${row.actualOut}</td>
+    <td>${row.workTime}</td>
+    <td><span class="${statusClass}">${row.status}</span></td>
+`;
 
         table.appendChild(tr);
 
