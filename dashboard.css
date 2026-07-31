@@ -538,3 +538,37 @@ button:hover{
     padding: 8px;
     border: 1px solid #333;
 }
+/* Attendance Scroll + Fixed Header */
+
+.attendance-container {
+    height: 450px;
+    overflow-y: scroll;
+}
+
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.attendance-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+
+.attendance-table thead th {
+    background: #1B5E20;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+
+.attendance-table th,
+.attendance-table td {
+    border: 1px solid #333;
+    padding: 8px;
+}
