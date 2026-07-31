@@ -243,18 +243,18 @@ body{
 }
 
 .summary-card {
-    padding: 12px !important;
-    height: 80px !important;
+    padding: 6px !important;
+    height: 55px !important;
 }
 
 .summary-card h3 {
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .summary-card p {
-    margin: 5px 0 0;
-    font-size: 24px;
+    margin: 2px 0 0;
+    font-size: 22px;
     font-weight: bold;
 }
 
