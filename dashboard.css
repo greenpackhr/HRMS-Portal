@@ -444,10 +444,6 @@ button:hover{
     border-left:6px solid #2196F3;
 }
 
-.attendance-container {
-    max-height: 400px;
-    overflow-y: auto;
-}
 
 .attendance-table thead th {
     position: sticky;
@@ -455,4 +451,25 @@ button:hover{
     z-index: 10;
     background: #1B5E20;
     color: white;
+}
+
+/* Freeze Attendance Header */
+
+.attendance-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.attendance-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.attendance-table thead th {
+    background: #1B5E20;
+    color: white;
+    position: sticky;
+    top: 0;
 }
