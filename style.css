@@ -236,3 +236,8 @@ body{
 }
 
 }
+
+#empName {
+    color: white !important;
+    font-weight: 600;
+}
