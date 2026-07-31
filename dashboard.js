@@ -142,7 +142,13 @@ function loadMonthDropdown(){
 
         let parts = row.shiftDate.split("-");
 
-        return parts[1] + "-" + parts[2];
+        let monthNames = [
+    "January","February","March","April",
+    "May","June","July","August",
+    "September","October","November","December"
+];
+
+return monthNames[Number(parts[1])-1] + "-" + parts[2];
 
     }))];
 
