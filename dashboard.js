@@ -160,3 +160,31 @@ function loadMonthDropdown(){
     });
 
 }
+function filterMonth(){
+
+    let selectedMonth = document.getElementById("monthSelect").value;
+
+    let filteredData;
+
+
+    if(selectedMonth === "all"){
+
+        filteredData = attendanceData;
+
+    }
+    else{
+
+        filteredData = attendanceData.filter(row => {
+
+            let parts = row.shiftDate.split("-");
+
+            return parts[1] + "-" + parts[2] === selectedMonth;
+
+        });
+
+    }
+
+
+    displayAttendance(filteredData);
+
+}
