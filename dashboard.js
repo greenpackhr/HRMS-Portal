@@ -33,13 +33,11 @@ fetch(ATTENDANCE_API_URL + "?orgId=" + encodeURIComponent(empId))
 
     data.attendance.sort((a, b) => {
 
-    let dateA = a.shiftDate.split("-");
-    let dateB = b.shiftDate.split("-");
+    let [dayA, monthA, yearA] = a.shiftDate.split("-");
+    let [dayB, monthB, yearB] = b.shiftDate.split("-");
 
-    let dA = new Date(dateA[2], dateA[1] - 1, dateA[0]);
-    let dB = new Date(dateB[2], dateB[1] - 1, dateB[0]);
-
-    return dA - dB;
+    return new Date(yearA, monthA - 1, dayA) -
+           new Date(yearB, monthB - 1, dayB);
 
 });  
     data.attendance.forEach(row => {
