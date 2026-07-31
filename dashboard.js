@@ -27,6 +27,9 @@ fetch(ATTENDANCE_API_URL + "?orgId=" + encodeURIComponent(empId))
 .then(data => {
 
     console.log("ATTENDANCE:", data);
+    attendanceData = data.attendance;
+
+loadMonthDropdown();
     console.log("FIRST DATE:", data.attendance[0].shiftDate);
 
     let table = document.getElementById("attendanceTable");
