@@ -481,3 +481,7 @@ button:hover{
 .summary-card p {
     text-align: center;
 }
+.attendance-section label {
+    font-weight: 600;
+    color: #0b7d3b;
+}
