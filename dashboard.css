@@ -432,3 +432,23 @@ button:hover{
     color:#455A64;
     border-color:#CFD8DC;
 }
+
+/* ==========================================
+   SUMMARY CARD COLORS
+========================================== */
+
+.present-card{
+    border-left:6px solid #4CAF50;
+}
+
+.absent-card{
+    border-left:6px solid #F44336;
+}
+
+.wo-card{
+    border-left:6px solid #009688;
+}
+
+.payday-card{
+    border-left:6px solid #2196F3;
+}
