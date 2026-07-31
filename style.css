@@ -345,3 +345,12 @@ body{
 .summary {
     gap: 10px !important;
 }
+
+/* Freeze Attendance Table Header */
+.attendance-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #1B5E20;
+    color: white;
+}
