@@ -484,3 +484,42 @@ button:hover{
     font-weight: 600;
     color: #0b7d3b;
 }
+/* FINAL MONTH FILTER FIX */
+
+.month-filter{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin:20px 0;
+}
+
+.month-filter label{
+    color:#0b7d3b !important;
+    font-weight:700;
+}
+
+.month-filter select{
+    color:#0b7d3b;
+    border:2px solid #0b7d3b;
+    padding:6px 15px;
+    border-radius:6px;
+    font-weight:600;
+    background:#fff;
+}
+
+
+/* FINAL SUMMARY CENTER FIX */
+
+.summary .box{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.summary .box h2,
+.summary .box p{
+    text-align:center;
+    width:100%;
+}
