@@ -58,10 +58,10 @@ body{
 }
 
 .welcome h2{
-    font-size:30px;
+    font-size:26px;
     color:#0b7d3b;
+    font-weight:600;
 }
-
 #empName{
     color:#222;
 }
