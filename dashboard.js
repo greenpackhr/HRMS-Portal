@@ -19,6 +19,7 @@ let present = 0;
 let absent = 0;
 let weeklyOff = 0;
 let payDays = 0;
+let attendanceData = [];
 
 // Load Attendance
 fetch(ATTENDANCE_API_URL + "?orgId=" + encodeURIComponent(empId))
