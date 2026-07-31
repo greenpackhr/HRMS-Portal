@@ -341,3 +341,7 @@ body{
     font-size: 22px;
     font-weight: bold;
 }
+
+.summary {
+    gap: 10px !important;
+}
