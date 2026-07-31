@@ -445,130 +445,29 @@ button:hover{
 }
 
 
-.attendance-table thead th {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: #1B5E20;
-    color: white;
-}
-
-/* Freeze Attendance Header */
-
-.attendance-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-}
-
-.attendance-table thead {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-}
-
-.attendance-table thead th {
-    background: #1B5E20;
-    color: white;
-    position: sticky;
-    top: 0;
-}
+/* Fixed Attendance Header */
 
 .attendance-container {
-    max-height: 500px;
-    overflow-y: auto;
+    height:450px;
+    overflow-y:auto;
 }
-
-.attendance-table {
-    width: 100%;
-    border-collapse: separate;
-}
-
-.attendance-table thead th {
-    position: sticky;
-    top: 0;
-    z-index: 99;
-    background: #1B5E20;
-    color: white;
-}
-
-.attendance-container {
-    max-height: 500px;
-    overflow-y: auto;
-}
-
-.attendance-table {
-    width: 100%;
-    border-collapse: separate;
-}
-
-.attendance-table thead th {
-    position: sticky;
-    top: 0;
-    z-index: 99;
-    background: #1B5E20;
-    color: white;
-}
-
-/* Freeze Attendance Header */
-
-.attendance-container {
-    max-height: 450px;
-    overflow-y: auto;
-}
-
 
 .attendance-table {
     width:100%;
-    border-collapse: collapse;
+    border-collapse:separate;
+    border-spacing:0;
 }
-
 
 .attendance-table thead th {
-    position: sticky;
-    top: 0;
-    background: #1B5E20;
-    color: white;
-    z-index: 100;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#1B5E20;
+    color:white;
 }
-
 
 .attendance-table th,
 .attendance-table td {
-    padding: 8px;
-    border: 1px solid #333;
-}
-/* Attendance Scroll + Fixed Header */
-
-.attendance-container {
-    height: 450px;
-    overflow-y: scroll;
-}
-
-
-.attendance-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-
-.attendance-table thead {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-
-.attendance-table thead th {
-    background: #1B5E20;
-    color: white;
-    position: sticky;
-    top: 0;
-}
-
-
-.attendance-table th,
-.attendance-table td {
-    border: 1px solid #333;
-    padding: 8px;
+    padding:8px;
+    border:1px solid #333;
 }
