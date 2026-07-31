@@ -460,3 +460,8 @@ button:hover{
     padding:8px;
     border:1px solid #333;
 }
+/* Month Filter Label */
+.month-filter label {
+    font-weight: 600;
+    color: #0b7d3b;
+}
