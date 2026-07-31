@@ -81,19 +81,12 @@ body{
 }
 
 .employee-card div{
-
     background:#fff;
-
     border-radius:15px;
-
-    padding:25px;
-
+    padding:18px 20px;
     text-align:center;
-
     box-shadow:0 8px 18px rgba(0,0,0,.08);
-
     transition:.3s;
-
 }
 
 .employee-card div:hover{
@@ -115,11 +108,9 @@ body{
 }
 
 .employee-card h3{
-
     color:#0b7d3b;
-
-    font-size:28px;
-
+    font-size:24px;
+    margin-top:8px;
 }
 
 /* Summary */
