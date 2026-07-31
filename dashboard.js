@@ -134,3 +134,29 @@ function logout() {
     window.location.href = "index.html";
 
 }
+function loadMonthDropdown(){
+
+    let select = document.getElementById("monthSelect");
+
+    let months = [...new Set(attendanceData.map(row => {
+
+        let parts = row.shiftDate.split("-");
+
+        return parts[1] + "-" + parts[2];
+
+    }))];
+
+
+    months.forEach(month => {
+
+        let option = document.createElement("option");
+
+        option.value = month;
+
+        option.textContent = month;
+
+        select.appendChild(option);
+
+    });
+
+}
