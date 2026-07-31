@@ -189,10 +189,10 @@ body{
 
 table{
     width:100%;
-    border-collapse:collapse;
+    border-collapse:separate;
+    border-spacing:0;
     background:#fff;
     border-radius:15px;
-    overflow:hidden;
     box-shadow:0 8px 18px rgba(0,0,0,.08);
 }
 
