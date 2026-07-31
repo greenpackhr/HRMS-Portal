@@ -322,3 +322,22 @@ body{
 #attendanceTable tr:hover {
     background: #f1f8f1;
 }
+
+.box {
+    background: #fff;
+    padding: 8px !important;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+
+.box h3 {
+    margin: 0;
+    font-size: 13px;
+}
+
+.box p {
+    margin: 2px 0 0;
+    font-size: 22px;
+    font-weight: bold;
+}
