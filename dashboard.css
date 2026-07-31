@@ -338,3 +338,97 @@ button:hover{
     }
 
 }
+
+/* ==========================================
+   ATTENDANCE STATUS COLORS
+========================================== */
+
+.status-p,
+.status-a,
+.status-halfday,
+.status-wo,
+.status-ph,
+.status-cl,
+.status-sl,
+.status-pl,
+.status-od,
+.status-default{
+    display:inline-block;
+    min-width:65px;
+    padding:5px 12px;
+    border-radius:20px;
+    text-align:center;
+    font-size:13px;
+    font-weight:600;
+    border:1px solid transparent;
+}
+
+/* Present */
+.status-p{
+    background:#E8F5E9;
+    color:#2E7D32;
+    border-color:#A5D6A7;
+}
+
+/* Absent */
+.status-a{
+    background:#FFEBEE;
+    color:#C62828;
+    border-color:#EF9A9A;
+}
+
+/* Half Day (P | A / A | P) */
+.status-halfday{
+    background:#FFF3CD;
+    color:#856404;
+    border-color:#FFD54F;
+}
+
+/* Week Off */
+.status-wo{
+    background:#E0F7FA;
+    color:#006064;
+    border-color:#80DEEA;
+}
+
+/* Public Holiday */
+.status-ph{
+    background:#E3F2FD;
+    color:#1565C0;
+    border-color:#90CAF9;
+}
+
+/* Casual Leave */
+.status-cl{
+    background:#FFF3E0;
+    color:#EF6C00;
+    border-color:#FFCC80;
+}
+
+/* Sick Leave */
+.status-sl{
+    background:#FCE4EC;
+    color:#AD1457;
+    border-color:#F48FB1;
+}
+
+/* Privilege Leave */
+.status-pl{
+    background:#F3E5F5;
+    color:#6A1B9A;
+    border-color:#CE93D8;
+}
+
+/* On Duty */
+.status-od{
+    background:#E8EAF6;
+    color:#283593;
+    border-color:#9FA8DA;
+}
+
+/* Other Status */
+.status-default{
+    background:#ECEFF1;
+    color:#455A64;
+    border-color:#CFD8DC;
+}
