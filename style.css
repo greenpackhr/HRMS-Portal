@@ -241,3 +241,19 @@ body{
     color: white !important;
     font-weight: 600;
 }
+
+.summary-card {
+    padding: 12px !important;
+    height: 80px !important;
+}
+
+.summary-card h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.summary-card p {
+    margin: 5px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+}
