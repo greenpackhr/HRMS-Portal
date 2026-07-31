@@ -354,3 +354,23 @@ body{
     background: #1B5E20;
     color: white;
 }
+
+/* Attendance Table Scroll + Frozen Header */
+
+.attendance-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.attendance-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #1B5E20;
+    color: white;
+}
