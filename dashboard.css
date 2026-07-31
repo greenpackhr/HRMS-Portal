@@ -523,3 +523,34 @@ button:hover{
     text-align:center;
     width:100%;
 }
+/* Summary complete alignment */
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.summary .box{
+    height:110px;
+    background:#fff;
+    border-radius:12px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.summary .box h2{
+    margin:0;
+    font-size:32px;
+    color:#0b7d3b;
+}
+
+.summary .box p{
+    margin:8px 0 0;
+    font-size:16px;
+    font-weight:600;
+    color:#555;
+}
