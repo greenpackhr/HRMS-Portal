@@ -1,3 +1,4 @@
+alert("HR Leave JS Loaded");
 const API_URL = "YOUR_WEB_APP_URL";
 
 
