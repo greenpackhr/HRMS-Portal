@@ -24,77 +24,52 @@ function loadLeaves(){
 
     .then(data => {
 
+        console.log("HR LEAVE DATA:", data);
+
         let table = document.getElementById("leaveTable");
 
-        table.innerHTML="";
-
+        table.innerHTML = "";
 
         data.forEach(row => {
 
-            if(row.status=="Pending"){
+            if(row.status == "Pending"){
 
-            table.innerHTML += `
+                table.innerHTML += `
 
-            <tr>
+                <tr>
+                    <td>${row.leaveId}</td>
+                    <td>${row.empId}</td>
+                    <td>${row.empName}</td>
+                    <td>${row.leaveType}</td>
+                    <td>${row.fromDate}</td>
+                    <td>${row.toDate}</td>
+                    <td>${row.days}</td>
+                    <td>${row.reason}</td>
+                    <td>${row.status}</td>
 
-            <td>${row.leaveId}</td>
-            <td>${row.empId}</td>
-            <td>${row.empName}</td>
-            <td>${row.leaveType}</td>
-            <td>${row.fromDate}</td>
-            <td>${row.toDate}</td>
-            <td>${row.days}</td>
-            <td>${row.reason}</td>
+                    <td>
+                        <button onclick="updateLeave('${row.leaveId}','Approved')">
+                            Approve
+                        </button>
 
-            <td>
-            ${row.status}
-            </td>
+                        <button onclick="updateLeave('${row.leaveId}','Rejected')">
+                            Reject
+                        </button>
+                    </td>
 
+                </tr>
 
-            <td>
-
-            <button onclick="updateLeave('${row.leaveId}','Approved')">
-            Approve
-            </button>
-
-
-            <button onclick="updateLeave('${row.leaveId}','Rejected')">
-            Reject
-            </button>
-
-            </td>
-
-            </tr>
-
-            `;
+                `;
 
             }
 
         });
 
+    })
 
+    .catch(error=>{
+        console.log(error);
+        alert("Leave Data Error");
     });
-
-}
-
-
-
-function updateLeave(id,status){
-
-fetch(API_URL+
-"?action=updateLeave"+
-"&id="+id+
-"&status="+status)
-
-.then(res=>res.json())
-
-.then(data=>{
-
-alert("Leave "+status);
-
-loadLeaves();
-
-});
-
 
 }
