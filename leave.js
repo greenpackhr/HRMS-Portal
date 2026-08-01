@@ -33,7 +33,7 @@ function applyLeave() {
             if (data.status === "success") {
                 alert("Leave Applied Successfully");
             } else {
-                alert("Failed to apply leave.");
+                alert(JSON.stringify(data));
             }
 
         });
