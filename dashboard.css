@@ -81,13 +81,12 @@ body{
 
 .employee-card div{
     background:#fff;
-    border-radius:15px;
-    padding:18px 20px;
+    border-radius:12px;
+    padding:10px;
     text-align:center;
-    box-shadow:0 8px 18px rgba(0,0,0,.08);
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
     transition:.3s;
 }
-
 .employee-card div:hover{
 
     transform:translateY(-4px);
