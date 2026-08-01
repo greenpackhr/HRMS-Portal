@@ -27,7 +27,9 @@ function applyLeave() {
         "&days=1" +
         "&reason=" + encodeURIComponent(reason);
 
-    fetch(url)
+    console.log("LEAVE URL:", url);
+
+fetch(url)
         .then(res => res.json())
         .then(data => {
 
