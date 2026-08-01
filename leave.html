@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leave Application - Greenpack HRMS</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
 
+<body>
+
+<div class="header">
+    <div class="header-left">
+        <h1>Greenpack HRMS</h1>
+        <p>Leave Application</p>
+    </div>
+
+    <button class="logout-btn" onclick="window.location='dashboard.html'">
+        Back
+    </button>
+</div>
+
+<div class="container">
+
+    <div class="welcome">
+        <h2>Leave Application</h2>
+    </div>
+
+    <div class="employee-card">
+
+        <div>
+            <label>Leave Type</label>
+            <select id="leaveType">
+                <option value="">Select Leave</option>
+                <option value="CL">Casual Leave (CL)</option>
+                <option value="SL">Sick Leave (SL)</option>
+                <option value="PL">Privilege Leave (PL)</option>
+                <option value="OD">On Duty (OD)</option>
+            </select>
+        </div>
+
+        <div>
+            <label>From Date</label>
+            <input type="date" id="fromDate">
+        </div>
+
+        <div>
+            <label>To Date</label>
+            <input type="date" id="toDate">
+        </div>
+
+    </div>
+
+    <div class="welcome" style="margin-top:20px;">
+
+        <label>Reason</label><br><br>
+
+        <textarea id="reason"
+                  rows="4"
+                  style="width:100%;padding:10px;"
+                  placeholder="Enter Leave Reason"></textarea>
+
+        <br><br>
+
+        <button onclick="applyLeave()">
+            Submit Leave
+        </button>
+
+    </div>
+
+</div>
+
+<script src="leave.js"></script>
+
+</body>
+</html>
