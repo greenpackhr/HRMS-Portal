@@ -1,3 +1,5 @@
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
+
 function login() {
 
     var username = document.getElementById("username").value.trim();
@@ -22,11 +24,7 @@ function login() {
 
             alert("Login Successful");
 
-            setTimeout(function () {
-
-                window.location.href = "dashboard.html";
-
-            }, 500);
+            window.location.href = "dashboard.html";
 
         } else {
 
