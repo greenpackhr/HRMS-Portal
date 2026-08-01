@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+<title>HR Leave Approval</title>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="header">
+
+    <div class="header-left">
+        <h1>Greenpack HRMS</h1>
+        <p>Leave Approval Panel</p>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">
+        Logout
+    </button>
+
+</div>
+
+
+<div class="container">
+
+<h2>Pending Leave Requests</h2>
+
+<table class="attendance-table">
+
+<thead>
+<tr>
+<th>Leave ID</th>
+<th>Employee ID</th>
+<th>Name</th>
+<th>Type</th>
+<th>From</th>
+<th>To</th>
+<th>Days</th>
+<th>Reason</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+
+
+<tbody id="leaveTable">
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+<script src="hr-leave.js"></script>
+
+</body>
+
+</html>
