@@ -51,10 +51,9 @@ body{
 
 .welcome{
     background:#fff;
-    padding:20px 30px;
-    border-radius:15px;
-    margin-top:25px;
-    box-shadow:0 8px 18px rgba(0,0,0,.08);
+    padding:12px 20px;
+    border-radius:12px;
+    margin-top:15px;
 }
 
 .welcome h2{
