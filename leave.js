@@ -31,10 +31,10 @@ function applyLeave() {
         .then(data => {
 
             if (data.status === "success") {
-                alert("Leave Applied Successfully");
-            } else {
-                alert(JSON.stringify(data));
-            }
+    alert("Leave Applied Successfully");
+} else {
+    alert("Error: " + (data.error || data.message || JSON.stringify(data)));
+}
 
         });
 
