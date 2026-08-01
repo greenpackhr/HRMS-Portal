@@ -1,7 +1,3 @@
-alert("script loaded");
-
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
-
 function login() {
 
     var username = document.getElementById("username").value.trim();
@@ -13,22 +9,15 @@ function login() {
 
     .then(data => {
 
-
-    console.log("LOGIN RESPONSE:", data);
-
-    localStorage.setItem("orgId", data.orgId);
-    localStorage.setItem("empId", data.empId);
-    localStorage.setItem("empName", data.empName);
-    localStorage.setItem("role", data.role);
-
-});
+        console.log("LOGIN RESPONSE:", data);
 
         if (data.status === "success") {
 
+            localStorage.setItem("orgId", data.orgId);
             localStorage.setItem("empId", data.empId);
             localStorage.setItem("empName", data.empName);
-            localStorage.setItem("department", data.department);      // NEW
-            localStorage.setItem("designation", data.designation);    // NEW
+            localStorage.setItem("department", data.department);
+            localStorage.setItem("designation", data.designation);
             localStorage.setItem("role", data.role);
 
             alert("Login Successful");
