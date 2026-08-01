@@ -511,16 +511,16 @@ button:hover{
 }
 
 .summary .box{
-    height:110px;
+    height:50px;
     background:#fff;
-    border-radius:12px;
+    border-radius:8px;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
+    padding:4px;
 }
-
 .summary .box h2{
     margin:0;
     font-size:32px;
