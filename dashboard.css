@@ -115,13 +115,6 @@ body{
 
 /* Summary */
 
-.summary{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-    margin-top:60px;
-}
-
 .box{
     background:#fff;
     padding:10px;
