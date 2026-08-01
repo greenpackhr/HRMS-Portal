@@ -11,7 +11,6 @@ function login() {
 
     .then(data => {
 
-        .then(data => {
 
     console.log("LOGIN RESPONSE:", data);
 
