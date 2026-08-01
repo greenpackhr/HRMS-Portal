@@ -115,21 +115,11 @@ body{
 
 /* Summary */
 
-.summary{
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-top: 30px;   /* Move the boxes down */
-}
-
+..summary{
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
-    gap:20px;
-
-    margin-top:30px;
-
+    gap:25px;
+    margin-top:60px;
 }
 
 .box{
