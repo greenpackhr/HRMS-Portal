@@ -532,3 +532,21 @@ button:hover{
     font-weight:600;
     color:#555;
 }
+.header-menu {
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.header-menu a {
+    color:white;
+    text-decoration:none;
+    background:#2e7d32;
+    padding:10px 18px;
+    border-radius:6px;
+    font-weight:600;
+}
+
+.header-menu a:hover {
+    background:#388e3c;
+}
