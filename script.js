@@ -11,7 +11,16 @@ function login() {
 
     .then(data => {
 
-        console.log("LOGIN RESPONSE:", data);
+        .then(data => {
+
+    console.log("LOGIN RESPONSE:", data);
+
+    localStorage.setItem("orgId", data.orgId);
+    localStorage.setItem("empId", data.empId);
+    localStorage.setItem("empName", data.empName);
+    localStorage.setItem("role", data.role);
+
+});
 
         if (data.status === "success") {
 
