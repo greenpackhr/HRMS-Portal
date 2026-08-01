@@ -18,6 +18,7 @@ function applyLeave() {
     const url =
         API_URL +
         "?action=applyLeave" +
+        "&orgId=" + encodeURIComponent(localStorage.getItem("orgId")) +
         "&empId=" + encodeURIComponent(empId) +
         "&empName=" + encodeURIComponent(empName) +
         "&leaveType=" + encodeURIComponent(leaveType) +
