@@ -570,3 +570,20 @@ button:hover{
     border-radius:6px;
     font-weight:600;
 }
+/* HR Leave Approval Buttons */
+
+.leave-action button{
+    float:none;
+    margin:3px;
+    padding:6px 12px;
+    font-size:12px;
+    border-radius:5px;
+}
+
+.approve-btn{
+    background:#2e7d32;
+}
+
+.reject-btn{
+    background:#c62828;
+}
