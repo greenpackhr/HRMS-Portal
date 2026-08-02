@@ -587,3 +587,31 @@ button:hover{
 .reject-btn{
     background:#c62828;
 }
+/* HR Leave Buttons Fix */
+
+.leave-action{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+}
+
+
+.leave-action button{
+    float:none !important;
+    margin:0 !important;
+    padding:6px 12px !important;
+    width:auto !important;
+    border-radius:5px;
+    font-size:12px;
+    cursor:pointer;
+}
+
+
+.approve-btn{
+    background:#2e7d32 !important;
+}
+
+
+.reject-btn{
+    background:#c62828 !important;
+}
