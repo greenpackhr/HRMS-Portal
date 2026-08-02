@@ -32,6 +32,7 @@ function loadLeaves(){
         table.innerHTML = "";
 
         data.forEach(row => {
+            console.log("ROW:", row);
 
             if(row.status == "Pending"){
 
