@@ -44,3 +44,21 @@ window.onload = function(){
     });
 
 };
+function updateLeave(id,status){
+
+    fetch(API_URL +
+    "?action=updateLeave" +
+    "&id=" + encodeURIComponent(id) +
+    "&status=" + encodeURIComponent(status))
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        alert("Leave " + status);
+
+        loadLeaves();
+
+    });
+
+}
