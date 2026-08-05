@@ -127,7 +127,6 @@ function loadLeaves(){
 
 <td>
 
-
 ${
 ${
 row.status === "Pending"
