@@ -172,6 +172,8 @@ Approved
 
 function updateLeave(id,status){
 
+console.log("CLICKED:", id, status);
+
 
 fetch(
 
