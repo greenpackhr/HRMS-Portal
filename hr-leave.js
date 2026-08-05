@@ -47,6 +47,25 @@ function loadLeaves() {
 }
 function updateLeave(id,status){
 
+    alert("Button Clicked");
+
+    fetch(API_URL +
+    "?action=updateLeave" +
+    "&id=" + encodeURIComponent(id) +
+    "&status=" + encodeURIComponent(status))
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        alert("Leave " + status);
+
+        loadLeaves();
+
+    });
+
+}
+
     fetch(API_URL +
     "?action=updateLeave" +
     "&id=" + encodeURIComponent(id) +
