@@ -1,3 +1,16 @@
+function formatDate(dateValue){
+
+    if(!dateValue) return "";
+
+    let date = new Date(dateValue);
+
+    let day = String(date.getDate()).padStart(2,"0");
+    let month = String(date.getMonth()+1).padStart(2,"0");
+    let year = date.getFullYear();
+
+    return day + "/" + month + "/" + year;
+
+}
 const API_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
 
 const role = localStorage.getItem("role");
