@@ -129,6 +129,7 @@ function loadLeaves(){
 
 
 ${
+${
 row.status === "Pending"
 
 ?
@@ -139,9 +140,26 @@ row.status === "Pending"
 Approve
 </button>
 
-
 <button onclick="updateLeave('${row.leaveId}','Rejected')">
 Reject
+</button>
+
+`
+
+:
+
+row.status === "Cancellation Pending"
+
+?
+
+`
+
+<button onclick="updateLeave('${row.leaveId}','Cancelled')">
+Approve Cancellation
+</button>
+
+<button onclick="updateLeave('${row.leaveId}','Approved')">
+Reject Cancellation
 </button>
 
 `
@@ -171,7 +189,7 @@ Delete
 `
 
 <span style="color:green;font-weight:bold;">
-Approved
+${row.status}
 </span>
 
 `
