@@ -20,6 +20,7 @@
 
 <div class="container">
 
+    <!-- Leave Application -->
     <div class="welcome">
         <h2>Leave Application</h2>
     </div>
@@ -64,6 +65,52 @@
             Submit Leave
         </button>
 
+    </div>
+
+    <!-- Leave Balance -->
+    <div class="welcome" style="margin-top:30px;">
+        <h2>Leave Balance</h2>
+
+        <table class="attendance-table">
+            <thead>
+                <tr>
+                    <th>CL</th>
+                    <th>SL</th>
+                    <th>PL</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td id="clBalance">0</td>
+                    <td id="slBalance">0</td>
+                    <td id="plBalance">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- My Leave History -->
+    <div class="welcome" style="margin-top:30px;">
+        <h2>My Leave History</h2>
+
+        <table class="attendance-table">
+
+            <thead>
+                <tr>
+                    <th>Leave Type</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th>Days</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="historyTable">
+
+            </tbody>
+
+        </table>
     </div>
 
 </div>
