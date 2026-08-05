@@ -60,15 +60,14 @@ function loadLeaveHistory(){
         data.forEach(leave => {
 
             table.innerHTML += `
-            <tr>
-                <td>${leave.fromDate}</td>
-                <td>${leave.toDate}</td>
-                <td>${leave.leaveType}</td>
-                <td>${leave.days}</td>
-                <td>${leave.reason}</td>
-                <td>${leave.status}</td>
-            </tr>
-            `;
+<tr>
+    <td>${leave.leaveType}</td>
+    <td>${leave.fromDate}</td>
+    <td>${leave.toDate}</td>
+    <td>${leave.days}</td>
+    <td>${leave.status}</td>
+</tr>
+`;
 
         });
 
