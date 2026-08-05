@@ -34,9 +34,9 @@ window.onload = function(){
             <td>${row.reason}</td>
             <td>${row.status}</td>
             <td>
-            <button>Approve</button>
-            <button>Reject</button>
-            </td>
+<button onclick="updateLeave('${row.leaveId}','Approved')">Approve</button>
+<button onclick="updateLeave('${row.leaveId}','Rejected')">Reject</button>
+</td>
             </tr>
             `;
 
