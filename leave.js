@@ -57,9 +57,7 @@ function formatDate(dateValue){
 }
 
 
-function loadLeaveHistory(){
 
-    const empId = localStorage.getItem("empId");
     
 function loadLeaveHistory(){
 
