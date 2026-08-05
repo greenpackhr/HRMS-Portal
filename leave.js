@@ -53,7 +53,7 @@ function loadLeaveHistory(){
 
         console.log("MY LEAVE HISTORY:", data);
 
-        const table = document.getElementById("leaveHistoryBody");
+        const table = document.getElementById("historyTable");
 
         table.innerHTML = "";
 
