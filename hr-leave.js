@@ -4,17 +4,17 @@ alert("HR Leave JS Working");
 const API_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
 
 
-window.onload = function(){
+window.onload = function () {
+    loadLeaves();
+};
+
+function loadLeaves() {
 
     fetch(API_URL + "?action=getLeaves")
 
     .then(res => res.json())
 
     .then(data => {
-
-        alert("Data Received: " + data.length);
-
-        console.log(data);
 
         let table = document.getElementById("leaveTable");
 
@@ -34,9 +34,9 @@ window.onload = function(){
             <td>${row.reason}</td>
             <td>${row.status}</td>
             <td>
-<button onclick="updateLeave('${row.leaveId}','Approved')">Approve</button>
-<button onclick="updateLeave('${row.leaveId}','Rejected')">Reject</button>
-</td>
+            <button onclick="updateLeave('${row.leaveId}','Approved')">Approve</button>
+            <button onclick="updateLeave('${row.leaveId}','Rejected')">Reject</button>
+            </td>
             </tr>
             `;
 
@@ -44,7 +44,7 @@ window.onload = function(){
 
     });
 
-};
+}
 function updateLeave(id,status){
 
     fetch(API_URL +
