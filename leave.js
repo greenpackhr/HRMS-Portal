@@ -137,7 +137,44 @@ function loadLeaveHistory(){
                 <td>${formatDate(leave.fromDate)}</td>
                 <td>${formatDate(leave.toDate)}</td>
                 <td>${leave.days}</td>
-                <td>${leave.status}</td>
+                <td>
+
+${
+leave.status === "Approved"
+
+?
+
+`
+<span style="color:green;font-weight:bold;">
+Approved
+</span>
+
+<br>
+
+<button onclick="cancelLeave('${leave.leaveId}')">
+Request Cancel
+</button>
+`
+
+:
+
+leave.status === "Cancellation Pending"
+
+?
+
+`
+<span style="color:orange;font-weight:bold;">
+Cancellation Pending
+</span>
+`
+
+:
+
+leave.status
+
+}
+
+</td>
             </tr>
 
             `;
