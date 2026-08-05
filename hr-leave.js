@@ -99,3 +99,44 @@ function updateLeave(id, status) {
     });
 
 }
+
+function deleteLeave(id){
+
+    if(!confirm("Delete this rejected leave request?")){
+        return;
+    }
+
+    fetch(
+        API_URL +
+        "?action=deleteLeave&id=" +
+        encodeURIComponent(id)
+    )
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        if(data.status === "success"){
+
+            alert("Leave Deleted Successfully");
+
+            loadLeaves();
+
+        }
+        else{
+
+            alert("Delete Failed");
+
+        }
+
+    })
+
+    .catch(err=>{
+
+        console.error(err);
+
+        alert("Error deleting leave.");
+
+    });
+
+}
