@@ -7,6 +7,11 @@ let empId = localStorage.getItem("empId");
 let empName = localStorage.getItem("empName");
 let department = localStorage.getItem("department");
 let designation = localStorage.getItem("designation");
+let role = localStorage.getItem("role");
+
+if (role === "Superuser") {
+    document.getElementById("leaveApprovalBtn").style.display = "inline-block";
+}
 
 // Display Employee Details
 document.getElementById("empId").innerText = empId;
