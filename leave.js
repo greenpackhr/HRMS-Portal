@@ -42,3 +42,44 @@ fetch(url)
         });
 
 }
+
+function loadLeaveHistory(){
+
+    const empId = localStorage.getItem("empId");
+
+    fetch(API_URL + "?action=getMyLeaves&empId=" + empId)
+    .then(res => res.json())
+    .then(data => {
+
+        console.log("MY LEAVE HISTORY:", data);
+
+        const table = document.getElementById("leaveHistoryBody");
+
+        table.innerHTML = "";
+
+        data.forEach(leave => {
+
+            table.innerHTML += `
+            <tr>
+                <td>${leave.fromDate}</td>
+                <td>${leave.toDate}</td>
+                <td>${leave.leaveType}</td>
+                <td>${leave.days}</td>
+                <td>${leave.reason}</td>
+                <td>${leave.status}</td>
+            </tr>
+            `;
+
+        });
+
+    })
+    .catch(error=>{
+        console.log("Leave History Error:",error);
+    });
+
+}
+
+
+window.onload = function(){
+    loadLeaveHistory();
+};
