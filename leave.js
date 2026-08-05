@@ -197,7 +197,41 @@ leave.status
 
 
 
+function cancelLeave(id){
 
+    if(!confirm("Request cancellation for this approved leave?")){
+        return;
+    }
+
+
+    fetch(
+        API_URL +
+        "?action=cancelLeave&id=" +
+        encodeURIComponent(id)
+    )
+
+
+    .then(res => res.json())
+
+
+    .then(data => {
+
+        alert("Cancellation request sent");
+
+        loadLeaveHistory();
+
+    })
+
+
+    .catch(error => {
+
+        console.log("Cancel Error:", error);
+
+        alert("Error sending cancellation request");
+
+    });
+
+}
 window.onload = function(){
 
     loadLeaveHistory();
