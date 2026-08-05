@@ -1,5 +1,6 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
 
+
 function calculateDays(fromDate, toDate){
 
     let start = new Date(fromDate);
@@ -12,6 +13,8 @@ function calculateDays(fromDate, toDate){
     return days;
 
 }
+
+
 function applyLeave() {
 
     const empId = localStorage.getItem("empId");
@@ -27,6 +30,10 @@ function applyLeave() {
         return;
     }
 
+
+    const days = calculateDays(fromDate, toDate);
+
+
     const url =
         API_URL +
         "?action=applyLeave" +
@@ -36,24 +43,39 @@ function applyLeave() {
         "&leaveType=" + encodeURIComponent(leaveType) +
         "&fromDate=" + encodeURIComponent(fromDate) +
         "&toDate=" + encodeURIComponent(toDate) +
-        "&days=" + calculateDays(fromDate, toDate) +
+        "&days=" + encodeURIComponent(days) +
         "&reason=" + encodeURIComponent(reason);
+
 
     console.log("LEAVE URL:", url);
 
-fetch(url)
-        .then(res => res.json())
-        .then(data => {
 
-            if (data.status === "success") {
-    alert("Leave Applied Successfully");
-} else {
-    alert("Error: " + (data.error || data.message || JSON.stringify(data)));
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+
+        if (data.status === "success") {
+
+            alert("Leave Applied Successfully");
+            loadLeaveHistory();
+
+        } else {
+
+            alert("Error: " + (data.error || data.message || JSON.stringify(data)));
+
+        }
+
+    })
+    .catch(error => {
+
+        console.log("Apply Leave Error:", error);
+
+    });
+
 }
 
-        });
 
-}
+
 function formatDate(dateValue){
 
     if(!dateValue) return "";
@@ -70,43 +92,64 @@ function formatDate(dateValue){
 
 
 
-    
+
 function loadLeaveHistory(){
 
     const empId = localStorage.getItem("empId");
 
+
     fetch(API_URL + "?action=getMyLeaves&empId=" + empId)
+
     .then(res => res.json())
+
     .then(data => {
+
 
         console.log("MY LEAVE HISTORY:", data);
 
+
         const table = document.getElementById("historyTable");
+
 
         table.innerHTML = "";
 
+
         data.forEach(leave => {
 
+
             table.innerHTML += `
-<tr>
-    <td>${leave.leaveType}</td>
-    <td>${formatDate(leave.fromDate)}</td>
-    <td>${formatDate(leave.toDate)}</td>
-    <td>${leave.days}</td>
-    <td>${leave.status}</td>
-</tr>
-`;
+
+            <tr>
+                <td>${leave.leaveType}</td>
+                <td>${formatDate(leave.fromDate)}</td>
+                <td>${formatDate(leave.toDate)}</td>
+                <td>${leave.days}</td>
+                <td>${leave.status}</td>
+            </tr>
+
+            `;
+
 
         });
 
+
     })
+
+
     .catch(error=>{
-        console.log("Leave History Error:",error);
+
+        console.log("Leave History Error:", error);
+
     });
+
 
 }
 
 
+
+
 window.onload = function(){
+
     loadLeaveHistory();
+
 };
