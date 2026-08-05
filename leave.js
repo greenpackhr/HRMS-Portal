@@ -1,5 +1,17 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
 
+function calculateDays(fromDate, toDate){
+
+    let start = new Date(fromDate);
+    let end = new Date(toDate);
+
+    let difference = end - start;
+
+    let days = Math.floor(difference / (1000 * 60 * 60 * 24)) + 1;
+
+    return days;
+
+}
 function applyLeave() {
 
     const empId = localStorage.getItem("empId");
