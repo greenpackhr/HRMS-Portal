@@ -35,15 +35,11 @@ if (role !== "Superuser") {
 
 
 
-
-
 window.onload = function(){
 
     loadLeaves();
 
 };
-
-
 
 
 
@@ -61,9 +57,7 @@ function loadLeaves(){
     .then(data => {
 
 
-
         console.log("Leave Data:", data);
-
 
 
         let table = document.getElementById("leaveTable");
@@ -72,18 +66,13 @@ function loadLeaves(){
         table.innerHTML = "";
 
 
-
         if(!Array.isArray(data)){
-
 
             alert("Invalid Leave Data Received");
 
             return;
 
-
         }
-
-
 
 
 
@@ -99,33 +88,26 @@ function loadLeaves(){
 
 <td>${row.leaveId || ""}</td>
 
-
 <td>${row.empId || ""}</td>
-
 
 <td>${row.empName || ""}</td>
 
-
 <td>${row.leaveType || ""}</td>
-
 
 <td>${formatDate(row.fromDate)}</td>
 
-
 <td>${formatDate(row.toDate)}</td>
-
 
 <td>${row.days || ""}</td>
 
-
 <td>${row.reason || ""}</td>
-
 
 <td>${row.status || ""}</td>
 
 
 
 <td>
+
 
 ${
 row.status === "Pending"
@@ -138,13 +120,16 @@ row.status === "Pending"
 Approve
 </button>
 
+
 <button onclick="updateLeave('${row.leaveId}','Rejected')">
 Reject
 </button>
 
 `
 
+
 :
+
 
 row.status === "Cancellation Pending"
 
@@ -156,13 +141,16 @@ row.status === "Cancellation Pending"
 Approve Cancellation
 </button>
 
+
 <button onclick="updateLeave('${row.leaveId}','Approved')">
 Reject Cancellation
 </button>
 
 `
 
+
 :
+
 
 row.status === "Rejected"
 
@@ -182,7 +170,25 @@ Delete
 
 `
 
+
 :
+
+
+row.status === "Cancelled"
+
+?
+
+`
+
+<span style="color:red;font-weight:bold;">
+Cancelled
+</span>
+
+`
+
+
+:
+
 
 `
 
@@ -201,7 +207,6 @@ ${row.status}
 </tr>
 
 
-
 `;
 
 
@@ -209,11 +214,10 @@ ${row.status}
         });
 
 
-
     })
 
 
-    .catch(err => {
+    .catch(err=>{
 
 
         console.log("Load Leave Error:",err);
@@ -234,10 +238,7 @@ ${row.status}
 
 
 
-
-
 function updateLeave(id,status){
-
 
 
     console.log("Update:",id,status);
@@ -259,11 +260,10 @@ function updateLeave(id,status){
     )
 
 
+    .then(res=>res.json())
 
-    .then(res => res.json())
 
-
-    .then(data => {
+    .then(data=>{
 
 
         console.log(data);
@@ -278,7 +278,7 @@ function updateLeave(id,status){
     })
 
 
-    .catch(err => {
+    .catch(err=>{
 
 
         console.log(err);
@@ -290,10 +290,7 @@ function updateLeave(id,status){
     });
 
 
-
 }
-
-
 
 
 
@@ -305,13 +302,11 @@ function updateLeave(id,status){
 function deleteLeave(id){
 
 
-
     if(!confirm("Delete this rejected leave request?")){
 
         return;
 
     }
-
 
 
 
@@ -326,19 +321,13 @@ function deleteLeave(id){
     )
 
 
-
-    .then(res => res.json())
-
-
-    .then(data => {
+    .then(res=>res.json())
 
 
-
-        console.log(data);
-
+    .then(data=>{
 
 
-        if(data.status === "success"){
+        if(data.status==="success"){
 
 
             alert("Leave Deleted Successfully");
@@ -358,12 +347,10 @@ function deleteLeave(id){
         }
 
 
-
     })
 
 
-
-    .catch(err => {
+    .catch(err=>{
 
 
         console.log(err);
