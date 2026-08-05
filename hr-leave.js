@@ -1,5 +1,10 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
+const role = localStorage.getItem("role");
 
+if (role !== "Superuser") {
+    alert("Access Denied");
+    window.location.href = "dashboard.html";
+}
 window.onload = function () {
     loadLeaves();
 };
