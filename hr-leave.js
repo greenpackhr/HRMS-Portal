@@ -26,8 +26,8 @@ function loadLeaves() {
                     <td>${row.empId}</td>
                     <td>${row.empName}</td>
                     <td>${row.leaveType}</td>
-                    <td>${row.fromDate}</td>
-                    <td>${row.toDate}</td>
+                    <td>${formatDate(row.fromDate)}</td>
+<td>${formatDate(row.toDate)}</td>
                     <td>${row.days}</td>
                     <td>${row.reason}</td>
                     <td>${row.status}</td>
