@@ -80,8 +80,8 @@ function loadLeaveHistory(){
             table.innerHTML += `
 <tr>
     <td>${leave.leaveType}</td>
-    <td>${leave.fromDate}</td>
-    <td>${leave.toDate}</td>
+    <td>${formatDate(leave.fromDate)}</td>
+    <td>${formatDate(leave.toDate)}</td>
     <td>${leave.days}</td>
     <td>${leave.status}</td>
 </tr>
