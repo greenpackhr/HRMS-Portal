@@ -24,7 +24,7 @@ function applyLeave() {
         "&leaveType=" + encodeURIComponent(leaveType) +
         "&fromDate=" + encodeURIComponent(fromDate) +
         "&toDate=" + encodeURIComponent(toDate) +
-        "&days=1" +
+        "&days=" + calculateDays(fromDate, toDate) +
         "&reason=" + encodeURIComponent(reason);
 
     console.log("LEAVE URL:", url);
