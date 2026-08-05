@@ -12,18 +12,6 @@ function calculateDays(fromDate, toDate){
     return days;
 
 }
-function calculateDays(fromDate, toDate){
-
-    let start = new Date(fromDate);
-    let end = new Date(toDate);
-
-    let difference = end - start;
-
-    let days = Math.floor(difference / (1000 * 60 * 60 * 24)) + 1;
-
-    return days;
-
-}
 function applyLeave() {
 
     const empId = localStorage.getItem("empId");
