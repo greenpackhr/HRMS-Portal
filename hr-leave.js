@@ -4,6 +4,10 @@ function formatDate(dateValue){
 
     let date = new Date(dateValue);
 
+    if(isNaN(date)){
+        return dateValue;
+    }
+
     let day = String(date.getDate()).padStart(2,"0");
     let month = String(date.getMonth()+1).padStart(2,"0");
     let year = date.getFullYear();
@@ -11,80 +15,114 @@ function formatDate(dateValue){
     return day + "/" + month + "/" + year;
 
 }
+
+
+
 const API_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
+
+
 
 const role = localStorage.getItem("role");
 
+
 if (role !== "Superuser") {
+
     alert("Access Denied");
+
     window.location.href = "dashboard.html";
+
 }
 
 
-window.onload = function () {
+
+
+
+window.onload = function(){
+
     loadLeaves();
+
 };
 
 
 
-function formatDate(dateValue){
-
-    if(!dateValue) return "";
-
-    let date = new Date(dateValue);
-
-    let day = String(date.getDate()).padStart(2,"0");
-    let month = String(date.getMonth()+1).padStart(2,"0");
-    let year = date.getFullYear();
-
-    return day + "/" + month + "/" + year;
-
-}
 
 
 
 
-
-function loadLeaves() {
+function loadLeaves(){
 
 
     fetch(API_URL + "?action=getLeaves")
 
+
     .then(res => res.json())
+
 
     .then(data => {
 
 
+
+        console.log("Leave Data:", data);
+
+
+
         let table = document.getElementById("leaveTable");
 
+
         table.innerHTML = "";
+
+
+
+        if(!Array.isArray(data)){
+
+
+            alert("Invalid Leave Data Received");
+
+            return;
+
+
+        }
+
+
 
 
 
         data.forEach(row => {
 
 
+
             table.innerHTML += `
+
 
 <tr>
 
-<td>${row.leaveId}</td>
 
-<td>${row.empId}</td>
+<td>${row.leaveId || ""}</td>
 
-<td>${row.empName}</td>
 
-<td>${row.leaveType}</td>
+<td>${row.empId || ""}</td>
+
+
+<td>${row.empName || ""}</td>
+
+
+<td>${row.leaveType || ""}</td>
+
 
 <td>${formatDate(row.fromDate)}</td>
 
+
 <td>${formatDate(row.toDate)}</td>
 
-<td>${row.days}</td>
 
-<td>${row.reason}</td>
+<td>${row.days || ""}</td>
 
-<td>${row.status}</td>
+
+<td>${row.reason || ""}</td>
+
+
+<td>${row.status || ""}</td>
+
 
 
 <td>
@@ -146,6 +184,8 @@ Approved
 
 </tr>
 
+
+
 `;
 
 
@@ -153,11 +193,18 @@ Approved
         });
 
 
+
     })
 
-    .catch(err=>{
 
-        console.log(err);
+    .catch(err => {
+
+
+        console.log("Load Leave Error:",err);
+
+
+        alert("Unable to load leave data");
+
 
     });
 
@@ -170,48 +217,68 @@ Approved
 
 
 
+
+
+
 function updateLeave(id,status){
 
-console.log("CLICKED:", id, status);
 
 
-fetch(
-
-API_URL +
-"?action=updateLeave&id=" +
-encodeURIComponent(id) +
-"&status=" +
-encodeURIComponent(status)
-
-)
+    console.log("Update:",id,status);
 
 
-.then(res=>res.json())
+
+    fetch(
+
+        API_URL +
+
+        "?action=updateLeave&id=" +
+
+        encodeURIComponent(id) +
+
+        "&status=" +
+
+        encodeURIComponent(status)
+
+    )
 
 
-.then(data=>{
+
+    .then(res => res.json())
 
 
-alert("Leave " + status);
+    .then(data => {
 
 
-loadLeaves();
+        console.log(data);
 
 
-})
+        alert("Leave " + status);
 
 
-.catch(err=>{
+        loadLeaves();
 
 
-console.log(err);
+    })
 
-alert("Error updating leave");
 
-});
+    .catch(err => {
+
+
+        console.log(err);
+
+
+        alert("Error updating leave");
+
+
+    });
+
 
 
 }
+
+
+
 
 
 
@@ -222,64 +289,74 @@ alert("Error updating leave");
 function deleteLeave(id){
 
 
-if(!confirm("Delete this rejected leave request?")){
 
-    return;
+    if(!confirm("Delete this rejected leave request?")){
 
-}
+        return;
 
-
-
-fetch(
-
-API_URL +
-"?action=deleteLeave&id=" +
-encodeURIComponent(id)
-
-)
+    }
 
 
 
-.then(res=>res.json())
 
+    fetch(
 
-.then(data=>{
+        API_URL +
 
+        "?action=deleteLeave&id=" +
 
-if(data.status==="success"){
+        encodeURIComponent(id)
 
-
-alert("Leave Deleted Successfully");
-
-
-loadLeaves();
-
-
-}
-
-else{
-
-
-alert("Delete Failed");
-
-
-}
+    )
 
 
 
-})
+    .then(res => res.json())
+
+
+    .then(data => {
 
 
 
-.catch(err=>{
+        console.log(data);
 
 
-console.log(err);
 
-alert("Error deleting leave");
+        if(data.status === "success"){
 
 
-});
+            alert("Leave Deleted Successfully");
+
+
+            loadLeaves();
+
+
+        }
+
+        else{
+
+
+            alert("Delete Failed");
+
+
+        }
+
+
+
+    })
+
+
+
+    .catch(err => {
+
+
+        console.log(err);
+
+
+        alert("Error deleting leave");
+
+
+    });
 
 
 
