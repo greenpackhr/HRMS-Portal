@@ -34,9 +34,14 @@ function loadLeaves() {
             <td>${row.reason}</td>
             <td>${row.status}</td>
             <td>
-            <button onclick="updateLeave('${row.leaveId}','Approved')">Approve</button>
-            <button onclick="updateLeave('${row.leaveId}','Rejected')">Reject</button>
-            </td>
+${row.status === "Pending"
+? `
+<button onclick="updateLeave('${row.leaveId}','Approved')">Approve</button>
+<button onclick="updateLeave('${row.leaveId}','Rejected')">Reject</button>
+`
+: `<span style="color:red;font-weight:bold;">Rejected</span>`
+}
+</td>
             </tr>
             `;
 
