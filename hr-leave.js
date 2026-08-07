@@ -116,14 +116,28 @@ row.status === "Pending"
 
 `
 
+${
+row.status === "Pending"
+
+?
+
+`
 <button onclick="updateLeave('${row.leaveId}','Approved')">
 Approve
 </button>
 
-
 <button onclick="updateLeave('${row.leaveId}','Rejected')">
 Reject
 </button>
+`
+
+:
+
+`
+${row.status}
+`
+
+}
 
 `
 
