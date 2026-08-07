@@ -43,210 +43,123 @@ window.onload = function(){
 
 
 
-
-
 function loadLeaves(){
 
 
-    fetch(API_URL + "?action=getLeaves")
+fetch(API_URL + "?action=getLeaves")
 
 
-    .then(res => res.json())
+.then(res => res.json())
 
 
-    .then(data => {
+.then(data => {
 
 
-        console.log("Leave Data:", data);
+    console.log("Leave Data:", data);
 
 
-        let table = document.getElementById("leaveTable");
+    let table = document.getElementById("leaveTable");
 
 
-        table.innerHTML = "";
+    table.innerHTML = "";
 
 
-        if(!Array.isArray(data)){
+    if(!Array.isArray(data)){
 
-            alert("Invalid Leave Data Received");
+        alert("Invalid Leave Data Received");
 
-            return;
+        return;
+
+    }
+
+
+
+    data.forEach(row => {
+
+
+        let status = String(row.status).trim();
+
+
+        let action = "";
+
+
+        if(status.toLowerCase() === "pending"){
+
+
+            action = `
+
+            <button onclick="updateLeave('${row.leaveId}','Approved')">
+            Approve
+            </button>
+
+
+            <button onclick="updateLeave('${row.leaveId}','Rejected')">
+            Reject
+            </button>
+
+            `;
+
+
+        }
+        else{
+
+
+            action = status;
+
 
         }
 
 
 
-        data.forEach(row => {
+        table.innerHTML += `
 
+        <tr>
 
+        <td>${row.leaveId}</td>
 
-            table.innerHTML += `
+        <td>${row.empId}</td>
 
+        <td>${row.empName}</td>
 
-<tr>
+        <td>${row.leaveType}</td>
 
+        <td>${formatDate(row.fromDate)}</td>
 
-<td>${row.leaveId || ""}</td>
+        <td>${formatDate(row.toDate)}</td>
 
-<td>${row.empId || ""}</td>
+        <td>${row.days}</td>
 
-<td>${row.empName || ""}</td>
+        <td>${row.reason}</td>
 
-<td>${row.leaveType || ""}</td>
+        <td>${status}</td>
 
-<td>${formatDate(row.fromDate)}</td>
+        <td>${action}</td>
 
-<td>${formatDate(row.toDate)}</td>
 
-<td>${row.days || ""}</td>
+        </tr>
 
-<td>${row.reason || ""}</td>
-
-<td>${row.status || ""}</td>
-
-
-
-<td>
-
-
-${
-row.status === "Pending"
-
-?
-
-`
-
-${
-row.status === "Pending"
-
-?
-
-`
-<button onclick="updateLeave('${row.leaveId}','Approved')">
-Approve
-</button>
-
-<button onclick="updateLeave('${row.leaveId}','Rejected')">
-Reject
-</button>
-`
-
-:
-
-`
-${row.status}
-`
-
-}
-
-`
-
-
-:
-
-
-row.status === "Cancellation Pending"
-
-?
-
-`
-
-<button onclick="updateLeave('${row.leaveId}','Cancelled')">
-Approve Cancellation
-</button>
-
-
-<button onclick="updateLeave('${row.leaveId}','Approved')">
-Reject Cancellation
-</button>
-
-`
-
-
-:
-
-
-row.status === "Rejected"
-
-?
-
-`
-
-<span style="color:red;font-weight:bold;">
-Rejected
-</span>
-
-<br>
-
-<button onclick="deleteLeave('${row.leaveId}')">
-Delete
-</button>
-
-`
-
-
-:
-
-
-row.status === "Cancelled"
-
-?
-
-`
-
-<span style="color:red;font-weight:bold;">
-Cancelled
-</span>
-
-`
-
-
-:
-
-
-`
-
-<span style="color:green;font-weight:bold;">
-${row.status}
-</span>
-
-`
-
-}
-
-
-</td>
-
-
-</tr>
-
-
-`;
-
-
-
-        });
-
-
-    })
-
-
-    .catch(err=>{
-
-
-        console.log("Load Leave Error:",err);
-
-
-        alert("Unable to load leave data");
+        `;
 
 
     });
 
 
+})
+
+
+.catch(err=>{
+
+
+    console.log("Load Leave Error:",err);
+
+
+    alert("Unable to load leave data");
+
+
+});
+
 
 }
-
-
 
 
 
@@ -255,32 +168,35 @@ ${row.status}
 function updateLeave(id,status){
 
 
-    console.log("Update:",id,status);
+console.log("Update:",id,status);
 
 
 
-    fetch(
+fetch(
 
-        API_URL +
+API_URL +
 
-        "?action=updateLeave&id=" +
+"?action=updateLeave&id=" +
 
-        encodeURIComponent(id) +
+encodeURIComponent(id) +
 
-        "&status=" +
+"&status=" +
 
-        encodeURIComponent(status)
+encodeURIComponent(status)
 
-    )
-
-
-    .then(res=>res.json())
+)
 
 
-    .then(data=>{
+.then(res=>res.json())
 
 
-        console.log(data);
+.then(data=>{
+
+
+    console.log(data);
+
+
+    if(data.status==="success"){
 
 
         alert("Leave " + status);
@@ -289,19 +205,29 @@ function updateLeave(id,status){
         loadLeaves();
 
 
-    })
+    }
+    else{
 
 
-    .catch(err=>{
+        alert(data.message);
 
 
-        console.log(err);
+    }
 
 
-        alert("Error updating leave");
+})
 
 
-    });
+.catch(err=>{
+
+
+    console.log(err);
+
+
+    alert("Error updating leave");
+
+
+});
 
 
 }
@@ -310,71 +236,67 @@ function updateLeave(id,status){
 
 
 
-
-
-
 function deleteLeave(id){
 
 
-    if(!confirm("Delete this rejected leave request?")){
+if(!confirm("Delete this rejected leave request?")){
 
-        return;
+    return;
+
+}
+
+
+
+fetch(
+
+API_URL +
+
+"?action=deleteLeave&id=" +
+
+encodeURIComponent(id)
+
+)
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+    if(data.status==="success"){
+
+
+        alert("Leave Deleted Successfully");
+
+
+        loadLeaves();
+
+
+    }
+
+    else{
+
+
+        alert("Delete Failed");
+
 
     }
 
 
-
-    fetch(
-
-        API_URL +
-
-        "?action=deleteLeave&id=" +
-
-        encodeURIComponent(id)
-
-    )
+})
 
 
-    .then(res=>res.json())
+.catch(err=>{
 
 
-    .then(data=>{
+    console.log(err);
 
 
-        if(data.status==="success"){
+    alert("Error deleting leave");
 
 
-            alert("Leave Deleted Successfully");
-
-
-            loadLeaves();
-
-
-        }
-
-        else{
-
-
-            alert("Delete Failed");
-
-
-        }
-
-
-    })
-
-
-    .catch(err=>{
-
-
-        console.log(err);
-
-
-        alert("Error deleting leave");
-
-
-    });
-
+});
 
 
 }
