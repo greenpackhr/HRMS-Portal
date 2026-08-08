@@ -139,36 +139,72 @@ function logout() {
     window.location.href = "index.html";
 
 }
-function loadMonthDropdown(){
+function loadMonthDropdown() {
 
     let select = document.getElementById("monthSelect");
 
-    let months = [...new Set(attendanceData.map(row => {
+    // Clear existing options
+    select.innerHTML = "";
 
-        let parts = row.shiftDate.split("-");
+    let monthNames = [
+        "January", "February", "March", "April",
+        "May", "June", "July", "August",
+        "September", "October", "November", "December"
+    ];
 
-        let monthNames = [
-    "January","February","March","April",
-    "May","June","July","August",
-    "September","October","November","December"
-];
+    let months = [...new Set(
+        attendanceData.map(row => {
 
-return monthNames[Number(parts[1])-1] + "-" + parts[2];
+            let parts = row.shiftDate.split("-");
 
-    }))];
+            return parts[1] + "-" + parts[2];
 
+        })
+    )];
+
+    // Sort months chronologically
+    months.sort((a, b) => {
+
+        let [monthA, yearA] = a.split("-");
+        let [monthB, yearB] = b.split("-");
+
+        return new Date(
+            2000 + Number(yearA),
+            Number(monthA) - 1
+        ) -
+        new Date(
+            2000 + Number(yearB),
+            Number(monthB) - 1
+        );
+
+    });
 
     months.forEach(month => {
+
+        let parts = month.split("-");
+
+        let monthNumber = Number(parts[0]);
+        let year = parts[1];
 
         let option = document.createElement("option");
 
         option.value = month;
 
-        option.textContent = month;
+        option.textContent =
+            monthNames[monthNumber - 1] + "-" + year;
 
         select.appendChild(option);
 
     });
+
+    // Select latest available month by default
+    if (months.length > 0) {
+
+        select.value = months[months.length - 1];
+
+        filterMonth();
+
+    }
 
 }
 function filterMonth(){
