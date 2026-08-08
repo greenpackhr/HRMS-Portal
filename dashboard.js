@@ -238,9 +238,7 @@ function filterMonth() {
 
             let parts = row.shiftDate.split("-");
 
-            return (
-                parts[1] + "-" + parts[2]
-            ) === selectedMonth;
+            return parts[1] + "-" + parts[2] === selectedMonth;
 
         });
 
