@@ -47,7 +47,8 @@ fetch(ATTENDANCE_API_URL + "?orgId=" + encodeURIComponent(empId))
     return new Date(yearA, monthA - 1, dayA) -
            new Date(yearB, monthB - 1, dayB);
 
-});  
+});
+    loadMonthDropdown();
 
 })
 .catch(error => {
