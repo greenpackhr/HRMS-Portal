@@ -413,30 +413,37 @@ function loadLeaveHistory() {
 
 
             table.innerHTML +=
-                "<tr>" +
+    "<tr>" +
 
-                "<td>" +
-                (leave.leaveType || "") +
-                "</td>" +
+    "<td>" +
+    (leave.leaveType || "") +
+    "</td>" +
 
-                "<td>" +
-                formatDate(leave.fromDate) +
-                "</td>" +
+    "<td>" +
+    formatDate(leave.fromDate) +
+    "</td>" +
 
-                "<td>" +
-                formatDate(leave.toDate) +
-                "</td>" +
+    "<td>" +
+    formatDate(leave.toDate) +
+    "</td>" +
 
-                "<td>" +
-                (leave.days || "") +
-                "</td>" +
+    "<td>" +
+    (leave.days || "") +
+    "</td>" +
 
-                "<td>" +
-                statusHtml +
-                "</td>" +
+    "<td>" +
+    statusHtml +
+    "</td>" +
 
-                "</tr>";
+    "<td>" +
+    formatDate(leave.appliedDate) +
+    "</td>" +
 
+    "<td>" +
+    formatDate(leave.decisionDate) +
+    "</td>" +
+
+    "</tr>";
         });
 
     })
