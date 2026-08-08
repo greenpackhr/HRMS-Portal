@@ -509,5 +509,6 @@ function cancelLeave(id) {
 window.onload = function() {
 
     loadLeaveHistory();
+    loadLeaveBalance();
 
 };
