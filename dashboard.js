@@ -25,6 +25,36 @@ let absent = 0;
 let weeklyOff = 0;
 let payDays = 0;
 let attendanceData = [];
+// ==========================================
+// AUTO LOGOUT AFTER 5 MINUTES OF INACTIVITY
+// ==========================================
+
+let inactivityTimer;
+
+function resetInactivityTimer() {
+
+    clearTimeout(inactivityTimer);
+
+    inactivityTimer = setTimeout(function () {
+
+        alert("Your session has expired due to inactivity.");
+
+        localStorage.clear();
+
+        window.location.href = "index.html";
+
+    }, 5 * 60 * 1000);
+}
+
+// Reset timer whenever user is active
+document.addEventListener("mousemove", resetInactivityTimer);
+document.addEventListener("mousedown", resetInactivityTimer);
+document.addEventListener("keypress", resetInactivityTimer);
+document.addEventListener("scroll", resetInactivityTimer);
+document.addEventListener("touchstart", resetInactivityTimer);
+
+// Start inactivity timer
+resetInactivityTimer();
 
 // Load Attendance
 fetch(ATTENDANCE_API_URL + "?orgId=" + encodeURIComponent(empId))
