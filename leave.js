@@ -574,142 +574,107 @@ function loadLeaveHistory() {
     const empId =
         localStorage.getItem("empId");
 
-
     fetch(
         API_URL +
         "?action=getMyLeaves&empId=" +
         encodeURIComponent(empId)
     )
 
-    .then(
-        res =>
-            res.json()
-    )
+    .then(res => res.json())
 
-    .then(
-        data => {
+    .then(data => {
 
-            console.log(
-                "MY LEAVE HISTORY:",
-                data
-            );
+        console.log(
+            "MY LEAVE HISTORY:",
+            data
+        );
 
+        const table =
+            document.getElementById("historyTable");
 
-            const table =
-                document.getElementById(
-                    "historyTable"
-                );
+        if (!table) {
+            return;
+        }
 
+        table.innerHTML = "";
 
-            if (!table) {
-                return;
+        data.forEach(function(leave) {
+
+            let statusHtml = "";
+
+            if (leave.status === "Approved") {
+
+                statusHtml =
+                    '<span style="color:green;font-weight:bold;">' +
+                    'Approved' +
+                    '</span>' +
+                    '<br>' +
+                    '<button onclick="cancelLeave(\'' +
+                    leave.leaveId +
+                    '\')">' +
+                    'Request Cancel' +
+                    '</button>';
+
+            }
+
+            else if (
+                leave.status === "Cancellation Pending"
+            ) {
+
+                statusHtml =
+                    '<span style="color:orange;font-weight:bold;">' +
+                    'Cancellation Pending' +
+                    '</span>';
+
+            }
+
+            else {
+
+                statusHtml =
+                    leave.status || "";
+
             }
 
 
-            table.innerHTML = "";
+            table.innerHTML +=
+                "<tr>" +
 
+                "<td>" +
+                (leave.leaveType || "") +
+                "</td>" +
 
-            data.forEach(
-                leave => {
+                "<td>" +
+                formatDate(leave.fromDate) +
+                "</td>" +
 
-                    table.innerHTML += `
+                "<td>" +
+                formatDate(leave.toDate) +
+                "</td>" +
 
-                    <tr>
+                "<td>" +
+                (leave.days || "") +
+                "</td>" +
 
-                        <td>
-                            ${leave.leaveType}
-                        </td>
+                "<td>" +
+                statusHtml +
+                "</td>" +
 
-                        <td>
-                            ${formatDate(
-                                leave.fromDate
-                            )}
-                        </td>
+                "</tr>";
 
-                        <td>
-                            ${formatDate(
-                                leave.toDate
-                            )}
-                        </td>
+        });
 
-                        <td>
-                            ${leave.days}
-                        </td>
+    })
 
-                        <td>
+    .catch(error => {
 
-                            ${
-                                leave.status === "Approved"
+        console.log(
+            "Leave History Error:",
+            error
+        );
 
-                                ?
-
-                                `
-                                <span
-                                    style="
-                                    color:green;
-                                    font-weight:bold;
-                                    "
-                                >
-                                    Approved
-                                </span>
-
-                                <br>
-
-                                <button
-                                    onclick="cancelLeave('${leave.leaveId}')"
-                                >
-                                    Request Cancel
-                                </button>
-                                `
-
-                                :
-
-                                leave.status ===
-                                "Cancellation Pending"
-
-                                ?
-
-                                `
-                                <span
-                                    style="
-                                    color:orange;
-                                    font-weight:bold;
-                                    "
-                                >
-                                    Cancellation Pending
-                                </span>
-                                `
-
-                                :
-
-                                leave.status
-                            }
-
-                        </td>
-
-                    </tr>
-
-                    `;
-
-                }
-            );
-
-        }
-    )
-
-    .catch(
-        error => {
-
-            console.log(
-                "Leave History Error:",
-                error
-            );
-
-        }
-    );
+    });
 
 }
-
 
 /* =====================================================
    CANCEL LEAVE
