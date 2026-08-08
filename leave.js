@@ -201,74 +201,132 @@ function applyLeave() {
        UPLOAD MEDICAL CERTIFICATE
     ===================================================== */
 
-    function uploadMedicalCertificateFile(
-        leaveId,
-        file
-    ) {
+    ```javascript
+/* =====================================================
+   UPLOAD MEDICAL CERTIFICATE
+===================================================== */
 
-        const reader =
-            new FileReader();
+function uploadMedicalCertificateFile(
+    leaveId,
+    file
+) {
 
-
-        reader.onload = function(event) {
-
-            const fileData =
-                event.target.result;
+    const reader = new FileReader();
 
 
-            const uploadUrl =
-                API_URL +
-                "?action=uploadMedicalCertificate" +
-                "&leaveId=" +
-                encodeURIComponent(leaveId) +
-                "&fileName=" +
-                encodeURIComponent(file.name) +
-                "&mimeType=" +
-                encodeURIComponent(file.type);
+    reader.onload = function(event) {
 
+        const dataUrl =
+            event.target.result;
+
+
+        /* REMOVE DATA URL PREFIX */
+        const fileData =
+            dataUrl.split(",")[1];
+
+
+        const uploadUrl =
+            API_URL +
+            "?action=uploadMedicalCertificate" +
+            "&leaveId=" +
+            encodeURIComponent(leaveId) +
+            "&fileName=" +
+            encodeURIComponent(file.name) +
+            "&mimeType=" +
+            encodeURIComponent(file.type) +
+            "&fileData=" +
+            encodeURIComponent(fileData);
+
+
+        console.log(
+            "Uploading Medical Certificate..."
+        );
+
+        console.log(
+            "Leave ID:",
+            leaveId
+        );
+
+        console.log(
+            "File Name:",
+            file.name
+        );
+
+        console.log(
+            "MIME Type:",
+            file.type
+        );
+
+        console.log(
+            "File Data Length:",
+            fileData.length
+        );
+
+
+        fetch(uploadUrl)
+
+        .then(res => res.json())
+
+        .then(data => {
 
             console.log(
-                "Uploading Medical Certificate..."
+                "Medical Upload Response:",
+                data
             );
 
 
-            fetch(
-                uploadUrl +
-                "&fileData=" +
-                encodeURIComponent(fileData)
-            )
+            if (
+                data.status === "success"
+            ) {
 
-            .then(res => res.json())
+                finishLeaveApplication();
 
-            .then(data => {
+            }
 
-                console.log(
-                    "Medical Upload Response:",
-                    data
+            else {
+
+                alert(
+                    "Leave was submitted, but medical certificate upload failed.\n\n" +
+                    (
+                        data.message ||
+                        data.error ||
+                        "Unknown upload error"
+                    )
                 );
 
+            }
 
-                if (
-                    data.status === "success"
-                ) {
+        })
 
-                    finishLeaveApplication();
+        .catch(error => {
 
-                }
+            console.log(
+                "Medical Upload Error:",
+                error
+            );
 
-                else {
+            alert(
+                "Leave was submitted, but medical certificate upload failed."
+            );
 
-                    alert(
-                        "Leave was submitted, but medical certificate upload failed.\n\n" +
-                        (
-                            data.message ||
-                            "Unknown upload error"
-                        )
-                    );
+        });
 
-                }
+    };
 
-            })
+
+    reader.onerror = function() {
+
+        alert(
+            "Unable to read medical certificate."
+        );
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+```
 
             .catch(error => {
 
