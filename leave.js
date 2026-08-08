@@ -416,6 +416,10 @@ function loadLeaveHistory() {
     "<tr>" +
 
     "<td>" +
+    formatDate(leave.appliedDate) +
+    "</td>" +
+
+    "<td>" +
     (leave.leaveType || "") +
     "</td>" +
 
@@ -433,10 +437,6 @@ function loadLeaveHistory() {
 
     "<td>" +
     statusHtml +
-    "</td>" +
-
-    "<td>" +
-    formatDate(leave.appliedDate) +
     "</td>" +
 
     "<td>" +
