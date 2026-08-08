@@ -15,12 +15,12 @@ function login() {
 
         if (data.status === "success") {
 
-            localStorage.setItem("orgId", data.orgId);
-            localStorage.setItem("empId", data.empId);
-            localStorage.setItem("empName", data.empName);
-            localStorage.setItem("department", data.department);
-            localStorage.setItem("designation", data.designation);
-            localStorage.setItem("role", data.role);
+            sessionStorage.setItem("orgId", data.orgId);
+sessionStorage.setItem("empId", data.empId);
+sessionStorage.setItem("empName", data.empName);
+sessionStorage.setItem("department", data.department);
+sessionStorage.setItem("designation", data.designation);
+sessionStorage.setItem("role", data.role);
 
             alert("Login Successful");
 
