@@ -131,9 +131,13 @@ fetch(API_URL + "?action=getLeaves")
 
         <td>${row.reason}</td>
 
-        <td>${status}</td>
+<td>${status}</td>
 
-        <td>${action}</td>
+<td>${formatDate(row.appliedDate)}</td>
+
+<td>${formatDate(row.decisionDate)}</td>
+
+<td>${action}</td>
 
 
         </tr>
