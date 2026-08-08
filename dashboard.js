@@ -207,6 +207,90 @@ function loadMonthDropdown() {
     }
 
 }
+function displayAttendance(data) {
+
+    let table = document.getElementById("attendanceTable");
+
+    table.innerHTML = "";
+
+    let present = 0;
+    let absent = 0;
+    let weeklyOff = 0;
+    let payDays = 0;
+
+    data.forEach(row => {
+
+        let tr = document.createElement("tr");
+
+        let statusClass = "";
+
+        switch (row.status) {
+
+            case "P":
+                statusClass = "status-p";
+                break;
+
+            case "A":
+                statusClass = "status-a";
+                break;
+
+            case "P | A":
+            case "A | P":
+                statusClass = "status-halfday";
+                break;
+
+            case "WO":
+                statusClass = "status-wo";
+                break;
+
+            case "PH":
+                statusClass = "status-ph";
+                break;
+
+            case "CL":
+                statusClass = "status-cl";
+                break;
+
+            case "SL":
+                statusClass = "status-sl";
+                break;
+
+            case "PL":
+                statusClass = "status-pl";
+                break;
+
+            case "OD":
+                statusClass = "status-od";
+                break;
+
+            default:
+                statusClass = "status-default";
+        }
+
+        tr.innerHTML =
+            `<td>${row.shiftDate}</td>
+             <td>${row.schedule}</td>
+             <td>${row.actualIn}</td>
+             <td>${row.actualOut}</td>
+             <td>${row.workTime}</td>
+             <td><span class="${statusClass}">${row.status}</span></td>`;
+
+        table.appendChild(tr);
+
+        if (row.status === "P") present++;
+        if (row.status === "A") absent++;
+        if (row.status === "WO") weeklyOff++;
+
+        payDays += Number(row.payDay) || 0;
+
+    });
+
+    document.getElementById("present").innerText = present;
+    document.getElementById("absent").innerText = absent;
+    document.getElementById("wo").innerText = weeklyOff;
+    document.getElementById("payday").innerText = payDays;
+
+}
 function filterMonth() {
 
     let selectedMonth =
