@@ -38,14 +38,62 @@ function applyLeave() {
     const toDate = document.getElementById("toDate").value;
     const reason = document.getElementById("reason").value;
 
+    const medicalBox = document.getElementById("medicalFitnessBox");
+    const medicalFile = document.getElementById("medicalFitness");
+
     if (!leaveType || !fromDate || !toDate || !reason) {
         alert("Please fill all fields.");
         return;
     }
 
-
     const days = calculateDays(fromDate, toDate);
 
+    /*
+       Medical Fitness requirement
+
+       For now:
+       SL > 3 days = Medical Fitness required.
+
+       We will add continuous SL checking
+       in the backend next.
+    */
+
+    if (leaveType === "SL" && days > 3) {
+
+        if (!medicalFile || !medicalFile.files.length) {
+
+            if (medicalBox) {
+                medicalBox.style.display = "block";
+            }
+
+            alert(
+                "Medical Fitness Certificate is required for SL more than 3 days."
+            );
+
+            return;
+        }
+    }
+
+
+    /*
+       If SL is 1-3 days,
+       no medical document is required.
+    */
+
+
+    const medicalFileName =
+        (medicalFile && medicalFile.files.length)
+            ? medicalFile.files[0].name
+            : "";
+
+
+    /*
+       TEMPORARY STEP
+
+       We are not uploading the actual file yet.
+
+       We will connect Google Drive upload next.
+    */
 
     const url =
         API_URL +
@@ -57,36 +105,64 @@ function applyLeave() {
         "&fromDate=" + encodeURIComponent(fromDate) +
         "&toDate=" + encodeURIComponent(toDate) +
         "&days=" + encodeURIComponent(days) +
-        "&reason=" + encodeURIComponent(reason);
+        "&reason=" + encodeURIComponent(reason) +
+        "&medicalFitness=" + encodeURIComponent(medicalFileName);
 
 
     console.log("LEAVE URL:", url);
 
 
     fetch(url)
+
     .then(res => res.json())
+
     .then(data => {
 
         if (data.status === "success") {
 
             alert("Leave Applied Successfully");
+
+            /*
+               Clear form
+            */
+
+            document.getElementById("leaveType").value = "";
+            document.getElementById("fromDate").value = "";
+            document.getElementById("toDate").value = "";
+            document.getElementById("reason").value = "";
+
+            if (medicalFile) {
+                medicalFile.value = "";
+            }
+
+            if (medicalBox) {
+                medicalBox.style.display = "none";
+            }
+
             loadLeaveHistory();
 
         } else {
 
-            alert("Error: " + (data.error || data.message || JSON.stringify(data)));
+            alert(
+                "Error: " +
+                (data.error ||
+                 data.message ||
+                 JSON.stringify(data))
+            );
 
         }
 
     })
+
     .catch(error => {
 
         console.log("Apply Leave Error:", error);
 
+        alert("Error submitting leave.");
+
     });
 
 }
-
 
 
 function formatDate(dateValue){
