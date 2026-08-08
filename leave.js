@@ -328,9 +328,12 @@ function applyLeave() {
         ).value = "";
 
 
-        if (medicalFile) {
-            medicalFile.value = "";
-        }
+        const medicalFile =
+    document.getElementById("medicalFitness");
+
+if (medicalFile) {
+    medicalFile.value = "";
+}
 
 
         if (medicalBox) {
