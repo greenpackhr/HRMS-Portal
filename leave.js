@@ -505,7 +505,68 @@ function cancelLeave(id) {
 /* =====================================================
    PAGE LOAD
 ===================================================== */
+function loadLeaveBalance() {
 
+    const empId = localStorage.getItem("empId");
+
+    if (!empId) {
+        console.log("Employee ID not found");
+        return;
+    }
+
+    fetch(
+        API_URL +
+        "?action=getLeaveBalance&empId=" +
+        encodeURIComponent(empId)
+    )
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        console.log("LEAVE BALANCE:", data);
+
+        if (data.status !== "success") {
+            console.log(
+                "Leave Balance Error:",
+                data.message
+            );
+            return;
+        }
+
+        const clElement =
+            document.getElementById("clBalance");
+
+        const slElement =
+            document.getElementById("slBalance");
+
+        const plElement =
+            document.getElementById("plBalance");
+
+        if (clElement) {
+            clElement.textContent = data.CL;
+        }
+
+        if (slElement) {
+            slElement.textContent = data.SL;
+        }
+
+        if (plElement) {
+            plElement.textContent = data.PL;
+        }
+
+    })
+
+    .catch(error => {
+
+        console.log(
+            "Leave Balance Error:",
+            error
+        );
+
+    });
+
+}
 window.onload = function() {
 
     loadLeaveHistory();
