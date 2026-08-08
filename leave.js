@@ -32,35 +32,53 @@ function applyLeave() {
 
     const empId = localStorage.getItem("empId");
     const empName = localStorage.getItem("empName");
+    const orgId = localStorage.getItem("orgId");
 
-    const leaveType = document.getElementById("leaveType").value;
-    const fromDate = document.getElementById("fromDate").value;
-    const toDate = document.getElementById("toDate").value;
-    const reason = document.getElementById("reason").value;
+    const leaveType =
+        document.getElementById("leaveType").value;
 
-    const medicalBox = document.getElementById("medicalFitnessBox");
-    const medicalFile = document.getElementById("medicalFitness");
+    const fromDate =
+        document.getElementById("fromDate").value;
+
+    const toDate =
+        document.getElementById("toDate").value;
+
+    const reason =
+        document.getElementById("reason").value;
+
+    const medicalBox =
+        document.getElementById("medicalFitnessBox");
+
+    const medicalFile =
+        document.getElementById("medicalFitness");
+
+
+    /* =====================================================
+       BASIC VALIDATION
+    ===================================================== */
 
     if (!leaveType || !fromDate || !toDate || !reason) {
+
         alert("Please fill all fields.");
         return;
+
     }
 
-    const days = calculateDays(fromDate, toDate);
 
-    /*
-       Medical Fitness requirement
+    const days =
+        calculateDays(fromDate, toDate);
 
-       For now:
-       SL > 3 days = Medical Fitness required.
 
-       We will add continuous SL checking
-       in the backend next.
-    */
+    /* =====================================================
+       MEDICAL FILE VALIDATION
+    ===================================================== */
 
     if (leaveType === "SL" && days > 3) {
 
-        if (!medicalFile || !medicalFile.files.length) {
+        if (
+            !medicalFile ||
+            !medicalFile.files.length
+        ) {
 
             if (medicalBox) {
                 medicalBox.style.display = "block";
@@ -75,95 +93,263 @@ function applyLeave() {
     }
 
 
-    /*
-       If SL is 1-3 days,
-       no medical document is required.
-    */
+    /* =====================================================
+       CREATE LEAVE ID
+    ===================================================== */
+
+    const leaveId =
+        "L" + new Date().getTime();
 
 
-    const medicalFileName =
-        (medicalFile && medicalFile.files.length)
-            ? medicalFile.files[0].name
-            : "";
+    /* =====================================================
+       FUNCTION TO SUBMIT LEAVE
+    ===================================================== */
+
+    function submitLeave() {
+
+        const url =
+            API_URL +
+            "?action=applyLeave" +
+            "&orgId=" +
+            encodeURIComponent(orgId) +
+            "&empId=" +
+            encodeURIComponent(empId) +
+            "&empName=" +
+            encodeURIComponent(empName) +
+            "&leaveType=" +
+            encodeURIComponent(leaveType) +
+            "&fromDate=" +
+            encodeURIComponent(fromDate) +
+            "&toDate=" +
+            encodeURIComponent(toDate) +
+            "&days=" +
+            encodeURIComponent(days) +
+            "&reason=" +
+            encodeURIComponent(reason) +
+            "&leaveId=" +
+            encodeURIComponent(leaveId);
 
 
-    /*
-       TEMPORARY STEP
-
-       We are not uploading the actual file yet.
-
-       We will connect Google Drive upload next.
-    */
-
-    const url =
-        API_URL +
-        "?action=applyLeave" +
-        "&orgId=" + encodeURIComponent(localStorage.getItem("orgId")) +
-        "&empId=" + encodeURIComponent(empId) +
-        "&empName=" + encodeURIComponent(empName) +
-        "&leaveType=" + encodeURIComponent(leaveType) +
-        "&fromDate=" + encodeURIComponent(fromDate) +
-        "&toDate=" + encodeURIComponent(toDate) +
-        "&days=" + encodeURIComponent(days) +
-        "&reason=" + encodeURIComponent(reason) +
-        "&medicalFitness=" + encodeURIComponent(medicalFileName);
+        console.log("LEAVE URL:", url);
 
 
-    console.log("LEAVE URL:", url);
+        fetch(url)
+
+        .then(res => res.json())
+
+        .then(data => {
+
+            console.log("Leave Response:", data);
 
 
-    fetch(url)
+            if (data.status !== "success") {
 
-    .then(res => res.json())
+                alert(
+                    "Error: " +
+                    (
+                        data.error ||
+                        data.message ||
+                        JSON.stringify(data)
+                    )
+                );
 
-    .then(data => {
-
-        if (data.status === "success") {
-
-            alert("Leave Applied Successfully");
-
-            /*
-               Clear form
-            */
-
-            document.getElementById("leaveType").value = "";
-            document.getElementById("fromDate").value = "";
-            document.getElementById("toDate").value = "";
-            document.getElementById("reason").value = "";
-
-            if (medicalFile) {
-                medicalFile.value = "";
+                return;
             }
 
-            if (medicalBox) {
-                medicalBox.style.display = "none";
+
+            /* =================================================
+               IF MEDICAL FILE EXISTS
+            ================================================= */
+
+            if (
+                medicalFile &&
+                medicalFile.files.length
+            ) {
+
+                uploadMedicalCertificateFile(
+                    leaveId,
+                    medicalFile.files[0]
+                );
+
             }
 
-            loadLeaveHistory();
+            else {
 
-        } else {
+                finishLeaveApplication();
 
-            alert(
-                "Error: " +
-                (data.error ||
-                 data.message ||
-                 JSON.stringify(data))
+            }
+
+        })
+
+        .catch(error => {
+
+            console.log(
+                "Apply Leave Error:",
+                error
             );
 
+            alert(
+                "Error submitting leave."
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       UPLOAD MEDICAL CERTIFICATE
+    ===================================================== */
+
+    function uploadMedicalCertificateFile(
+        leaveId,
+        file
+    ) {
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload = function(event) {
+
+            const fileData =
+                event.target.result;
+
+
+            const uploadUrl =
+                API_URL +
+                "?action=uploadMedicalCertificate" +
+                "&leaveId=" +
+                encodeURIComponent(leaveId) +
+                "&fileName=" +
+                encodeURIComponent(file.name) +
+                "&mimeType=" +
+                encodeURIComponent(file.type);
+
+
+            console.log(
+                "Uploading Medical Certificate..."
+            );
+
+
+            fetch(
+                uploadUrl +
+                "&fileData=" +
+                encodeURIComponent(fileData)
+            )
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                console.log(
+                    "Medical Upload Response:",
+                    data
+                );
+
+
+                if (
+                    data.status === "success"
+                ) {
+
+                    finishLeaveApplication();
+
+                }
+
+                else {
+
+                    alert(
+                        "Leave was submitted, but medical certificate upload failed.\n\n" +
+                        (
+                            data.message ||
+                            "Unknown upload error"
+                        )
+                    );
+
+                }
+
+            })
+
+            .catch(error => {
+
+                console.log(
+                    "Medical Upload Error:",
+                    error
+                );
+
+                alert(
+                    "Leave was submitted, but medical certificate upload failed."
+                );
+
+            });
+
+        };
+
+
+        reader.onerror = function() {
+
+            alert(
+                "Unable to read medical certificate."
+            );
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    }
+
+
+    /* =====================================================
+       FINISH
+    ===================================================== */
+
+    function finishLeaveApplication() {
+
+        alert(
+            "Leave Applied Successfully"
+        );
+
+
+        document.getElementById(
+            "leaveType"
+        ).value = "";
+
+        document.getElementById(
+            "fromDate"
+        ).value = "";
+
+        document.getElementById(
+            "toDate"
+        ).value = "";
+
+        document.getElementById(
+            "reason"
+        ).value = "";
+
+
+        if (medicalFile) {
+            medicalFile.value = "";
         }
 
-    })
 
-    .catch(error => {
+        if (medicalBox) {
+            medicalBox.style.display = "none";
+        }
 
-        console.log("Apply Leave Error:", error);
 
-        alert("Error submitting leave.");
+        loadLeaveHistory();
 
-    });
+    }
+
+
+    /* =====================================================
+       START
+    ===================================================== */
+
+    submitLeave();
 
 }
-
 
 function formatDate(dateValue){
 
