@@ -3,11 +3,11 @@ alert("dashboard.js loaded");
 const ATTENDANCE_API_URL = "https://script.google.com/macros/s/AKfycbyhViSL9iKxd-T9EvI274zr6C71y0FuNfRQyAVhwGna0O7_DOvKJhrz7ej19w7ml3bo/exec";
 
 // Read data from Local Storage
-let empId = localStorage.getItem("empId");
-let empName = localStorage.getItem("empName");
-let department = localStorage.getItem("department");
-let designation = localStorage.getItem("designation");
-let role = localStorage.getItem("role");
+let empId = sessionStorage.getItem("empId");
+let empName = sessionStorage.getItem("empName");
+let department = sessionStorage.getItem("department");
+let designation = sessionStorage.getItem("designation");
+let role = sessionStorage.getItem("role");
 
 console.log("LOGIN DATA:", {
     empId: empId,
