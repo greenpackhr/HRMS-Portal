@@ -47,7 +47,7 @@ function resetInactivityTimer() {
 
         alert("Your session has expired due to inactivity.");
 
-        sessionStorage.clear();
+        localStorage.clear();
 
         window.location.href = "index.html";
 
