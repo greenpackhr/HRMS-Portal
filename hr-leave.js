@@ -22,7 +22,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5
 
 
 
-const role = localStorage.getItem("role");
+const role = sessionStorage.getItem("role");
 
 
 if (role !== "Superuser") {
