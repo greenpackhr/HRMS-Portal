@@ -43,7 +43,7 @@ function resetInactivityTimer() {
 
         window.location.href = "index.html";
 
-    }, 30 * 1000);
+    }, 5 * 60 * 1000);
 }
 
 // Reset timer whenever user is active
