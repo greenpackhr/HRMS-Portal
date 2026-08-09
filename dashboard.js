@@ -114,7 +114,7 @@ fetch(ATTENDANCE_API_URL + "?orgId=" + encodeURIComponent(empId))
 // Logout
 function logout() {
 
-    localStorage.clear();
+    sessionStorage.clear();
     window.location.href = "index.html";
 
 }
