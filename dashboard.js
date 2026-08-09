@@ -73,7 +73,11 @@ fetch(ATTENDANCE_API_URL + "?orgId=" + encodeURIComponent(empId))
     attendanceData = data.attendance;
 
     if (data.attendance && data.attendance.length > 0) {
+    if (data.attendance && data.attendance.length > 0) {
     console.log("FIRST DATE:", data.attendance[0].shiftDate);
+} else {
+    console.log("No attendance data found for employee:", empId);
+}
 } else {
     console.log("No attendance data found for employee:", empId);
 }
