@@ -9,6 +9,14 @@ let department = localStorage.getItem("department");
 let designation = localStorage.getItem("designation");
 let role = localStorage.getItem("role");
 
+console.log("LOGIN DATA:", {
+    empId: empId,
+    empName: empName,
+    department: department,
+    designation: designation,
+    role: role
+});
+
 if (role === "Superuser") {
     document.getElementById("leaveApprovalBtn").style.display = "inline-block";
 }
