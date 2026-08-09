@@ -70,29 +70,37 @@ fetch(ATTENDANCE_API_URL + "?orgId=" + encodeURIComponent(empId))
 .then(data => {
 
     console.log("ATTENDANCE:", data);
-    attendanceData = data.attendance;
 
-    if (data.attendance && data.attendance.length > 0) {
-    if (data.attendance && data.attendance.length > 0) {
+    attendanceData = data.attendance || [];
+
+    if (attendanceData.length > 0) {
+
+        console.log(
+            "FIRST DATE:",
+            attendanceData[0].shiftDate
+        );
+
+        attendanceData.sort((a, b) => {
+
+            let [dayA, monthA, yearA] =
+                a.shiftDate.split("-");
+
+            let [dayB, monthB, yearB] =
+                b.shiftDate.split("-");
+
+            return new Date(yearA, monthA - 1, dayA) -
+                   new Date(yearB, monthB - 1, dayB);
+        });
+
     } else {
-    console.log("No attendance data found for employee:", empId);
-}
-} else {
-    console.log("No attendance data found for employee:", empId);
-}
 
-    let table = document.getElementById("attendanceTable");
-    table.innerHTML = "";
+        console.log(
+            "No attendance data found for employee:",
+            empId
+        );
 
-    data.attendance.sort((a, b) => {
+    }
 
-    let [dayA, monthA, yearA] = a.shiftDate.split("-");
-    let [dayB, monthB, yearB] = b.shiftDate.split("-");
-
-    return new Date(yearA, monthA - 1, dayA) -
-           new Date(yearB, monthB - 1, dayB);
-
-});
     loadMonthDropdown();
 
 })
