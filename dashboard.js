@@ -306,10 +306,6 @@ function toggleMenu() {
     menu.classList.toggle("active");
 }
 
-function toggleMenu() {
-    var menu = document.getElementById("sideMenu");
-    menu.classList.toggle("active");
-}
 
 document.addEventListener("click", function(event) {
 
