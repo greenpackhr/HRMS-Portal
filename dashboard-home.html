@@ -1212,6 +1212,63 @@ function renderAnniversaries(data) {
    LOAD DATA
 ========================= */
 
+function renderNotices(data) {
+
+    var section = document.querySelector(".notice-card");
+    var list = section.querySelector(".notice-list");
+
+    list.innerHTML = "";
+
+    if (!data || data.length === 0) {
+        list.innerHTML = `
+            <div class="notice-item">
+                <div class="notice-pin">📢</div>
+
+                <div class="notice-content">
+                    <div class="notice-title">
+                        No Active Notices
+                    </div>
+
+                    <div class="notice-text">
+                        There are currently no active HR notices.
+                    </div>
+                </div>
+            </div>
+        `;
+        return;
+    }
+
+    data.forEach(function(notice) {
+
+        list.innerHTML += `
+            <div class="notice-item">
+
+                <div class="notice-pin">
+                    📌
+                </div>
+
+                <div class="notice-content">
+
+                    <div class="notice-title">
+                        ${notice.noticeTitle}
+                    </div>
+
+                    <div class="notice-text">
+                        ${notice.noticeText}
+                    </div>
+
+                </div>
+
+                <div class="notice-date">
+                    ${notice.noticeDate}
+                </div>
+
+            </div>
+        `;
+
+    });
+
+}
 loadDashboardHomeData();
 
 </script>
