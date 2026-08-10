@@ -615,3 +615,58 @@ button:hover{
 .reject-btn{
     background:#c62828 !important;
 }
+
+/* LEFT 3-DOT MENU */
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-dots {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 10px;
+}
+
+.side-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background: white;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+    padding-top: 70px;
+}
+
+.side-menu a,
+.side-menu button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 20px;
+    text-align: left;
+    text-decoration: none;
+    color: #222;
+    background: white;
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.side-menu a:hover,
+.side-menu button:hover {
+    background: #f1f1f1;
+}
+
+.side-menu.active {
+    display: block;
+}
