@@ -305,3 +305,23 @@ function toggleMenu() {
     var menu = document.getElementById("sideMenu");
     menu.classList.toggle("active");
 }
+
+function toggleMenu() {
+    var menu = document.getElementById("sideMenu");
+    menu.classList.toggle("active");
+}
+
+document.addEventListener("click", function(event) {
+
+    var menu = document.getElementById("sideMenu");
+    var menuButton = document.querySelector(".menu-dots");
+
+    if (
+        menu.classList.contains("active") &&
+        !menu.contains(event.target) &&
+        !menuButton.contains(event.target)
+    ) {
+        menu.classList.remove("active");
+    }
+
+});
