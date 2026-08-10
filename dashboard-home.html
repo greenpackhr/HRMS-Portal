@@ -1,1 +1,950 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HRMS Dashboard Home</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f7f5;
+    color: #26332b;
+    min-height: 100vh;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.dashboard-header {
+    background: linear-gradient(135deg, #0f4d2d, #1b6b3a);
+    color: #fff;
+    padding: 26px 34px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-header::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    right: -60px;
+    top: -100px;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+}
+
+.header-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.header-subtitle {
+    margin-top: 5px;
+    font-size: 14px;
+    opacity: .85;
+}
+
+.current-month {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.18);
+    font-size: 13px;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.dashboard-container {
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 28px 32px 40px;
+}
+
+/* =========================
+   COMMON CARD
+========================= */
+
+.dashboard-card {
+    background: #fff;
+    border: 1px solid #e0e7e2;
+    border-radius: 18px;
+    box-shadow: 0 7px 25px rgba(20, 55, 35, .07);
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(20, 55, 35, .11);
+}
+
+.card-header {
+    padding: 20px 22px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #edf1ee;
+}
+
+.card-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    background: #e9f5ed;
+}
+
+.card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #183c27;
+}
+
+.card-month {
+    font-size: 11px;
+    color: #718077;
+    margin-top: 3px;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+.view-all {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1b6b3a;
+    text-decoration: none;
+}
+
+/* =========================
+   HR NOTICES
+========================= */
+
+.notice-card {
+    margin-bottom: 24px;
+}
+
+.notice-list {
+    padding: 18px 22px 22px;
+}
+
+.notice-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 17px;
+    border-radius: 13px;
+    background: #f8fbf9;
+    border: 1px solid #e8eee9;
+    margin-bottom: 10px;
+}
+
+.notice-item:last-child {
+    margin-bottom: 0;
+}
+
+.notice-pin {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 11px;
+    background: #e7f3ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.notice-content {
+    flex: 1;
+}
+
+.notice-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #23442f;
+}
+
+.notice-text {
+    font-size: 12px;
+    color: #69766e;
+    margin-top: 4px;
+}
+
+.notice-date {
+    font-size: 11px;
+    color: #89958e;
+    white-space: nowrap;
+}
+
+/* =========================
+   TWO COLUMN GRID
+========================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+/* =========================
+   EMPLOYEE ROWS
+========================= */
+
+.employee-list {
+    padding: 12px 20px 20px;
+}
+
+.employee-row {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 7px;
+    border-bottom: 1px solid #edf1ee;
+}
+
+.employee-row:last-child {
+    border-bottom: none;
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d9efe0, #bfe0ca);
+    color: #15572e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.employee-info {
+    flex: 1;
+}
+
+.employee-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #263a2e;
+}
+
+.employee-detail {
+    font-size: 11px;
+    color: #7a867f;
+    margin-top: 3px;
+}
+
+.date-badge {
+    padding: 6px 10px;
+    border-radius: 9px;
+    background: #f0f7f2;
+    color: #287043;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* =========================
+   ANNIVERSARY
+========================= */
+
+.anniversary-years {
+    min-width: 70px;
+    text-align: center;
+    padding: 7px 8px;
+    border-radius: 10px;
+    background: #fff6df;
+    color: #a46a08;
+}
+
+.anniversary-number {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.anniversary-label {
+    display: block;
+    font-size: 9px;
+    margin-top: 1px;
+}
+
+/* =========================
+   HOLIDAYS
+========================= */
+
+.holiday-list {
+    padding: 13px 20px 20px;
+}
+
+.holiday-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 7px;
+    border-bottom: 1px solid #edf1ee;
+}
+
+.holiday-item:last-child {
+    border-bottom: none;
+}
+
+.holiday-date {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 13px;
+    background: #eef7f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #1c6739;
+}
+
+.holiday-day {
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 17px;
+}
+
+.holiday-month {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.holiday-info {
+    flex: 1;
+}
+
+.holiday-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #2c4034;
+}
+
+.holiday-type {
+    font-size: 11px;
+    color: #7b877f;
+    margin-top: 3px;
+}
+
+.paid-badge {
+    padding: 5px 9px;
+    border-radius: 8px;
+    background: #e8f5eb;
+    color: #24703d;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+    padding: 30px 20px;
+    text-align: center;
+    color: #8a968f;
+}
+
+.empty-icon {
+    font-size: 30px;
+    opacity: .7;
+    margin-bottom: 8px;
+}
+
+.empty-text {
+    font-size: 12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-container {
+        padding: 20px 15px 30px;
+    }
+
+    .dashboard-header {
+        padding: 22px 20px;
+    }
+
+    .header-title {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .card-header {
+        padding: 17px;
+    }
+
+    .notice-list,
+    .employee-list,
+    .holiday-list {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .notice-date {
+        display: none;
+    }
+
+    .date-badge {
+        font-size: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="dashboard-header">
+
+    <div class="header-content">
+
+        <div class="header-title">
+            Dashboard Home
+        </div>
+
+        <div class="header-subtitle">
+            Welcome to Greenpack Industries HRMS
+        </div>
+
+        <div class="current-month">
+            📅 August 2026
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="dashboard-container">
+
+
+    <!-- =========================
+         1. HR NOTICES
+    ========================== -->
+
+    <section class="dashboard-card notice-card">
+
+        <div class="card-header">
+
+            <div class="card-title-wrap">
+
+                <div class="card-icon">
+                    📢
+                </div>
+
+                <div>
+                    <div class="card-title">
+                        HR Notices
+                    </div>
+
+                    <div class="card-month">
+                        Important Updates & Announcements
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="#" class="view-all">
+                View All →
+            </a>
+
+        </div>
+
+
+        <div class="notice-list">
+
+            <div class="notice-item">
+
+                <div class="notice-pin">
+                    📌
+                </div>
+
+                <div class="notice-content">
+
+                    <div class="notice-title">
+                        Monthly Payroll Processing
+                    </div>
+
+                    <div class="notice-text">
+                        Payroll processing for August 2026 will be completed as per the monthly schedule.
+                    </div>
+
+                </div>
+
+                <div class="notice-date">
+                    10 Aug 2026
+                </div>
+
+            </div>
+
+
+            <div class="notice-item">
+
+                <div class="notice-pin">
+                    📋
+                </div>
+
+                <div class="notice-content">
+
+                    <div class="notice-title">
+                        Attendance Regularization Reminder
+                    </div>
+
+                    <div class="notice-text">
+                        Employees are requested to complete pending attendance regularization within the prescribed time.
+                    </div>
+
+                </div>
+
+                <div class="notice-date">
+                    08 Aug 2026
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         2 + 3
+         BIRTHDAYS / NEW JOINERS
+    ========================== -->
+
+    <div class="dashboard-grid">
+
+
+        <!-- BIRTHDAYS -->
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div class="card-title-wrap">
+
+                    <div class="card-icon">
+                        🎂
+                    </div>
+
+                    <div>
+                        <div class="card-title">
+                            Current-month Birthdays
+                        </div>
+
+                        <div class="card-month">
+                            August 2026
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="employee-list">
+
+                <div class="employee-row">
+
+                    <div class="avatar">
+                        KY
+                    </div>
+
+                    <div class="employee-info">
+
+                        <div class="employee-name">
+                            Kunal Yelgire
+                        </div>
+
+                        <div class="employee-detail">
+                            Wishing you a very Happy Birthday!
+                        </div>
+
+                    </div>
+
+                    <div class="date-badge">
+                        12 Aug
+                    </div>
+
+                </div>
+
+
+                <div class="employee-row">
+
+                    <div class="avatar">
+                        PP
+                    </div>
+
+                    <div class="employee-info">
+
+                        <div class="employee-name">
+                            Priya Patil
+                        </div>
+
+                        <div class="employee-detail">
+                            Wishing you a very Happy Birthday!
+                        </div>
+
+                    </div>
+
+                    <div class="date-badge">
+                        24 Aug
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NEW JOINERS -->
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div class="card-title-wrap">
+
+                    <div class="card-icon">
+                        🆕
+                    </div>
+
+                    <div>
+                        <div class="card-title">
+                            Current-month New Joiners
+                        </div>
+
+                        <div class="card-month">
+                            August 2026
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="employee-list">
+
+                <div class="employee-row">
+
+                    <div class="avatar">
+                        AS
+                    </div>
+
+                    <div class="employee-info">
+
+                        <div class="employee-name">
+                            Amit Sharma
+                        </div>
+
+                        <div class="employee-detail">
+                            HR Department
+                        </div>
+
+                    </div>
+
+                    <div class="date-badge">
+                        05 Aug
+                    </div>
+
+                </div>
+
+
+                <div class="employee-row">
+
+                    <div class="avatar">
+                        RV
+                    </div>
+
+                    <div class="employee-info">
+
+                        <div class="employee-name">
+                            Rahul Verma
+                        </div>
+
+                        <div class="employee-detail">
+                            Production Department
+                        </div>
+
+                    </div>
+
+                    <div class="date-badge">
+                        18 Aug
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =========================
+         4 + 5
+         ANNIVERSARIES / HOLIDAYS
+    ========================== -->
+
+    <div class="dashboard-grid">
+
+
+        <!-- WORK ANNIVERSARIES -->
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div class="card-title-wrap">
+
+                    <div class="card-icon">
+                        🏆
+                    </div>
+
+                    <div>
+                        <div class="card-title">
+                            Current-month Work Anniversaries
+                        </div>
+
+                        <div class="card-month">
+                            August 2026
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="employee-list">
+
+                <div class="employee-row">
+
+                    <div class="avatar">
+                        RK
+                    </div>
+
+                    <div class="employee-info">
+
+                        <div class="employee-name">
+                            Rajesh Kumar
+                        </div>
+
+                        <div class="employee-detail">
+                            Congratulations on your service milestone!
+                        </div>
+
+                    </div>
+
+                    <div class="anniversary-years">
+
+                        <span class="anniversary-number">
+                            5
+                        </span>
+
+                        <span class="anniversary-label">
+                            YEARS
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="employee-row">
+
+                    <div class="avatar">
+                        SP
+                    </div>
+
+                    <div class="employee-info">
+
+                        <div class="employee-name">
+                            Suresh Patil
+                        </div>
+
+                        <div class="employee-detail">
+                            Congratulations on your service milestone!
+                        </div>
+
+                    </div>
+
+                    <div class="anniversary-years">
+
+                        <span class="anniversary-number">
+                            3
+                        </span>
+
+                        <span class="anniversary-label">
+                            YEARS
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAID HOLIDAYS -->
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div class="card-title-wrap">
+
+                    <div class="card-icon">
+                        🎉
+                    </div>
+
+                    <div>
+                        <div class="card-title">
+                            Paid Holidays
+                        </div>
+
+                        <div class="card-month">
+                            August 2026
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="holiday-list">
+
+                <div class="holiday-item">
+
+                    <div class="holiday-date">
+
+                        <span class="holiday-day">
+                            15
+                        </span>
+
+                        <span class="holiday-month">
+                            AUG
+                        </span>
+
+                    </div>
+
+                    <div class="holiday-info">
+
+                        <div class="holiday-name">
+                            Independence Day
+                        </div>
+
+                        <div class="holiday-type">
+                            National Holiday
+                        </div>
+
+                    </div>
+
+                    <div class="paid-badge">
+                        PAID
+                    </div>
+
+                </div>
+
+
+                <div class="holiday-item">
+
+                    <div class="holiday-date">
+
+                        <span class="holiday-day">
+                            27
+                        </span>
+
+                        <span class="holiday-month">
+                            AUG
+                        </span>
+
+                    </div>
+
+                    <div class="holiday-info">
+
+                        <div class="holiday-name">
+                            Janmashtami
+                        </div>
+
+                        <div class="holiday-type">
+                            Paid Holiday
+                        </div>
+
+                    </div>
+
+                    <div class="paid-badge">
+                        PAID
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+</body>
+</html>
+```
 
