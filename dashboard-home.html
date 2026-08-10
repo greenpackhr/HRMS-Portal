@@ -971,5 +971,247 @@ body {
 
 </body>
 </html>
-```
+
+<script>
+
+const DASHBOARD_HOME_API =
+"https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
+
+
+function loadDashboardHomeData() {
+
+    fetch(
+        DASHBOARD_HOME_API +
+        "?action=getDashboardHomeData"
+    )
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        console.log("DASHBOARD HOME DATA:", data);
+
+        if (data.status !== "success") {
+
+            console.error(
+                "Dashboard Home data error:",
+                data.message
+            );
+
+            return;
+        }
+
+        renderBirthdays(data.birthdays);
+        renderNewJoiners(data.newJoiners);
+        renderAnniversaries(data.anniversaries);
+
+    })
+
+    .catch(error => {
+
+        console.error(
+            "Dashboard Home API Error:",
+            error
+        );
+
+    });
+
+}
+
+
+/* =========================
+   BIRTHDAYS
+========================= */
+
+function renderBirthdays(data) {
+
+    var section =
+        document.querySelectorAll(".dashboard-grid")[0]
+        .querySelectorAll(".dashboard-card")[0];
+
+    var list =
+        section.querySelector(".employee-list");
+
+    list.innerHTML = "";
+
+    data.forEach(function(emp) {
+
+        var initials =
+            emp.empName
+            .split(" ")
+            .map(function(name) {
+                return name.charAt(0);
+            })
+            .join("")
+            .substring(0, 2)
+            .toUpperCase();
+
+        list.innerHTML += `
+
+            <div class="employee-row">
+
+                <div class="avatar">
+                    ${initials}
+                </div>
+
+                <div class="employee-info">
+
+                    <div class="employee-name">
+                        ${emp.empName}
+                    </div>
+
+                    <div class="employee-detail">
+                        ${emp.empId} | ${emp.designation} | ${emp.department}
+                    </div>
+
+                </div>
+
+                <div class="date-badge">
+                    ${emp.dob}
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================
+   NEW JOINERS
+========================= */
+
+function renderNewJoiners(data) {
+
+    var section =
+        document.querySelectorAll(".dashboard-grid")[0]
+        .querySelectorAll(".dashboard-card")[1];
+
+    var list =
+        section.querySelector(".employee-list");
+
+    list.innerHTML = "";
+
+    data.forEach(function(emp) {
+
+        var initials =
+            emp.empName
+            .split(" ")
+            .map(function(name) {
+                return name.charAt(0);
+            })
+            .join("")
+            .substring(0, 2)
+            .toUpperCase();
+
+        list.innerHTML += `
+
+            <div class="employee-row">
+
+                <div class="avatar">
+                    ${initials}
+                </div>
+
+                <div class="employee-info">
+
+                    <div class="employee-name">
+                        ${emp.empName}
+                    </div>
+
+                    <div class="employee-detail">
+                        ${emp.empId} | ${emp.designation} | ${emp.department}
+                    </div>
+
+                </div>
+
+                <div class="date-badge">
+                    ${emp.doj}
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================
+   WORK ANNIVERSARIES
+========================= */
+
+function renderAnniversaries(data) {
+
+    var section =
+        document.querySelectorAll(".dashboard-grid")[1]
+        .querySelectorAll(".dashboard-card")[0];
+
+    var list =
+        section.querySelector(".employee-list");
+
+    list.innerHTML = "";
+
+    data.forEach(function(emp) {
+
+        var initials =
+            emp.empName
+            .split(" ")
+            .map(function(name) {
+                return name.charAt(0);
+            })
+            .join("")
+            .substring(0, 2)
+            .toUpperCase();
+
+        list.innerHTML += `
+
+            <div class="employee-row">
+
+                <div class="avatar">
+                    ${initials}
+                </div>
+
+                <div class="employee-info">
+
+                    <div class="employee-name">
+                        ${emp.empName}
+                    </div>
+
+                    <div class="employee-detail">
+                        ${emp.empId} | ${emp.designation} | ${emp.department}
+                    </div>
+
+                </div>
+
+                <div class="anniversary-years">
+
+                    <span class="anniversary-number">
+                        ${emp.years}
+                    </span>
+
+                    <span class="anniversary-label">
+                        YEARS
+                    </span>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================
+   LOAD DATA
+========================= */
+
+loadDashboardHomeData();
+
+</script>
 
