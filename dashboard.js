@@ -303,19 +303,27 @@ function filterMonth() {
 
 function toggleMenu() {
     var menu = document.getElementById("sideMenu");
-    menu.classList.toggle("active");
-}
 
+    if (menu.classList.contains("active")) {
+        menu.classList.remove("active");
+    } else {
+        menu.classList.add("active");
+    }
+}
 
 document.addEventListener("click", function(event) {
 
     var menu = document.getElementById("sideMenu");
-    var menuButton = document.querySelector(".menu-dots");
+    var button = document.querySelector(".menu-dots");
+
+    if (!menu || !button) {
+        return;
+    }
 
     if (
         menu.classList.contains("active") &&
         !menu.contains(event.target) &&
-        !menuButton.contains(event.target)
+        event.target !== button
     ) {
         menu.classList.remove("active");
     }
