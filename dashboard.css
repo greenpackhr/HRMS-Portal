@@ -616,7 +616,9 @@ button:hover{
     background:#c62828 !important;
 }
 
-/* LEFT 3-DOT MENU */
+/* ==========================================
+   LEFT SIDE HRMS MENU
+========================================== */
 
 .menu-container {
     position: relative;
@@ -624,49 +626,171 @@ button:hover{
 }
 
 .menu-dots {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 30px;
+    background: transparent !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 28px !important;
     line-height: 1;
     cursor: pointer;
-    padding: 4px 10px;
+    padding: 4px 10px !important;
+    margin: 0 !important;
+    float: none !important;
+    border-radius: 6px !important;
 }
+
+.menu-dots:hover {
+    background: rgba(255,255,255,0.15) !important;
+}
+
+
+/* Side Menu */
 
 .side-menu {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 240px;
+    width: 260px;
     height: 100vh;
-    background: white;
-    box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+
+    background: #ffffff;
+
+    border-right: 1px solid #d6d6d6;
+
+    box-shadow: 5px 0 18px rgba(0,0,0,0.18);
+
     z-index: 9999;
-    padding-top: 70px;
+
+    padding: 0;
+
+    overflow-y: auto;
 }
+
+
+/* Menu Header */
+
+.side-menu::before {
+    content: "GREENPACK HRMS";
+
+    display: block;
+
+    background: linear-gradient(90deg,#0b7d3b,#16984d);
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    padding: 22px 20px;
+
+    letter-spacing: .4px;
+
+    border-bottom: 1px solid #0b6d35;
+}
+
+
+/* Menu Links */
 
 .side-menu a,
 .side-menu button {
-    display: block;
+
+    display: flex;
+
+    align-items: center;
+
     width: 100%;
+
+    min-height: 52px;
+
     box-sizing: border-box;
+
     padding: 14px 20px;
+
     text-align: left;
+
     text-decoration: none;
-    color: #222;
-    background: white;
+
+    color: #333333;
+
+    background: #ffffff;
+
     border: none;
+
+    border-bottom: 1px solid #e5e5e5;
+
     font-family: inherit;
+
     font-size: 15px;
+
+    font-weight: 500;
+
     cursor: pointer;
+
+    transition: all .2s ease;
+
 }
+
+
+/* Hover */
 
 .side-menu a:hover,
 .side-menu button:hover {
-    background: #f1f1f1;
+
+    background: #eaf7ef;
+
+    color: #0b7d3b;
+
+    padding-left: 25px;
+
 }
 
+
+/* Logout */
+
+.side-menu button:last-child {
+
+    margin-top: 15px;
+
+    border-top: 1px solid #dddddd;
+
+    border-bottom: 1px solid #dddddd;
+
+    color: #c62828;
+
+    background: #fffafa;
+
+}
+
+
+/* Logout Hover */
+
+.side-menu button:last-child:hover {
+
+    background: #ffebee;
+
+    color: #b71c1c;
+
+}
+
+
+/* Active Menu */
+
+.side-menu a:first-of-type {
+
+    color: #0b7d3b;
+
+    background: #eaf7ef;
+
+    font-weight: 600;
+
+    border-left: 4px solid #0b7d3b;
+
+}
+
+
+/* Open */
+
 .side-menu.active {
+
     display: block;
 }
