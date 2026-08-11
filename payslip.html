@@ -1,1 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Pay Slip</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f4f7f5;
+    color:#26332b;
+    min-height:100vh;
+}
+
+.header{
+    background:linear-gradient(135deg,#0f4d2d,#1b6b3a);
+    color:white;
+    padding:16px 30px;
+    position:relative;
+}
+
+.header h1{
+    font-size:24px;
+}
+
+.back-btn{
+    position:absolute;
+    right:25px;
+    top:14px;
+    padding:8px 15px;
+    border:none;
+    border-radius:8px;
+    background:#ffffff;
+    color:#1b6b3a;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.container{
+    max-width:900px;
+    margin:30px auto;
+    padding:0 20px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e0e7e2;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 7px 25px rgba(20,55,35,.08);
+}
+
+.employee-name{
+    font-size:18px;
+    font-weight:700;
+    color:#183c27;
+    margin-bottom:5px;
+}
+
+.employee-id{
+    font-size:13px;
+    color:#718077;
+    margin-bottom:20px;
+}
+
+.payslip-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+    border:1px solid #e5ebe7;
+    border-radius:10px;
+    background:#f8fbf9;
+    margin-bottom:10px;
+}
+
+.file-name{
+    font-size:14px;
+    font-weight:600;
+}
+
+.view-btn{
+    text-decoration:none;
+    background:#1b6b3a;
+    color:white;
+    padding:8px 14px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.message{
+    padding:15px;
+    text-align:center;
+    color:#718077;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+
+    <h1>💰 Pay Slip</h1>
+
+    <button class="back-btn"
+            onclick="window.location.href='dashboard.html'">
+        ← Back
+    </button>
+
+</div>
+
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="employee-name" id="employeeName">
+            Employee
+        </div>
+
+        <div class="employee-id" id="employeeId">
+        </div>
+
+        <div id="payslipList">
+
+            <div class="message">
+                Loading Pay Slip...
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const PAYSLIP_API =
+"https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
+
+
+var empId =
+    localStorage.getItem("empId");
+
+var empName =
+    localStorage.getItem("empName");
+
+
+document.getElementById("employeeName")
+    .textContent = empName || "Employee";
+
+document.getElementById("employeeId")
+    .textContent = "Employee ID: " + (empId || "");
+
+
+function loadPaySlip(){
+
+    var list =
+        document.getElementById("payslipList");
+
+    if(!empId){
+
+        list.innerHTML =
+            '<div class="message">Employee ID not found. Please login again.</div>';
+
+        return;
+    }
+
+
+    fetch(
+        PAYSLIP_API +
+        "?action=getPaySlip&empId=" +
+        encodeURIComponent(empId)
+    )
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        console.log("PAYSLIP DATA:", data);
+
+        if(
+            data.status !== "success" ||
+            !data.payslips ||
+            data.payslips.length === 0
+        ){
+
+            list.innerHTML =
+                '<div class="message">No Pay Slip Available</div>';
+
+            return;
+        }
+
+
+        list.innerHTML = "";
+
+
+        data.payslips.forEach(function(file){
+
+            list.innerHTML += `
+
+                <div class="payslip-row">
+
+                    <div class="file-name">
+                        ${file.fileName}
+                    </div>
+
+                    <a class="view-btn"
+                       href="${file.fileUrl}"
+                       target="_blank">
+                        View Pay Slip
+                    </a>
+
+                </div>
+
+            `;
+
+        });
+
+    })
+
+    .catch(error => {
+
+        console.error(
+            "PAYSLIP API ERROR:",
+            error
+        );
+
+        list.innerHTML =
+            '<div class="message">Unable to load Pay Slip</div>';
+
+    });
+
+}
+
+
+loadPaySlip();
+
+</script>
+
+</body>
+</html>
