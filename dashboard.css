@@ -1351,3 +1351,20 @@ body{
         justify-content:flex-start;
     }
 }
+
+/* ==========================================
+   ATTENDANCE TABLE BORDER
+========================================== */
+
+.attendance-table{
+    border-collapse: collapse;
+    border: 1px solid #cfd8d2;
+}
+
+.attendance-table thead th{
+    border: 1px solid #cfd8d2 !important;
+}
+
+.attendance-table tbody td{
+    border: 1px solid #d9e1dc !important;
+}
