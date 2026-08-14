@@ -204,7 +204,6 @@ function displayAttendance(data) {
     data.forEach(row => {
 
         let tr = document.createElement("tr");
-        tr.className = rowClass;
 
         let statusClass = "";
 let rowClass = "";
