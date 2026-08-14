@@ -206,50 +206,53 @@ function displayAttendance(data) {
         let tr = document.createElement("tr");
 
         let statusClass = "";
+let rowClass = "";
 
-        switch (row.status) {
+switch (row.status) {
 
-            case "P":
-                statusClass = "status-p";
-                break;
+    case "P":
+        statusClass = "status-p";
+        rowClass = "row-present";
+        break;
 
-            case "A":
-                statusClass = "status-a";
-                break;
+    case "A":
+        statusClass = "status-a";
+        rowClass = "row-absent";
+        break;
 
-            case "P | A":
-            case "A | P":
-                statusClass = "status-halfday";
-                break;
+    case "P | A":
+    case "A | P":
+        statusClass = "status-halfday";
+        rowClass = "row-halfday";
+        break;
 
-            case "WO":
-                statusClass = "status-wo";
-                break;
+    case "WO":
+        statusClass = "status-wo";
+        rowClass = "row-wo";
+        break;
 
-            case "PH":
-                statusClass = "status-ph";
-                break;
+    case "PH":
+        statusClass = "status-ph";
+        rowClass = "row-ph";
+        break;
 
-            case "CL":
-                statusClass = "status-cl";
-                break;
+    case "CL":
+    case "SL":
+    case "PL":
+    case "OD":
+        statusClass =
+            row.status === "CL" ? "status-cl" :
+            row.status === "SL" ? "status-sl" :
+            row.status === "PL" ? "status-pl" :
+            "status-od";
 
-            case "SL":
-                statusClass = "status-sl";
-                break;
+        rowClass = "row-leave";
+        break;
 
-            case "PL":
-                statusClass = "status-pl";
-                break;
-
-            case "OD":
-                statusClass = "status-od";
-                break;
-
-            default:
-                statusClass = "status-default";
-        }
-
+    default:
+        statusClass = "status-default";
+        rowClass = "";
+}
         tr.innerHTML =
             `<td>${row.shiftDate}</td>
              <td>${row.schedule}</td>
