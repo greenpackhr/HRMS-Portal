@@ -212,9 +212,9 @@ let rowClass = "";
 switch (row.status) {
 
     case "P":
-        statusClass = "status-p";
-        rowClass = "row-present";
-        break;
+    statusClass = "status-p";
+    rowClass = "row-present";
+    break;
 
     case "A":
         statusClass = "status-a";
