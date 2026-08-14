@@ -24,7 +24,7 @@ localStorage.setItem("role", data.role);
 
             alert("Login Successful");
 
-            window.location.href = "dashboard.html";
+            window.location.href = "dashboard-home.html";
 
         } else {
 
