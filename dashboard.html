@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Greenpack HRMS Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="dashboard.css">
+    <title>Greenpack HRMS Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
 
 </head>
 
@@ -13,199 +16,307 @@
 <body>
 
 
+<!-- =========================
+     TOP HEADER
+========================= -->
+
 <div class="header">
 
     <div class="menu-container">
 
-    <button class="menu-dots" onclick="toggleMenu()">
-        ☰
-    </button>
+        <button class="menu-dots" onclick="toggleMenu()">
+            ☰
+        </button>
 
-    <div class="side-menu" id="sideMenu">
+        <div class="side-menu" id="sideMenu">
 
-        <a href="dashboard-home.html">
-    🏠 Dashboard
-</a>
+            <a href="dashboard-home.html">
+                🏠 Dashboard
+            </a>
 
-<a href="dashboard.html">
-    📊 Attendance
-</a>
+            <a href="dashboard.html">
+                📊 Attendance
+            </a>
+
+            <a href="leave.html">
+                📝 Apply Leave
+            </a>
+
+            <a href="leave.html#leaveHistory">
+                📋 Leave History
+            </a>
+
+            <a href="payslip.html">
+                💰 Pay Slip
+            </a>
+
+            <a href="#">
+                👤 My Profile
+            </a>
+
+            <button onclick="logout()">
+                🚪 Logout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-left">
+
+        <h1>GREENPACK HRMS</h1>
+
+        <p>
+            Employee Attendance Portal
+        </p>
+
+    </div>
+
+
+    <div class="header-menu">
 
         <a href="leave.html">
-            📝 Apply Leave
+            📝 Leave
         </a>
 
-        <a href="leave.html#leaveHistory">
-    📋 Leave History
-</a>
-
-        <a href="payslip.html">
-    💰 Pay Slip
-</a>
-
-        <a href="#">
-            👤 My Profile
+        <a href="hr-leave.html"
+           id="leaveApprovalBtn"
+           style="display:none;">
+            ✅ Leave Approval
         </a>
 
-        <button onclick="logout()">
-            🚪 Logout
+        <button class="logout-btn"
+                onclick="logout()">
+            Logout
         </button>
 
     </div>
 
 </div>
-    <div class="header-left">
-        <h1>Greenpack HRMS</h1>
-        <p>Employee Attendance Portal</p>
-    </div>
-
-    <div class="header-menu">
-
-    <a href="leave.html">
-        📝 Leave
-    </a>
-
-    <a href="hr-leave.html" id="leaveApprovalBtn" style="display:none;">
-        ✅ Leave Approval
-    </a>
-
-    <button class="logout-btn" onclick="logout()">
-        Logout
-    </button>
-
-</div>
-
-</div>
 
 
+
+<!-- =========================
+     MAIN
+========================= -->
 
 <div class="container">
 
 
-<div class="welcome">
+    <!-- WELCOME -->
 
-<h2>
-Welcome, <span id="empName">Employee</span>
-</h2>
+    <div class="welcome-card">
 
-</div>
+        <div class="welcome-avatar">
+            👤
+        </div>
 
+        <div class="welcome-text">
 
+            <span class="welcome-small">
+                Good Morning, 👋
+            </span>
 
-<div class="employee-card">
+            <h2>
+                <span id="empName">Employee</span>
+            </h2>
 
+            <p>
+                Have a productive day!
+            </p>
 
-<div>
-<label>Employee ID</label>
-<h3 id="empId"></h3>
-</div>
+        </div>
 
+        <div class="welcome-art">
+            📊
+        </div>
 
-<div>
-<label>Department</label>
-<h3 id="department">-</h3>
-</div>
-
-
-<div>
-<label>Designation</label>
-<h3 id="designation">-</h3>
-</div>
-
-
-</div>
-
-
-
-
-<div class="summary">
-
-    <div class="box present-card">
-            <h2 id="present">0</h2>
-        <p>Present</p>
     </div>
 
-    <div class="box absent-card">
-            <h2 id="absent">0</h2>
-        <p>Absent</p>
+
+
+    <!-- EMPLOYEE DETAILS -->
+
+    <div class="employee-card">
+
+        <div class="employee-detail-card">
+
+            <div class="detail-icon">
+                🪪
+            </div>
+
+            <div>
+                <label>Employee ID</label>
+                <h3 id="empId"></h3>
+            </div>
+
+        </div>
+
+
+        <div class="employee-detail-card">
+
+            <div class="detail-icon">
+                🏢
+            </div>
+
+            <div>
+                <label>Department</label>
+                <h3 id="department">-</h3>
+            </div>
+
+        </div>
+
+
+        <div class="employee-detail-card">
+
+            <div class="detail-icon">
+                💼
+            </div>
+
+            <div>
+                <label>Designation</label>
+                <h3 id="designation">-</h3>
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="box wo-card">
-            <h2 id="wo">0</h2>
-        <p>Weekly Off</p>
-    </div>
 
-    <div class="box payday-card">
+
+    <!-- SUMMARY -->
+
+    <div class="summary">
+
+        <div class="box present-card">
+
+            <div class="summary-icon">
+                👥
+            </div>
+
+            <div class="summary-content">
+                <h2 id="present">0</h2>
+                <p>Present</p>
+            </div>
+
+        </div>
+
+
+        <div class="box absent-card">
+
+            <div class="summary-icon">
+                👤
+            </div>
+
+            <div class="summary-content">
+                <h2 id="absent">0</h2>
+                <p>Absent</p>
+            </div>
+
+        </div>
+
+
+        <div class="box wo-card">
+
+            <div class="summary-icon">
+                📅
+            </div>
+
+            <div class="summary-content">
+                <h2 id="wo">0</h2>
+                <p>Weekly Off</p>
+            </div>
+
+        </div>
+
+
+        <div class="box payday-card">
+
+            <div class="summary-icon">
+                💳
+            </div>
+
+            <div class="summary-content">
                 <h2 id="payday">0</h2>
-        <p>Pay Days</p>
+                <p>Pay Days</p>
+            </div>
+
+        </div>
+
     </div>
 
+
+
+    <!-- ATTENDANCE -->
+
+    <div class="attendance-card">
+
+
+        <div class="attendance-header">
+
+            <h2>
+                📅 Attendance Details
+            </h2>
+
+
+            <div class="month-filter">
+
+                <label>
+                    Select Month:
+                </label>
+
+                <select id="monthSelect"
+                        onchange="filterMonth()">
+
+                    <option value="all">
+                        All Months
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="attendance-container">
+
+            <table class="attendance-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Date</th>
+                        <th>Schedule</th>
+                        <th>In Time</th>
+                        <th>Out Time</th>
+                        <th>Work Time</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="attendanceTable">
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </div>
+
+
 </div>
-
-
-
-
-
-
-<h2>Attendance Details</h2>
-
-    <div class="month-filter">
-
-<label>Select Month:</label>
-
-<select id="monthSelect" onchange="filterMonth()">
-    <option value="all">All Months</option>
-</select>
-
-</div>    
-
-
-<div class="attendance-container">
-
-<table class="attendance-table">
-
-
-<thead>
-
-<tr>
-
-<th>Date</th>
-<th>Schedule</th>
-<th>In Time</th>
-<th>Out Time</th>
-<th>Work Time</th>
-<th>Status</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="attendanceTable">
-
-
-</tbody>
-
-
-</table>
-
-</div>
-
-
-
-
-
-
-
-
-
-</div>
-
 
 
 <script src="dashboard.js?v=2"></script>
 
 
 </body>
-
 </html>
