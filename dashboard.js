@@ -253,6 +253,7 @@ switch (row.status) {
         statusClass = "status-default";
         rowClass = "";
 }
+        tr.className = rowClass;
         tr.innerHTML =
             `<td>${row.shiftDate}</td>
              <td>${row.schedule}</td>
