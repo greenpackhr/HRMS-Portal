@@ -1322,6 +1322,14 @@ function renderNotices(data) {
     });
 
 }
+    function toggleMenu() {
+    document.getElementById("sideMenu").classList.toggle("show");
+}
+
+function logout() {
+    localStorage.clear();
+    window.location.href = "index.html";
+}
 loadDashboardHomeData();
 
 </script>
