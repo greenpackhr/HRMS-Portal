@@ -1214,7 +1214,14 @@ document.addEventListener("click", function(event) {
 
 });
 
+function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("active");
+    document.getElementById("menuOverlay").classList.remove("active");
+}
 
+document.getElementById("menuOverlay").addEventListener("click", function() {
+    closeMenu();
+});
 function logout() {
     localStorage.clear();
     window.location.href = "index.html";
