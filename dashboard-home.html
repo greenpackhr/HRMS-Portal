@@ -1262,5 +1262,71 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+ /* =========================
+   PAID HOLIDAYS 2026
+========================= */
+
+var paidHolidays2026 = [
+    { day: 26, month: 0, name: "Republic Day" },
+    { day: 3,  month: 2, name: "Holi - Dhulivandan" },
+    { day: 1,  month: 4, name: "Maharashtra Day" },
+    { day: 15, month: 7, name: "Independence Day" },
+    { day: 2,  month: 9, name: "Mahatma Gandhi Jayanti" },
+    { day: 20, month: 9, name: "Dussera" },
+    { day: 9,  month: 10, name: "Diwali" },
+    { day: 10, month: 10, name: "Diwali - Padwa" },
+    { day: 11, month: 10, name: "Diwali - Bhaubeej" }
+];
+
+function renderCurrentMonthHolidays() {
+
+    var holidayList = document.getElementById("holidayList");
+
+    if (!holidayList) return;
+
+    var today = new Date();
+    var currentMonth = today.getMonth();
+    var currentYear = today.getFullYear();
+
+    holidayList.innerHTML = "";
+
+    if (currentYear !== 2026) {
+        return;
+    }
+
+    var monthNames = [
+        "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+        "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+    ];
+
+    var holidays = paidHolidays2026.filter(function(holiday) {
+        return holiday.month === currentMonth;
+    });
+
+    holidays.forEach(function(holiday) {
+
+        holidayList.innerHTML += `
+            <div class="holiday-item">
+
+                <div class="holiday-date">
+                    <span class="holiday-day">${holiday.day}</span>
+                    <span class="holiday-month">${monthNames[holiday.month]}</span>
+                </div>
+
+                <div class="holiday-info">
+                    <div class="holiday-name">${holiday.name}</div>
+                    <div class="holiday-type">Paid Holiday</div>
+                </div>
+
+                <div class="paid-badge">
+                    PAID
+                </div>
+
+            </div>
+        `;
+    });
+}
+
+renderCurrentMonthHolidays();   
 </script>
 
