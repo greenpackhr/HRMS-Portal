@@ -1287,6 +1287,19 @@ function logout() {
 }
 
 loadDashboardHomeData();
+document.addEventListener("DOMContentLoaded", function () {
 
+    var now = new Date();
+
+    var monthYear = now.toLocaleString("en-US", {
+        month: "long",
+        year: "numeric"
+    }).toUpperCase();
+
+    document.querySelectorAll(".currentMonthYear").forEach(function(element) {
+        element.textContent = monthYear;
+    });
+
+});
 </script>
 
