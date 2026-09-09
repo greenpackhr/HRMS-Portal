@@ -995,7 +995,25 @@ renderAnniversaries(data.anniversaries);
 /* =========================
    BIRTHDAYS
 ========================= */
+function formatBirthday(value) {
 
+    if (!value) return "";
+
+    var date = new Date(value);
+
+    if (isNaN(date.getTime())) {
+        return value;
+    }
+
+    var day = String(date.getDate()).padStart(2, "0");
+
+    var months = [
+        "Jan","Feb","Mar","Apr","May","Jun",
+        "Jul","Aug","Sep","Oct","Nov","Dec"
+    ];
+
+    return day + " " + months[date.getMonth()];
+}
 function renderBirthdays(data) {
 
     var section =
