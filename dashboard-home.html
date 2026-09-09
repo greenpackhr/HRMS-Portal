@@ -1189,9 +1189,11 @@ function renderNotices(data) {
         event.stopPropagation();
     }
 
-    document
-        .getElementById("sideMenu")
-        .classList.toggle("active");
+    var sideMenu = document.getElementById("sideMenu");
+    var overlay = document.getElementById("menuOverlay");
+
+    sideMenu.classList.toggle("active");
+    overlay.classList.toggle("active");
 }
 
 
