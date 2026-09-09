@@ -1195,22 +1195,6 @@ function renderNotices(data) {
 }
 
 
-// CLOSE SIDEBAR WHEN CLICKING OUTSIDE
-document.addEventListener("click", function(event) {
-
-    var sideMenu = document.getElementById("sideMenu");
-    var menuButton = document.querySelector(".menu-dots");
-
-    if (
-        sideMenu.classList.contains("active") &&
-        !sideMenu.contains(event.target) &&
-        !menuButton.contains(event.target)
-    ) {
-
-        sideMenu.classList.remove("active");
-    }
-
-});
 
 function closeMenu() {
     document.getElementById("sideMenu").classList.remove("active");
