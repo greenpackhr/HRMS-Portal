@@ -558,6 +558,17 @@ body {
     background: #d5eddd;
     color: #0b7d3b;
 }
+    .side-menu a:not(.logout-menu)::after {
+    content: "›";
+    margin-left: auto;
+    font-size: 22px;
+    color: #9aa7a0;
+}
+
+.side-menu a:not(.logout-menu):hover::after,
+.side-menu a.active-menu::after {
+    color: #0b7d3b;
+}
     .side-menu .logout-menu {
     margin-top: 18px;
     color: #c62828;
