@@ -1168,13 +1168,41 @@ function renderNotices(data) {
     });
 
 }
-    function toggleMenu() {
-    document.getElementById("sideMenu").classList.toggle("active");
+    function toggleMenu(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    document
+        .getElementById("sideMenu")
+        .classList.toggle("active");
 }
+
+
+// CLOSE SIDEBAR WHEN CLICKING OUTSIDE
+document.addEventListener("click", function(event) {
+
+    var sideMenu = document.getElementById("sideMenu");
+    var menuButton = document.querySelector(".menu-dots");
+
+    if (
+        sideMenu.classList.contains("active") &&
+        !sideMenu.contains(event.target) &&
+        !menuButton.contains(event.target)
+    ) {
+
+        sideMenu.classList.remove("active");
+    }
+
+});
+
+
 function logout() {
     localStorage.clear();
     window.location.href = "index.html";
 }
+
 loadDashboardHomeData();
 
 </script>
