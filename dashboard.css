@@ -716,15 +716,10 @@ button:hover{
 
 .side-menu a:hover,
 .side-menu button:hover {
-
     background: #eaf7ef;
-
     color: #0b7d3b;
-
-    padding-left: 25px;
-
+    transform: translateX(3px);
 }
-
 
 /* Logout */
 
