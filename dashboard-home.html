@@ -487,55 +487,21 @@ body {
 
 .side-menu {
     display: block;
+transform: translateX(-100%);
+transition: transform 0.3s ease;
     position: fixed;
     top: 0;
     left: 0;
     width: 300px;
     height: 100vh;
     background: #ffffff;
-    border-right: 1px solid #e2e8e5;
+    border-right: 1px solid #d6d6d6;
     box-shadow: 8px 0 30px rgba(0,0,0,0.16);
     z-index: 9999;
     padding: 0;
     overflow-y: auto;
-
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-}
-    /* SIDEBAR BRAND HEADER */
-
-.sidebar-brand {
-    min-height: 125px;
-    padding: 22px 20px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    background: linear-gradient(135deg, #087a40, #079b50);
-    color: #ffffff;
 }
 
-.brand-leaf {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 31px;
-    line-height: 1;
-}
-
-.brand-title {
-    font-size: 21px;
-    font-weight: 800;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-}
-
-.sidebar-links {
-    padding: 14px 12px 24px;
-}
 .side-menu::before {
     content: "GREENPACK HRMS\A HUMAN RESOURCE MANAGEMENT";
     white-space: pre-line;
@@ -557,41 +523,28 @@ body {
 .side-menu button {
     display: flex;
     align-items: center;
-    gap: 14px;
-
     width: 100%;
-    min-height: 66px;
+    min-height: 52px;
     box-sizing: border-box;
-
-    padding: 8px 14px;
-    margin: 3px 0;
-
+    padding: 14px 20px;
     text-align: left;
     text-decoration: none;
-
-    color: #172235;
-    background: transparent;
-
+    color: #333333;
+    background: #ffffff;
     border: none;
-    border-radius: 13px;
-
+    border-bottom: 1px solid #e5e5e5;
     font-family: inherit;
     font-size: 15px;
-    font-weight: 600;
-
+    font-weight: 500;
     cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
+    transition: all .2s ease;
 }
 
 .side-menu a:hover,
 .side-menu button:hover {
-    background: #f1f8f4;
+    background: #eaf7ef;
     color: #0b7d3b;
-    transform: translateX(2px);
+    padding-left: 25px;
 }
 
 .side-menu button:last-child {
@@ -616,93 +569,14 @@ body {
 
 /* all your colorful menu CSS must be here */
 .side-menu a.active-menu {
-    background: linear-gradient(90deg, #e7f7ee, #f2faf5);
-    color: #078644;
+    background: #e7f5ec;
+    color: #0b7d3b;
     font-weight: 700;
-    border-radius: 13px;
 }
+
 .side-menu a.active-menu .menu-icon {
     background: #d5eddd;
     color: #0b7d3b;
-}
-    /* ===== COLORFUL SIDEBAR ICONS ===== */
-
-.side-menu .menu-icon {
-    width: 42px;
-    height: 42px;
-    min-width: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 11px;
-
-    color: #ffffff !important;
-    font-size: 20px;
-    font-weight: 700;
-
-    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-}
-
-/* Dashboard - Green */
-.side-menu .dashboard-icon {
-    background: linear-gradient(135deg, #079447, #00b45b) !important;
-}
-
-/* Attendance - Blue */
-.side-menu .attendance-icon {
-    background: linear-gradient(135deg, #1769e8, #3088ff) !important;
-}
-
-/* Apply Leave - Orange */
-.side-menu .apply-icon {
-    background: linear-gradient(135deg, #ff8a00, #ffae24) !important;
-}
-
-/* Leave History - Purple */
-.side-menu .history-icon {
-    background: linear-gradient(135deg, #7026d9, #9747ed) !important;
-}
-
-/* Pay Slip - Red */
-.side-menu .payslip-icon {
-    background: linear-gradient(135deg, #df3045, #fa5365) !important;
-}
-
-/* My Profile - Cyan */
-.side-menu .profile-icon {
-    background: linear-gradient(135deg, #009caf, #13bdcf) !important;
-}
-
-/* Logout - Red */
-.side-menu .logout-icon {
-    background: linear-gradient(135deg, #df1725, #fa303d) !important;
-}
-
-/* Keep active page icon colorful */
-.side-menu a.active-menu .menu-icon {
-    color: #ffffff !important;
-}
-    .brand-leaf svg {
-    width: 48px;
-    height: 48px;
-    display: block;
-}
-
-.side-menu .menu-icon svg {
-    width: 24px;
-    height: 24px;
-    fill: none;
-    stroke: #ffffff;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.side-menu .dashboard-icon svg {
-    fill: #ffffff;
-    stroke: #ffffff;
 }
     .side-menu a:not(.logout-menu)::after {
     content: "›";
@@ -715,60 +589,77 @@ body {
 .side-menu a.active-menu::after {
     color: #0b7d3b;
 }
+    .side-menu .logout-menu {
+    margin-top: 18px;
+    color: #c62828;
+    background: #fff5f5;
+}
+
+.side-menu .logout-menu:hover {
+    background: #ffebee;
+    color: #b71c1c;
+}
+
+.side-menu .logout-menu .logout-icon {
+    background: #fde8e8;
+    color: #c62828;
+}
+</style>
+
+</head>
+
+<body>
+    
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="dashboard-header">
+    <div class="menu-container">
+
+    <button class="menu-dots" onclick="toggleMenu(event)">
+    ☰
+</button>
+
     <div class="side-menu" id="sideMenu">
 
-    <div class="sidebar-brand">
-        <div class="brand-leaf">🌿</div>
-        <div class="brand-title">GREENPACK HRMS</div>
-    </div>
+    <a href="dashboard-home.html" class="active-menu">
+        <span class="menu-icon dashboard-icon">▦</span>
+        <span>Dashboard</span>
+    </a>
 
-    <div class="sidebar-links">
+    <a href="dashboard.html">
+        <span class="menu-icon attendance-icon">✓</span>
+        <span>Attendance</span>
+    </a>
 
-        <a href="dashboard-home.html" class="active-menu">
-            <span class="menu-icon dashboard-icon">⌂</span>
-            <span>Dashboard</span>
-            <span class="menu-arrow">›</span>
-        </a>
+    <a href="leave.html">
+        <span class="menu-icon apply-icon">＋</span>
+        <span>Apply Leave</span>
+    </a>
 
-        <a href="dashboard.html">
-            <span class="menu-icon attendance-icon">▣</span>
-            <span>Attendance</span>
-            <span class="menu-arrow">›</span>
-        </a>
+    <a href="leave.html#leaveHistory">
+        <span class="menu-icon history-icon">≡</span>
+        <span>Leave History</span>
+    </a>
 
-        <a href="leave.html">
-            <span class="menu-icon apply-icon">＋</span>
-            <span>Apply Leave</span>
-            <span class="menu-arrow">›</span>
-        </a>
+    <a href="payslip.html">
+        <span class="menu-icon payslip-icon">₹</span>
+        <span>Pay Slip</span>
+    </a>
 
-        <a href="leave.html#leaveHistory">
-            <span class="menu-icon history-icon">☷</span>
-            <span>Leave History</span>
-            <span class="menu-arrow">›</span>
-        </a>
+    <a href="#">
+        <span class="menu-icon profile-icon">♙</span>
+        <span>My Profile</span>
+    </a>
 
-        <a href="payslip.html">
-            <span class="menu-icon payslip-icon">₹</span>
-            <span>Pay Slip</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="#">
-            <span class="menu-icon profile-icon">●</span>
-            <span>My Profile</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-        <a href="#" onclick="logout()" class="logout-menu">
-            <span class="menu-icon logout-icon">↪</span>
-            <span>Logout</span>
-            <span class="menu-arrow">›</span>
-        </a>
-
-    </div>
+    <a href="#" onclick="logout()" class="logout-menu">
+        <span class="menu-icon logout-icon">↳</span>
+        <span>Logout</span>
+    </a>
 
 </div>
+
 </div> <!-- closes menu-container -->
 
 <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
@@ -1380,8 +1271,10 @@ function renderCurrentMonthHolidays() {
     ];
 
     var holidays = paidHolidays2026;
+        return holiday.month === currentMonth;
+    });
 
-holidays.forEach(function(holiday) {
+    holidays.forEach(function(holiday) {
 
         holidayList.innerHTML += `
             <div class="holiday-item">
@@ -1407,4 +1300,3 @@ holidays.forEach(function(holiday) {
 
 renderCurrentMonthHolidays();   
 </script>
-
