@@ -557,28 +557,41 @@ body {
 .side-menu button {
     display: flex;
     align-items: center;
+    gap: 14px;
+
     width: 100%;
-    min-height: 52px;
+    min-height: 66px;
     box-sizing: border-box;
-    padding: 14px 20px;
+
+    padding: 8px 14px;
+    margin: 3px 0;
+
     text-align: left;
     text-decoration: none;
-    color: #333333;
-    background: #ffffff;
+
+    color: #172235;
+    background: transparent;
+
     border: none;
-    border-bottom: 1px solid #e5e5e5;
+    border-radius: 13px;
+
     font-family: inherit;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
+
     cursor: pointer;
-    transition: all .2s ease;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .side-menu a:hover,
 .side-menu button:hover {
-    background: #eaf7ef;
+    background: #f1f8f4;
     color: #0b7d3b;
-    padding-left: 25px;
+    transform: translateX(2px);
 }
 
 .side-menu button:last-child {
