@@ -625,6 +625,65 @@ body {
     background: #d5eddd;
     color: #0b7d3b;
 }
+    /* ===== COLORFUL SIDEBAR ICONS ===== */
+
+.side-menu .menu-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    color: #ffffff !important;
+    font-size: 20px;
+    font-weight: 700;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+/* Dashboard - Green */
+.side-menu .dashboard-icon {
+    background: linear-gradient(135deg, #079447, #00b45b) !important;
+}
+
+/* Attendance - Blue */
+.side-menu .attendance-icon {
+    background: linear-gradient(135deg, #1769e8, #3088ff) !important;
+}
+
+/* Apply Leave - Orange */
+.side-menu .apply-icon {
+    background: linear-gradient(135deg, #ff8a00, #ffae24) !important;
+}
+
+/* Leave History - Purple */
+.side-menu .history-icon {
+    background: linear-gradient(135deg, #7026d9, #9747ed) !important;
+}
+
+/* Pay Slip - Red */
+.side-menu .payslip-icon {
+    background: linear-gradient(135deg, #df3045, #fa5365) !important;
+}
+
+/* My Profile - Cyan */
+.side-menu .profile-icon {
+    background: linear-gradient(135deg, #009caf, #13bdcf) !important;
+}
+
+/* Logout - Red */
+.side-menu .logout-icon {
+    background: linear-gradient(135deg, #df1725, #fa303d) !important;
+}
+
+/* Keep active page icon colorful */
+.side-menu a.active-menu .menu-icon {
+    color: #ffffff !important;
+}
     .side-menu a:not(.logout-menu)::after {
     content: "›";
     margin-left: auto;
