@@ -1271,10 +1271,8 @@ function renderCurrentMonthHolidays() {
     ];
 
     var holidays = paidHolidays2026;
-        return holiday.month === currentMonth;
-    });
 
-    holidays.forEach(function(holiday) {
+holidays.forEach(function(holiday) {
 
         holidayList.innerHTML += `
             <div class="holiday-item">
