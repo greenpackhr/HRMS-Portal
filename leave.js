@@ -590,9 +590,11 @@ window.onload = function() {
 
             box.style.display = "block";
 
-            fetch(
-                API_URL + "?action=getEmployeeList"
-            )
+            console.log("EMPLOYEE API URL:", API_URL + "?action=getEmployeeList");
+
+fetch(
+    API_URL + "?action=getEmployeeList"
+)
 
             .then(res => res.json())
 
