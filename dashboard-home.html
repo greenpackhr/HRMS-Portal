@@ -1294,9 +1294,9 @@ function renderCurrentMonthHolidays() {
         "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
     ];
 
-    var holidays = paidHolidays2026;
-        return holiday.month === currentMonth;
-    });
+    var holidays = paidHolidays2026.filter(function(holiday) {
+    return holiday.month === currentMonth;
+});
 
     holidays.forEach(function(holiday) {
 
