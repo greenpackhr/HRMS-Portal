@@ -1331,28 +1331,19 @@ renderCurrentMonthHolidays();
    SUPERUSER LEAVE APPROVAL MENU
 ========================= */
 
-(function () {
+setTimeout(function () {
 
     var role = localStorage.getItem("role");
 
-    console.log("Logged-in role:", role);
+    var menu = document.getElementById("hrLeaveApprovalMenu");
 
-    var menu =
-        document.getElementById("hrLeaveApprovalMenu");
+    console.log("Role:", role);
+    console.log("Menu:", menu);
 
-    if (!menu) {
-        console.log("Leave Approval menu not found");
-        return;
-    }
-
-    if (
-        role &&
-        role.toString().trim().toLowerCase() === "superuser"
-    ) {
+    if (menu && role === "Superuser") {
         menu.style.display = "flex";
-        console.log("Leave Approval menu displayed");
-    } else {
-        console.log("Role is not Superuser");
+        menu.style.visibility = "visible";
+        menu.style.opacity = "1";
     }
 
-})();
+}, 500);
