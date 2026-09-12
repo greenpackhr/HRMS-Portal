@@ -579,4 +579,57 @@ window.onload = function() {
     loadLeaveHistory();
     loadLeaveBalance();
 
+    const role = localStorage.getItem("role");
+
+    if (role === "Superuser") {
+
+        const box = document.getElementById("employeeSelectBox");
+        const select = document.getElementById("employeeSelect");
+
+        if (box && select) {
+
+            box.style.display = "block";
+
+            fetch(
+                API_URL + "?action=getEmployeeList"
+            )
+
+            .then(res => res.json())
+
+            .then(data => {
+
+                console.log("EMPLOYEE LIST:", data);
+
+                if (data.status !== "success") {
+                    alert("Unable to load employee list.");
+                    return;
+                }
+
+                data.employees.forEach(function(employee) {
+
+                    const option = document.createElement("option");
+
+                    option.value = employee.empId;
+
+                    option.textContent =
+                        employee.empId + " - " + employee.empName;
+
+                    select.appendChild(option);
+
+                });
+
+            })
+
+            .catch(error => {
+
+                console.log("Employee List Error:", error);
+
+                alert("Unable to load employee list.");
+
+            });
+
+        }
+
+    }
+
 };
