@@ -1328,27 +1328,31 @@ function renderCurrentMonthHolidays() {
 renderCurrentMonthHolidays();   
 </script>
 /* =========================
-   HR LEAVE APPROVAL MENU
+   SUPERUSER LEAVE APPROVAL MENU
 ========================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
 
     var role = localStorage.getItem("role");
 
-    var hrLeaveApprovalMenu =
+    console.log("Logged-in role:", role);
+
+    var menu =
         document.getElementById("hrLeaveApprovalMenu");
 
-    if (!hrLeaveApprovalMenu) {
+    if (!menu) {
+        console.log("Leave Approval menu not found");
         return;
     }
-
-    /* Show Leave Approval only for Superuser */
 
     if (
         role &&
         role.toString().trim().toLowerCase() === "superuser"
     ) {
-        hrLeaveApprovalMenu.style.display = "flex";
+        menu.style.display = "flex";
+        console.log("Leave Approval menu displayed");
+    } else {
+        console.log("Role is not Superuser");
     }
 
-});
+})();
