@@ -30,8 +30,31 @@ function calculateDays(fromDate, toDate) {
 
 function applyLeave() {
 
-    const empId = localStorage.getItem("empId");
-    const empName = localStorage.getItem("empName");
+    let empId = localStorage.getItem("empId");
+let empName = localStorage.getItem("empName");
+
+const role = localStorage.getItem("role");
+
+if (role === "Superuser") {
+
+    const employeeSelect =
+        document.getElementById("employeeSelect");
+
+    if (!employeeSelect || !employeeSelect.value) {
+
+        alert("Please select an employee.");
+
+        return;
+    }
+
+    empId = employeeSelect.value;
+
+    empName =
+        employeeSelect.options[
+            employeeSelect.selectedIndex
+        ].text.split(" - ").slice(1).join(" - ");
+
+}
     const orgId = localStorage.getItem("orgId");
 
     const leaveType =
