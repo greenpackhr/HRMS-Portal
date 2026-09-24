@@ -1329,30 +1329,12 @@ renderCurrentMonthHolidays();
    SUPERUSER LEAVE APPROVAL MENU
 ========================= */
 
-setTimeout(function () {
+var role = localStorage.getItem("role");
+var menu = document.getElementById("hrLeaveApprovalMenu");
 
-    var role = localStorage.getItem("role");
-
-    var menu = document.getElementById("hrLeaveApprovalMenu");
-
-    console.log("Role:", role);
-    console.log("Menu:", menu);
-
-    if (menu && role === "Superuser") {
-        menu.style.display = "flex";
-        menu.style.visibility = "visible";
-        menu.style.opacity = "1";
-    }
-
-}, 500);
 if (menu && role === "Superuser") {
     menu.style.display = "flex";
-    menu.style.visibility = "visible";
-    menu.style.opacity = "1";
 }
-
-}, 500);
-
 
 
 </script>
