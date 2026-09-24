@@ -614,13 +614,32 @@ window.onload = function() {
 
         if (box && select) {
 
-            box.style.display = "block";
+    box.style.display = "block";
 
-            console.log("EMPLOYEE API URL:", API_URL + "?action=getEmployeeList");
+    select.addEventListener("change", function() {
 
-fetch(
-    API_URL + "?action=getEmployeeList"
-)
+        const selectedEmpId = this.value;
+
+        if (!selectedEmpId) {
+            return;
+        }
+
+        console.log(
+            "Selected Employee:",
+            selectedEmpId
+        );
+
+        loadLeaveBalance(selectedEmpId);
+
+        loadLeaveHistory(selectedEmpId);
+
+    });
+
+    console.log("EMPLOYEE API URL:", API_URL + "?action=getEmployeeList");
+
+    fetch(
+        API_URL + "?action=getEmployeeList"
+    )
 
             .then(res => res.json())
 
