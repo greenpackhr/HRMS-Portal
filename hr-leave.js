@@ -68,91 +68,203 @@ function loadLeaves(){
         console.log("Leave Data:", data);
 
         if(!Array.isArray(data)){
-
             console.error("Invalid Leave Data Received");
-
             return;
         }
 
-        // Convert current data into a comparable string
         let currentLeaveData = JSON.stringify(data);
 
-        // If nothing changed, don't redraw the table
         if(currentLeaveData === lastLeaveData){
-
             console.log("No leave data changes");
-
             return;
         }
 
-        console.log("Leave data changed - updating table");
+        console.log("Leave data changed - updating cards");
 
-        let table = document.getElementById("leaveTable");
+        let container = document.getElementById("leaveTable");
+        let pendingCount = document.getElementById("pendingCount");
 
-        table.innerHTML = "";
+        container.innerHTML = "";
 
-        data.forEach(row => {
+        let pending = 0;
+
+        data.forEach(function(row) {
 
             let status = String(row.status || "").trim();
+
+            if(status.toLowerCase() === "pending"){
+                pending++;
+            }
+
+            let initials = String(row.empName || "")
+                .split(" ")
+                .map(function(name){
+                    return name.charAt(0);
+                })
+                .join("")
+                .substring(0,2)
+                .toUpperCase();
 
             let action = "";
 
             if(status.toLowerCase() === "pending"){
 
                 action = `
+                    <div class="action-buttons">
 
-                <button onclick="updateLeave('${row.leaveId}','Approved')">
-                    Approve
-                </button>
+                        <button
+                            class="approve-btn"
+                            onclick="updateLeave('${row.leaveId}','Approved')">
+                            ✓ Approve
+                        </button>
 
-                <button onclick="updateLeave('${row.leaveId}','Rejected')">
-                    Reject
-                </button>
+                        <button
+                            class="reject-btn"
+                            onclick="updateLeave('${row.leaveId}','Rejected')">
+                            ✕ Reject
+                        </button>
 
+                    </div>
+                `;
+
+            } else {
+
+                action = `
+                    <div class="leave-type-badge">
+                        ${status}
+                    </div>
                 `;
 
             }
-            else{
 
-                action = status;
+            container.innerHTML += `
 
-            }
+                <div class="leave-request-card">
 
-            table.innerHTML += `
+                    <div class="request-top">
 
-            <tr>
+                        <div class="employee-section">
 
-                <td>${row.leaveId}</td>
+                            <div class="employee-avatar">
+                                ${initials}
+                            </div>
 
-                <td>${row.empId}</td>
+                            <div>
 
-                <td>${row.empName}</td>
+                                <div class="employee-name">
+                                    ${row.empName || ""}
+                                </div>
 
-                <td>${row.leaveType}</td>
+                                <div class="employee-details">
+                                    Employee ID: ${row.empId || ""}
+                                </div>
 
-                <td>${formatDate(row.fromDate)}</td>
+                            </div>
 
-                <td>${formatDate(row.toDate)}</td>
+                        </div>
 
-                <td>${row.days}</td>
+                        <div class="leave-type-badge">
+                            ${row.leaveType || ""}
+                        </div>
 
-                <td>${row.reason}</td>
+                    </div>
 
-                <td>${status}</td>
 
-                <td>${formatDate(row.appliedDate)}</td>
+                    <div class="request-details">
 
-                <td>${formatDate(row.decisionDate)}</td>
+                        <div>
+                            <div class="detail-label">
+                                Leave Period
+                            </div>
 
-                <td>${action}</td>
+                            <div class="detail-value">
+                                ${formatDate(row.fromDate)}
+                                →
+                                ${formatDate(row.toDate)}
+                            </div>
+                        </div>
 
-            </tr>
+
+                        <div>
+                            <div class="detail-label">
+                                Days
+                            </div>
+
+                            <div class="detail-value">
+                                ${row.days || 0} Days
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <div class="detail-label">
+                                Status
+                            </div>
+
+                            <div class="detail-value">
+                                ${status}
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="reason-box">
+
+                        <div class="reason-label">
+                            Reason
+                        </div>
+
+                        <div class="reason-text">
+                            ${row.reason || "No reason provided"}
+                        </div>
+
+                    </div>
+
+
+                    <div class="request-bottom">
+
+                        <div class="request-date">
+                            Applied: ${formatDate(row.appliedDate)}
+                        </div>
+
+                        ${action}
+
+                    </div>
+
+                </div>
 
             `;
 
         });
 
-        // Save latest data for comparison
+
+        pendingCount.textContent = pending + " Pending";
+
+        if(data.length === 0){
+
+            container.innerHTML = `
+
+                <div class="no-leaves">
+
+                    <div class="no-leaves-icon">
+                        📋
+                    </div>
+
+                    <div class="no-leaves-title">
+                        No Leave Requests
+                    </div>
+
+                    <div class="no-leaves-text">
+                        There are currently no leave requests to display.
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
         lastLeaveData = currentLeaveData;
 
     })
@@ -170,7 +282,6 @@ function loadLeaves(){
     });
 
 }
-
 
 
 
