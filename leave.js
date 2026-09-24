@@ -87,7 +87,22 @@ if (role === "Superuser") {
 
         return;
     }
+if (leaveType === "OD") {
 
+    if (!odFromTime || !odToTime) {
+
+        alert("Please select OD From Time and To Time.");
+
+        return;
+    }
+
+    if (odFromTime >= odToTime) {
+
+        alert("OD To Time must be greater than From Time.");
+
+        return;
+    }
+}
 
     const days =
         calculateDays(fromDate, toDate);
