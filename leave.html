@@ -3,176 +3,767 @@
 <head>
     <title>Leave Application - Greenpack HRMS</title>
     <link rel="stylesheet" href="dashboard.css">
+
+    <style>
+
+        /* =====================================================
+           APPLY LEAVE PAGE
+        ===================================================== */
+
+        .leave-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 40px;
+        }
+
+        .page-title {
+            margin-bottom: 22px;
+        }
+
+        .page-title h2 {
+            margin: 0;
+            font-size: 26px;
+            color: #1f2937;
+        }
+
+        .page-title p {
+            margin: 6px 0 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Application Card */
+
+        .leave-application-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .section-heading-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: #e8f5e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+        }
+
+        .section-heading h3 {
+            margin: 0;
+            font-size: 19px;
+            color: #1f2937;
+        }
+
+        .section-heading p {
+            margin: 3px 0 0;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        /* Form Grid */
+
+        .leave-form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 11px 12px;
+            font-size: 14px;
+            background: #fff;
+            color: #1f2937;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #2e7d32;
+            box-shadow: 0 0 0 3px rgba(46,125,50,0.10);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Employee */
+
+        #employeeSelectBox {
+            display: none;
+        }
+
+        /* OD Time */
+
+        #odTimeBox {
+            grid-column: 1 / -1;
+            display: none;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 18px;
+            background: #f7faf7;
+            border: 1px solid #dcebdd;
+            border-radius: 10px;
+        }
+
+        #odTimeBox > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #odTimeBox label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 7px;
+        }
+
+        #odTimeBox input {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 11px 12px;
+            font-size: 14px;
+            background: #fff;
+        }
+
+        /* Medical Certificate */
+
+        #medicalFitnessBox {
+            margin-top: 20px;
+            padding: 18px;
+            background: #fffaf0;
+            border: 1px solid #f1dfb5;
+            border-radius: 10px;
+        }
+
+        #medicalFitnessBox label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        #medicalFitnessBox input {
+            font-size: 13px;
+        }
+
+        #medicalFitnessBox small {
+            color: #777 !important;
+        }
+
+        /* Submit Area */
+
+        .submit-area {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #eeeeee;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .submit-leave-btn {
+            border: none;
+            background: #2e7d32;
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .submit-leave-btn:hover {
+            background: #256628;
+            transform: translateY(-1px);
+        }
+
+        /* Balance */
+
+        .balance-card {
+            margin-top: 24px;
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+            border: 1px solid #e5e7eb;
+        }
+
+        .balance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .balance-item {
+            padding: 18px;
+            border-radius: 10px;
+            background: #f8faf8;
+            border: 1px solid #e3e9e3;
+            text-align: center;
+        }
+
+        .balance-label {
+            font-size: 13px;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .balance-value {
+            margin-top: 7px;
+            font-size: 25px;
+            font-weight: 700;
+            color: #2e7d32;
+        }
+
+        /* History */
+
+        .history-card {
+            margin-top: 24px;
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+            border: 1px solid #e5e7eb;
+            overflow-x: auto;
+        }
+
+        .history-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .history-table {
+            width: 100%;
+            min-width: 900px;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .history-table th {
+            background: #f3f7f3;
+            color: #374151;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 12px 10px;
+            border-bottom: 1px solid #dfe5df;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .history-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #eeeeee;
+            color: #4b5563;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .history-table tbody tr:hover {
+            background: #fafcf9;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 700px) {
+
+            .leave-page {
+                padding: 0 10px 30px;
+            }
+
+            .leave-application-card,
+            .balance-card,
+            .history-card {
+                padding: 18px;
+            }
+
+            .leave-form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: auto;
+            }
+
+            #odTimeBox {
+                grid-template-columns: 1fr;
+            }
+
+            .balance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-area {
+                justify-content: stretch;
+            }
+
+            .submit-leave-btn {
+                width: 100%;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
 <div class="header">
+
     <div class="header-left">
         <h1>Greenpack HRMS</h1>
         <p>Leave Application</p>
     </div>
 
-    <button class="logout-btn" onclick="window.location='dashboard-home.html'">
+    <button class="logout-btn"
+            onclick="window.location='dashboard-home.html'">
         Back
     </button>
+
 </div>
+
 
 <div class="container">
 
-    <!-- Leave Application -->
-    <div class="welcome">
-        <h2>Leave Application</h2>
+<div class="leave-page">
+
+
+    <!-- PAGE TITLE -->
+
+    <div class="page-title">
+
+        <h2>Apply Leave</h2>
+
+        <p>
+            Submit your leave or on-duty request and track its status.
+        </p>
+
     </div>
 
-    <div class="employee-card">
 
-        <!-- Employee Selection - Superuser Only -->
-        <div id="employeeSelectBox" style="display:none;">
-            <label>Employee</label>
-            <select id="employeeSelect">
-                <option value="">Select Employee</option>
-            </select>
+    <!-- =====================================================
+         LEAVE APPLICATION
+    ====================================================== -->
+
+    <div class="leave-application-card">
+
+        <div class="section-heading">
+
+            <div class="section-heading-icon">
+                📋
+            </div>
+
+            <div>
+                <h3>Leave Application</h3>
+
+                <p>
+                    Enter the details of your request below.
+                </p>
+            </div>
+
         </div>
 
-        <div>
-            <label>Leave Type</label>
-            <select id="leaveType">
-                <option value="">Select Leave</option>
-                <option value="CL">Casual Leave (CL)</option>
-                <option value="SL">Sick Leave (SL)</option>
-                <option value="PL">Privilege Leave (PL)</option>
-                <option value="OD">On Duty (OD)</option>
-            </select>
+
+        <div class="leave-form-grid">
+
+
+            <!-- Employee Selection - Superuser Only -->
+
+            <div id="employeeSelectBox"
+                 class="form-group">
+
+                <label>Employee</label>
+
+                <select id="employeeSelect">
+
+                    <option value="">
+                        Select Employee
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Leave Type -->
+
+            <div class="form-group">
+
+                <label>Leave Type</label>
+
+                <select id="leaveType">
+
+                    <option value="">
+                        Select Leave
+                    </option>
+
+                    <option value="CL">
+                        Casual Leave (CL)
+                    </option>
+
+                    <option value="SL">
+                        Sick Leave (SL)
+                    </option>
+
+                    <option value="PL">
+                        Privilege Leave (PL)
+                    </option>
+
+                    <option value="OD">
+                        On Duty (OD)
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- From Date -->
+
+            <div class="form-group">
+
+                <label>From Date</label>
+
+                <input type="date"
+                       id="fromDate">
+
+            </div>
+
+
+            <!-- To Date -->
+
+            <div class="form-group">
+
+                <label>To Date</label>
+
+                <input type="date"
+                       id="toDate">
+
+            </div>
+
+
+            <!-- OD Time -->
+
+            <div id="odTimeBox">
+
+                <div>
+
+                    <label>OD From Time</label>
+
+                    <input type="time"
+                           id="odFromTime">
+
+                </div>
+
+
+                <div>
+
+                    <label>OD To Time</label>
+
+                    <input type="time"
+                           id="odToTime">
+
+                </div>
+
+            </div>
+
+
+            <!-- Reason -->
+
+            <div class="form-group full-width">
+
+                <label>Reason</label>
+
+                <textarea id="reason"
+                          placeholder="Enter leave reason"></textarea>
+
+            </div>
+
         </div>
 
-        <div>
-            <label>From Date</label>
-            <input type="date" id="fromDate">
+
+        <!-- Medical Fitness -->
+
+        <div id="medicalFitnessBox"
+             style="display:none;">
+
+            <label>
+                Medical Fitness Certificate
+            </label>
+
+            <input type="file"
+                   id="medicalFitness"
+                   accept=".pdf,.jpg,.jpeg,.png">
+
+            <small style="display:block;margin-top:5px;">
+
+                Required for continuous SL leave exceeding 3 days.
+
+            </small>
+
         </div>
 
-        <div>
-    <label>To Date</label>
-    <input type="date" id="toDate">
-</div>
 
-<!-- OD Time -->
-<div id="odTimeBox" style="display:none;">
+        <!-- Submit -->
 
-    <div>
-        <label>OD From Time</label>
-        <input type="time" id="odFromTime">
-    </div>
+        <div class="submit-area">
 
-    <div>
-        <label>OD To Time</label>
-        <input type="time" id="odToTime">
-    </div>
+            <button class="submit-leave-btn"
+                    onclick="applyLeave()">
 
-</div>
+                Submit Leave
 
-</div>
-<!-- Medical Fitness -->
-<div id="medicalFitnessBox" style="display:none;">
-    <label>Medical Fitness Certificate</label>
-    <input type="file"
-           id="medicalFitness"
-           accept=".pdf,.jpg,.jpeg,.png">
+            </button>
 
-    <small style="display:block;margin-top:5px;color:#666;">
-        Required for continuous SL leave exceeding 3 days.
-    </small>
-</div>
-
-    <div class="welcome" style="margin-top:20px;">
-
-        <label>Reason</label><br><br>
-
-        <textarea id="reason"
-                  rows="4"
-                  style="width:100%;padding:10px;"
-                  placeholder="Enter Leave Reason"></textarea>
-
-        <br><br>
-
-        <button onclick="applyLeave()">
-            Submit Leave
-        </button>
+        </div>
 
     </div>
 
-    <!-- Leave Balance -->
-    <div class="welcome" style="margin-top:30px;">
-        <h2>Leave Balance</h2>
 
-        <table class="attendance-table">
-            <thead>
-                <tr>
-                    <th>CL</th>
-                    <th>SL</th>
-                    <th>PL</th>
-                </tr>
-            </thead>
+    <!-- =====================================================
+         LEAVE BALANCE
+    ====================================================== -->
 
-            <tbody>
-                <tr>
-                    <td id="clBalance">0</td>
-                    <td id="slBalance">0</td>
-                    <td id="plBalance">0</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="balance-card">
+
+        <div class="section-heading">
+
+            <div class="section-heading-icon">
+                📊
+            </div>
+
+            <div>
+
+                <h3>Available Leave Balance</h3>
+
+                <p>
+                    Your current available leave balance
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="balance-grid">
+
+
+            <div class="balance-item">
+
+                <div class="balance-label">
+                    Casual Leave
+                </div>
+
+                <div class="balance-value"
+                     id="clBalance">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="balance-item">
+
+                <div class="balance-label">
+                    Sick Leave
+                </div>
+
+                <div class="balance-value"
+                     id="slBalance">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="balance-item">
+
+                <div class="balance-label">
+                    Privilege Leave
+                </div>
+
+                <div class="balance-value"
+                     id="plBalance">
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <!-- My Leave History -->
-<div id="leaveHistory" class="welcome" style="margin-top:30px;">
-    <h2>My Leave History</h2>
 
-        <table class="attendance-table">
+    <!-- =====================================================
+         LEAVE HISTORY
+    ====================================================== -->
 
-            <thead>
-                <tr>
-                    <th>Applied Date</th>
-<th>Leave Type</th>
-<th>From Date</th>
-<th>To Date</th>
-<th>Days</th>
-<th>Status</th>
-<th>Approved / Rejected Date</th>
-<th>OD From Time</th>
-<th>OD To Time</th>
-                </tr>
-            </thead>
+    <div id="leaveHistory"
+         class="history-card">
 
-            <tbody id="historyTable">
+        <div class="section-heading">
 
-            </tbody>
+            <div class="section-heading-icon">
+                🗂️
+            </div>
 
-        </table>
+            <div>
+
+                <h3>My Leave History</h3>
+
+                <p>
+                    View your previous leave applications and status.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="history-table-wrapper">
+
+            <table class="history-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Applied Date
+                        </th>
+
+                        <th>
+                            Leave Type
+                        </th>
+
+                        <th>
+                            From Date
+                        </th>
+
+                        <th>
+                            To Date
+                        </th>
+
+                        <th>
+                            Days
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Approved / Rejected Date
+                        </th>
+
+                        <th>
+                            OD From Time
+                        </th>
+
+                        <th>
+                            OD To Time
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="historyTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
     </div>
+
 
 </div>
+
+</div>
+
+
+<!-- =====================================================
+     OD TIME DISPLAY
+====================================================== -->
 
 <script>
-document.getElementById("leaveType").addEventListener("change", function() {
 
-    const odTimeBox =
-        document.getElementById("odTimeBox");
+document
+    .getElementById("leaveType")
+    .addEventListener("change", function() {
 
-    if (this.value === "OD") {
+        const odTimeBox =
+            document.getElementById("odTimeBox");
 
-        odTimeBox.style.display = "block";
 
-    } else {
+        if (this.value === "OD") {
 
-        odTimeBox.style.display = "none";
+            odTimeBox.style.display =
+                "grid";
 
-        document.getElementById("odFromTime").value = "";
-        document.getElementById("odToTime").value = "";
-    }
+        }
 
-});
+        else {
+
+            odTimeBox.style.display =
+                "none";
+
+            document
+                .getElementById("odFromTime")
+                .value = "";
+
+            document
+                .getElementById("odToTime")
+                .value = "";
+
+        }
+
+    });
+
 </script>
+
+
 <script src="leave.js"></script>
 
 </body>
