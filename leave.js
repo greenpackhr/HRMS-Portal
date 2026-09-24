@@ -535,9 +535,11 @@ function cancelLeave(id) {
 /* =====================================================
    PAGE LOAD
 ===================================================== */
-function loadLeaveBalance() {
+function loadLeaveBalance(selectedEmpId) {
 
-    const empId = localStorage.getItem("empId");
+    const empId =
+        selectedEmpId ||
+        localStorage.getItem("empId");
 
     if (!empId) {
         console.log("Employee ID not found");
@@ -595,7 +597,6 @@ function loadLeaveBalance() {
         );
 
     });
-
 }
 window.onload = function() {
 
