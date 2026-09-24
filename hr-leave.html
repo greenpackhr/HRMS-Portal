@@ -5,7 +5,76 @@
 <head>
 <title>HR Leave Approval</title>
 <link rel="stylesheet" href="dashboard.css">
+.menu-btn {
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
+    margin-right: 15px;
+    color: white;
+}
 
+#sideMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: 0.3s ease;
+    box-shadow: 5px 0 20px rgba(0,0,0,0.15);
+}
+
+#sideMenu.active {
+    transform: translateX(0);
+}
+
+#menuOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 9998;
+    display: none;
+}
+
+#menuOverlay.active {
+    display: block;
+}
+
+.side-menu-title {
+    padding: 25px 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.side-menu-title span {
+    display: block;
+    font-size: 11px;
+    margin-top: 5px;
+    opacity: 0.6;
+}
+
+#sideMenu a,
+.menu-logout {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    background: white;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#sideMenu a:hover,
+.menu-logout:hover {
+    background: #f0f7f2;
+}
 <style>
 
 /* =========================
