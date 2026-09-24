@@ -362,11 +362,16 @@ function uploadMedicalCertificateFile(leaveId, file) {
    LEAVE HISTORY
 ===================================================== */
 
-function loadLeaveHistory() {
+function loadLeaveHistory(selectedEmpId) {
 
     const empId =
+        selectedEmpId ||
         localStorage.getItem("empId");
 
+    if (!empId) {
+        console.log("Employee ID not found");
+        return;
+    }
 
     fetch(
         API_URL +
@@ -379,27 +384,27 @@ function loadLeaveHistory() {
     .then(data => {
 
         console.log(
-            "MY LEAVE HISTORY:",
+            "LEAVE HISTORY FOR " + empId + ":",
             data
         );
 
-
         const table =
             document.getElementById("historyTable");
-
 
         if (!table) {
             return;
         }
 
-
         table.innerHTML = "";
 
+        if (!Array.isArray(data)) {
+            console.log("Invalid leave history data");
+            return;
+        }
 
         data.forEach(function(leave) {
 
             let statusHtml = "";
-
 
             if (leave.status === "Approved") {
 
@@ -434,39 +439,38 @@ function loadLeaveHistory() {
 
             }
 
-
             table.innerHTML +=
-    "<tr>" +
+                "<tr>" +
 
-    "<td>" +
-    formatDate(leave.appliedDate) +
-    "</td>" +
+                "<td>" +
+                formatDate(leave.appliedDate) +
+                "</td>" +
 
-    "<td>" +
-    (leave.leaveType || "") +
-    "</td>" +
+                "<td>" +
+                (leave.leaveType || "") +
+                "</td>" +
 
-    "<td>" +
-    formatDate(leave.fromDate) +
-    "</td>" +
+                "<td>" +
+                formatDate(leave.fromDate) +
+                "</td>" +
 
-    "<td>" +
-    formatDate(leave.toDate) +
-    "</td>" +
+                "<td>" +
+                formatDate(leave.toDate) +
+                "</td>" +
 
-    "<td>" +
-    (leave.days || "") +
-    "</td>" +
+                "<td>" +
+                (leave.days || "") +
+                "</td>" +
 
-    "<td>" +
-    statusHtml +
-    "</td>" +
+                "<td>" +
+                statusHtml +
+                "</td>" +
 
-    "<td>" +
-    formatDate(leave.decisionDate) +
-    "</td>" +
+                "<td>" +
+                formatDate(leave.decisionDate) +
+                "</td>" +
 
-    "</tr>";
+                "</tr>";
         });
 
     })
@@ -479,9 +483,7 @@ function loadLeaveHistory() {
         );
 
     });
-
 }
-
 
 /* =====================================================
    CANCEL LEAVE
