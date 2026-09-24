@@ -1225,29 +1225,9 @@ function closeMenu() {
     }
 }
 
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    var overlay = document.getElementById("menuOverlay");
-
-    if (overlay) {
-        overlay.addEventListener("click", function () {
-            closeMenu();
-        });
-    }
-
-    var now = new Date();
-
-    // Keep your other DOMContentLoaded code here
-
-});
-
-// Initial load
-loadDashboardHomeData();
-
-// Check for data changes every 3 seconds
-setInterval(function () {
-    loadDashboardHomeData();
-}, 3000);
     var now = new Date();
 
     var monthYear = now.toLocaleString("en-US", {
@@ -1260,6 +1240,14 @@ setInterval(function () {
     });
 
 });
+
+// Initial load
+loadDashboardHomeData();
+
+// Check every 3 seconds
+setInterval(function () {
+    loadDashboardHomeData();
+}, 3000);
  /* =========================
    PAID HOLIDAYS 2026
 ========================= */
