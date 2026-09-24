@@ -43,128 +43,126 @@ window.onload = function(){
 
 
 
+let lastLeaveData = null;
+let leaveRequestRunning = false;
+
 function loadLeaves(){
 
+    if (leaveRequestRunning) return;
 
-fetch(API_URL + "?action=getLeaves")
+    leaveRequestRunning = true;
 
+    fetch(API_URL + "?action=getLeaves")
 
-.then(res => res.json())
+    .then(res => res.json())
 
+    .then(data => {
 
-.then(data => {
+        console.log("Leave Data:", data);
 
+        if(!Array.isArray(data)){
 
-    console.log("Leave Data:", data);
+            console.error("Invalid Leave Data Received");
 
+            return;
+        }
 
-    let table = document.getElementById("leaveTable");
+        // Convert current data into a comparable string
+        let currentLeaveData = JSON.stringify(data);
 
+        // If nothing changed, don't redraw the table
+        if(currentLeaveData === lastLeaveData){
 
-    table.innerHTML = "";
+            console.log("No leave data changes");
 
+            return;
+        }
 
-    if(!Array.isArray(data)){
+        console.log("Leave data changed - updating table");
 
-        alert("Invalid Leave Data Received");
+        let table = document.getElementById("leaveTable");
 
-        return;
+        table.innerHTML = "";
 
-    }
+        data.forEach(row => {
 
+            let status = String(row.status || "").trim();
 
+            let action = "";
 
-    data.forEach(row => {
+            if(status.toLowerCase() === "pending"){
 
+                action = `
 
-        let status = String(row.status).trim();
+                <button onclick="updateLeave('${row.leaveId}','Approved')">
+                    Approve
+                </button>
 
+                <button onclick="updateLeave('${row.leaveId}','Rejected')">
+                    Reject
+                </button>
 
-        let action = "";
+                `;
 
+            }
+            else{
 
-        if(status.toLowerCase() === "pending"){
+                action = status;
 
+            }
 
-            action = `
+            table.innerHTML += `
 
-            <button onclick="updateLeave('${row.leaveId}','Approved')">
-            Approve
-            </button>
+            <tr>
 
+                <td>${row.leaveId}</td>
 
-            <button onclick="updateLeave('${row.leaveId}','Rejected')">
-            Reject
-            </button>
+                <td>${row.empId}</td>
+
+                <td>${row.empName}</td>
+
+                <td>${row.leaveType}</td>
+
+                <td>${formatDate(row.fromDate)}</td>
+
+                <td>${formatDate(row.toDate)}</td>
+
+                <td>${row.days}</td>
+
+                <td>${row.reason}</td>
+
+                <td>${status}</td>
+
+                <td>${formatDate(row.appliedDate)}</td>
+
+                <td>${formatDate(row.decisionDate)}</td>
+
+                <td>${action}</td>
+
+            </tr>
 
             `;
 
+        });
 
-        }
-        else{
+        // Save latest data for comparison
+        lastLeaveData = currentLeaveData;
 
+    })
 
-            action = status;
+    .catch(err => {
 
+        console.log("Load Leave Error:", err);
 
-        }
+    })
 
+    .finally(() => {
 
-
-        table.innerHTML += `
-
-        <tr>
-
-        <td>${row.leaveId}</td>
-
-        <td>${row.empId}</td>
-
-        <td>${row.empName}</td>
-
-        <td>${row.leaveType}</td>
-
-        <td>${formatDate(row.fromDate)}</td>
-
-        <td>${formatDate(row.toDate)}</td>
-
-        <td>${row.days}</td>
-
-        <td>${row.reason}</td>
-
-<td>${status}</td>
-
-<td>${formatDate(row.appliedDate)}</td>
-
-<td>${formatDate(row.decisionDate)}</td>
-
-<td>${action}</td>
-
-
-        </tr>
-
-        `;
-
+        leaveRequestRunning = false;
 
     });
 
-
-})
-
-
-.catch(err=>{
-
-
-    console.log("Load Leave Error:",err);
-
-
-    alert("Unable to load leave data");
-
-
-});
-
-
 }
-
 
 
 
