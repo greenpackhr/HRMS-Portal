@@ -143,9 +143,13 @@ if (leaveType === "OD") {
         "&fromDate=" +
         encodeURIComponent(fromDate) +
         "&toDate=" +
-        encodeURIComponent(toDate) +
-        "&days=" +
-        encodeURIComponent(days) +
+encodeURIComponent(toDate) +
+"&odFromTime=" +
+encodeURIComponent(odFromTime) +
+"&odToTime=" +
+encodeURIComponent(odToTime) +
+"&days=" +
+encodeURIComponent(days) +
         "&reason=" +
         encodeURIComponent(reason) +
         "&leaveId=" +
