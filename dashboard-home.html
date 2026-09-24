@@ -1336,5 +1336,11 @@ if (menu && role === "Superuser") {
     menu.style.display = "flex";
 }
 
+document.getElementById("logoutMenu").addEventListener("click", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
 
+    localStorage.clear();
+    window.location.href = "index.html";
+});
 </script>
