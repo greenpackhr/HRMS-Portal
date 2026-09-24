@@ -485,7 +485,17 @@ function logout() {
     window.location.href = "index.html";
 
 }
+function toggleMenu(event) {
+    if (event) event.stopPropagation();
 
+    document.getElementById("sideMenu").classList.toggle("active");
+    document.getElementById("menuOverlay").classList.toggle("active");
+}
+
+function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("active");
+    document.getElementById("menuOverlay").classList.remove("active");
+}
 </script>
 
 <script src="hr-leave.js"></script>
