@@ -59,6 +59,11 @@ if (role === "Superuser") {
 
     const leaveType =
         document.getElementById("leaveType").value;
+    const odFromTime =
+    document.getElementById("odFromTime").value;
+
+    const odToTime =
+    document.getElementById("odToTime").value;
 
     const fromDate =
         document.getElementById("fromDate").value;
