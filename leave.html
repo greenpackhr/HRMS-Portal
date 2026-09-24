@@ -151,6 +151,26 @@
 
 </div>
 
+<script>
+document.getElementById("leaveType").addEventListener("change", function() {
+
+    const odTimeBox =
+        document.getElementById("odTimeBox");
+
+    if (this.value === "OD") {
+
+        odTimeBox.style.display = "block";
+
+    } else {
+
+        odTimeBox.style.display = "none";
+
+        document.getElementById("odFromTime").value = "";
+        document.getElementById("odToTime").value = "";
+    }
+
+});
+</script>
 <script src="leave.js"></script>
 
 </body>
