@@ -1354,19 +1354,5 @@ if (menu && role === "Superuser") {
 }, 500);
 
 
-/* =========================
-   LOGOUT
-========================= */
-
-function logout(event) {
-
-    if (event) {
-        event.preventDefault();
-        event.stopPropagation();
-    }
-
-    localStorage.clear();
-    window.location.href = "index.html";
-}
 
 </script>
