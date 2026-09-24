@@ -491,10 +491,18 @@ function loadLeaveHistory(selectedEmpId) {
                 "</td>" +
 
                 "<td>" +
-                formatDate(leave.decisionDate) +
-                "</td>" +
+formatDate(leave.decisionDate) +
+"</td>" +
 
-                "</tr>";
+"<td>" +
+(leave.leaveType === "OD" ? (leave.odFromTime || "") : "") +
+"</td>" +
+
+"<td>" +
+(leave.leaveType === "OD" ? (leave.odToTime || "") : "") +
+"</td>" +
+
+"</tr>";
         });
 
     })
