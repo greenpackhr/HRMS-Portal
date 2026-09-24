@@ -37,10 +37,17 @@ if (role !== "Superuser") {
 
 window.onload = function(){
 
+    // Initial load
     loadLeaves();
 
-};
+    // Check for changes every 3 seconds
+    setInterval(function(){
 
+        loadLeaves();
+
+    }, 3000);
+
+};
 
 
 let lastLeaveData = null;
