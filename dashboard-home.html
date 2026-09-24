@@ -1241,14 +1241,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-function logout() {
-    localStorage.clear();
-    window.location.href = "index.html";
-}
-
+// Initial load
 loadDashboardHomeData();
-document.addEventListener("DOMContentLoaded", function () {
 
+// Check for data changes every 3 seconds
+setInterval(function () {
+    loadDashboardHomeData();
+}, 3000);
     var now = new Date();
 
     var monthYear = now.toLocaleString("en-US", {
