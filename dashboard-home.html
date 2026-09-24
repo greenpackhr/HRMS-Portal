@@ -1345,5 +1345,30 @@ setTimeout(function () {
     }
 
 }, 500);
+if (menu && role === "Superuser") {
+    menu.style.display = "flex";
+    menu.style.visibility = "visible";
+    menu.style.opacity = "1";
+}
 
+}, 500);
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(event) {
+
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
+    localStorage.clear();
+
+    window.location.href = "index.html";
+}
+
+</script>
 </script>
