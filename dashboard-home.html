@@ -887,47 +887,58 @@ const DASHBOARD_HOME_API =
 "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec";
 
 
+
+let lastDashboardData = null;
+let dashboardRequestRunning = false;
+
 function loadDashboardHomeData() {
+
+    if (dashboardRequestRunning) return;
+
+    dashboardRequestRunning = true;
 
     fetch(
         DASHBOARD_HOME_API +
         "?action=getDashboardHomeData"
     )
-
     .then(response => response.json())
-
     .then(data => {
 
-        console.log("DASHBOARD HOME DATA:", data);
-
         if (data.status !== "success") {
-
-            console.error(
-                "Dashboard Home data error:",
-                data.message
-            );
-
+            console.error("Dashboard data error:", data.message);
             return;
         }
 
-        renderBirthdays(data.birthdays);
-        renderNewJoiners(data.newJoiners);
-        renderNotices(data.notices);
-        renderAnniversaries(data.anniversaries);
+        const currentData = JSON.stringify({
+            birthdays: data.birthdays || [],
+            newJoiners: data.newJoiners || [],
+            notices: data.notices || [],
+            anniversaries: data.anniversaries || []
+        });
+
+        if (currentData === lastDashboardData) {
+            console.log("No dashboard data changes");
+            return;
+        }
+
+        renderBirthdays(data.birthdays || []);
+        renderNewJoiners(data.newJoiners || []);
+        renderNotices(data.notices || []);
+        renderAnniversaries(data.anniversaries || []);
+
+        lastDashboardData = currentData;
+
+        console.log("Dashboard data changed - screen updated");
 
     })
-
     .catch(error => {
-
-        console.error(
-            "Dashboard Home API Error:",
-            error
-        );
-
+        console.error("Dashboard Home API Error:", error);
+    })
+    .finally(() => {
+        dashboardRequestRunning = false;
     });
 
 }
-
 /* =========================
    BIRTHDAYS
 ========================= */
