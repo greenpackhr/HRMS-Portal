@@ -15,66 +15,106 @@
     color: white;
 }
 
+/* =========================
+   MODERN SIDEBAR DESIGN
+========================= */
+
 #sideMenu {
     position: fixed;
     top: 0;
     left: 0;
     width: 300px;
     height: 100vh;
-    background: white;
+    background: #123b28;
+    color: white;
     z-index: 9999;
     transform: translateX(-100%);
-    transition: 0.3s ease;
-    box-shadow: 5px 0 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    box-shadow: 8px 0 30px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 #sideMenu.active {
     transform: translateX(0);
 }
 
+/* SIDEBAR HEADER */
+
+.side-menu-title {
+    padding: 28px 24px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.side-menu-title .brand-name {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.side-menu-title span {
+    display: block;
+    margin-top: 6px;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    color: rgba(255,255,255,0.65);
+}
+
+/* MENU */
+
+#sideMenu a {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 24px);
+    margin: 4px 12px;
+    padding: 13px 15px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: rgba(255,255,255,0.82);
+    background: transparent;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+#sideMenu a:hover {
+    background: rgba(255,255,255,0.09);
+    color: white;
+    transform: translateX(3px);
+}
+
+/* CURRENT PAGE */
+
+#sideMenu a[href="hr-leave.html"] {
+    background: #1f7045;
+    color: white;
+    font-weight: 700;
+    box-shadow: inset 3px 0 0 #8ee0ad;
+}
+
+/* OVERLAY */
+
 #menuOverlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.45);
     z-index: 9998;
     display: none;
+    backdrop-filter: blur(2px);
 }
 
 #menuOverlay.active {
     display: block;
 }
 
-.side-menu-title {
-    padding: 25px 20px;
-    font-weight: bold;
-    font-size: 18px;
-}
+/* MOBILE */
 
-.side-menu-title span {
-    display: block;
-    font-size: 11px;
-    margin-top: 5px;
-    opacity: 0.6;
-}
-
-#sideMenu a,
-.menu-logout {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 15px 20px;
-    text-decoration: none;
-    color: #333;
-    background: white;
-    border: none;
-    text-align: left;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-#sideMenu a:hover,
-.menu-logout:hover {
-    background: #f0f7f2;
+@media (max-width: 700px) {
+    #sideMenu {
+        width: 285px;
+    }
 }
 
 /* =========================
