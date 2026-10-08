@@ -18,7 +18,11 @@ console.log("LOGIN DATA:", {
 });
 
 if (role === "Superuser") {
-    document.getElementById("leaveApprovalBtn").style.display = "inline-block";
+    var leaveApprovalBtn = document.getElementById("leaveApprovalBtn");
+
+    if (leaveApprovalBtn) {
+        leaveApprovalBtn.style.display = "inline-block";
+    }
 }
 
 // Display Employee Details
