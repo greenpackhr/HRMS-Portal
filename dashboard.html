@@ -12,258 +12,493 @@
 
 </head>
 
-
 <body>
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<!-- =========================
-     TOP HEADER
-========================= -->
-
-<div class="header">
-
-    <div class="menu-container">
-
-        <button class="menu-dots" onclick="toggleMenu()">
-            ☰
-        </button>
-
-        <div class="side-menu" id="sideMenu">
-
-            <a href="dashboard-home.html">
-                🏠 Dashboard
-            </a>
-
-            <a href="dashboard.html">
-                📊 Attendance
-            </a>
-
-            <a href="leave.html">
-                📝 Apply Leave
-            </a>
-
-            <a href="leave.html#leaveHistory">
-                📋 Leave History
-            </a>
-
-            <a href="payslip.html">
-                💰 Pay Slip
-            </a>
-
-            <a href="#">
-                👤 My Profile
-            </a>
-
-            <button onclick="logout()">
-                🚪 Logout
-            </button>
-
-        </div>
-
-    </div>
-
+<header class="top-header">
 
     <div class="header-left">
 
-        <h1>GREENPACK HRMS</h1>
+        <button class="menu-button"
+                onclick="toggleMenu()"
+                aria-label="Open Menu">
+            ☰
+        </button>
 
-        <p>
-            Employee Attendance Portal
-        </p>
+        <div class="header-search">
+            <span>⌕</span>
+            <input type="text"
+                   placeholder="Search anything..."
+                   readonly>
+        </div>
 
     </div>
 
 
-    <div class="header-menu">
+    <div class="header-right">
 
-        <a href="leave.html">
-            📝 Leave
+        <div class="notification">
+            ♧
+            <span class="notification-count">3</span>
+        </div>
+
+        <div class="header-profile">
+
+            <div class="profile-circle">
+                👤
+            </div>
+
+            <div class="profile-info">
+
+                <strong id="headerEmployeeName">
+                    Employee
+                </strong>
+
+                <span>
+                    Employee
+                </span>
+
+            </div>
+
+            <span class="profile-arrow">
+               ⌄
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="side-menu" id="sideMenu">
+
+    <div class="sidebar-brand">
+
+        <div class="brand-logo">
+            🌿
+        </div>
+
+        <div class="brand-text">
+
+            <strong>
+                GREENPACK
+            </strong>
+
+            <span>
+                HRMS
+            </span>
+
+            <small>
+                HUMAN RESOURCE MANAGEMENT
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a href="dashboard-home.html"
+           class="sidebar-link active">
+
+            <span class="sidebar-icon">⌂</span>
+            <span>Dashboard</span>
+
         </a>
+
+
+        <a href="dashboard.html"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">▣</span>
+            <span>Attendance</span>
+
+        </a>
+
+
+        <a href="leave.html"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">📝</span>
+            <span>Apply Leave</span>
+
+        </a>
+
+
+        <a href="leave.html#leaveHistory"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">↻</span>
+            <span>Leave History</span>
+
+        </a>
+
 
         <a href="hr-leave.html"
            id="leaveApprovalBtn"
+           class="sidebar-link"
            style="display:none;">
-            ✅ Leave Approval
+
+            <span class="sidebar-icon">♙</span>
+            <span>HR Leave Approval</span>
+
         </a>
 
-        <button class="logout-btn"
-                onclick="logout()">
-            Logout
+
+        <a href="payslip.html"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">₹</span>
+            <span>Pay Slip</span>
+
+        </a>
+
+
+        <a href="#"
+           class="sidebar-link">
+
+            <span class="sidebar-icon">♙</span>
+            <span>My Profile</span>
+
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <button onclick="logout()"
+                class="sidebar-logout">
+
+            <span class="sidebar-icon">↪</span>
+            <span>Logout</span>
+
         </button>
 
     </div>
 
-</div>
+</aside>
 
 
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
 
-<!-- =========================
-     MAIN
-========================= -->
-
-<div class="container">
-
-
-    <!-- WELCOME -->
-
-    <div class="welcome-card">
-
-        <div class="welcome-avatar">
-            👤
-        </div>
-
-        <div class="welcome-text">
-
-            <span class="welcome-small" id="greeting">
-    Good Morning, 👋
-</span>
-
-            <h2>
-                <span id="empName">Employee</span>
-            </h2>
-
-            <p>
-                Have a productive day!
-            </p>
-
-        </div>
-
-        <div class="welcome-art">
-            📊
-        </div>
-
-    </div>
+<main class="main-content">
 
 
+    <!-- =================================================
+         WELCOME
+    ================================================== -->
 
-    <!-- EMPLOYEE DETAILS -->
+    <section class="welcome-card">
 
-    <div class="employee-card">
+        <div class="welcome-person">
 
-        <div class="employee-detail-card">
-
-            <div class="detail-icon">
-                🪪
+            <div class="welcome-avatar">
+                👤
             </div>
 
-            <div>
-                <label>Employee ID</label>
-                <h3 id="empId"></h3>
+            <div class="welcome-text">
+
+                <span class="welcome-small">
+                    Good Morning,
+                </span>
+
+                <h1>
+                    <span id="empName">
+                        Employee
+                    </span>
+                </h1>
+
+                <p>
+                    Welcome back to Greenpack HRMS!
+                </p>
+
+                <small>
+                    Have a productive day!
+                </small>
+
             </div>
 
         </div>
 
 
-        <div class="employee-detail-card">
+        <div class="welcome-quote">
 
-            <div class="detail-icon">
-                🏢
-            </div>
+            <span>
+                “
+            </span>
 
-            <div>
-                <label>Department</label>
-                <h3 id="department">-</h3>
-            </div>
+            Success is the sum of small efforts,
+            repeated day in and day out.
 
         </div>
 
 
-        <div class="employee-detail-card">
-
-            <div class="detail-icon">
-                💼
-            </div>
-
-            <div>
-                <label>Designation</label>
-                <h3 id="designation">-</h3>
-            </div>
-
+        <div class="welcome-leaves">
+            🌿
         </div>
 
-    </div>
+    </section>
 
 
 
-    <!-- SUMMARY -->
+    <!-- =================================================
+         SUMMARY CARDS
+    ================================================== -->
 
-    <div class="summary">
+    <section class="summary-grid">
 
-        <div class="box present-card">
+
+        <div class="summary-card present-card">
 
             <div class="summary-icon">
                 👥
             </div>
 
-            <div class="summary-content">
-                <h2 id="present">0</h2>
-                <p>Present</p>
+            <div class="summary-data">
+
+                <span>
+                    Present
+                </span>
+
+                <strong id="present">
+                    0
+                </strong>
+
+                <small>
+                    of working days
+                </small>
+
+            </div>
+
+            <div class="summary-arrow">
+                →
             </div>
 
         </div>
 
 
-        <div class="box absent-card">
+        <div class="summary-card absent-card">
 
             <div class="summary-icon">
                 👤
             </div>
 
-            <div class="summary-content">
-                <h2 id="absent">0</h2>
-                <p>Absent</p>
+            <div class="summary-data">
+
+                <span>
+                    Absent
+                </span>
+
+                <strong id="absent">
+                    0
+                </strong>
+
+                <small>
+                    of working days
+                </small>
+
+            </div>
+
+            <div class="summary-arrow">
+                →
             </div>
 
         </div>
 
 
-        <div class="box wo-card">
+        <div class="summary-card wo-card">
 
             <div class="summary-icon">
                 📅
             </div>
 
-            <div class="summary-content">
-                <h2 id="wo">0</h2>
-                <p>Weekly Off</p>
+            <div class="summary-data">
+
+                <span>
+                    Weekly Off
+                </span>
+
+                <strong id="wo">
+                    0
+                </strong>
+
+                <small>
+                    of working days
+                </small>
+
+            </div>
+
+            <div class="summary-arrow">
+                →
             </div>
 
         </div>
 
 
-        <div class="box payday-card">
+        <div class="summary-card payday-card">
 
             <div class="summary-icon">
                 💳
             </div>
 
-            <div class="summary-content">
-                <h2 id="payday">0</h2>
-                <p>Pay Days</p>
+            <div class="summary-data">
+
+                <span>
+                    Pay Days
+                </span>
+
+                <strong id="payday">
+                    0
+                </strong>
+
+                <small>
+                    total days
+                </small>
+
+            </div>
+
+            <div class="summary-arrow">
+                →
             </div>
 
         </div>
 
-    </div>
+    </section>
 
 
 
-    <!-- ATTENDANCE -->
+    <!-- =================================================
+         EMPLOYEE INFORMATION
+    ================================================== -->
 
-    <div class="attendance-card">
+    <section class="employee-information">
 
+        <div class="section-title">
+
+            <div class="section-title-icon">
+                👤
+            </div>
+
+            <h2>
+                Employee Information
+            </h2>
+
+        </div>
+
+
+        <div class="employee-details">
+
+
+            <div class="employee-detail">
+
+                <div class="detail-icon green">
+                    🪪
+                </div>
+
+                <div>
+
+                    <label>
+                        Employee ID
+                    </label>
+
+                    <strong id="empId">
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-divider"></div>
+
+
+            <div class="employee-detail">
+
+                <div class="detail-icon blue">
+                    🏢
+                </div>
+
+                <div>
+
+                    <label>
+                        Department
+                    </label>
+
+                    <strong id="department">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="detail-divider"></div>
+
+
+            <div class="employee-detail">
+
+                <div class="detail-icon purple">
+                    💼
+                </div>
+
+                <div>
+
+                    <label>
+                        Designation
+                    </label>
+
+                    <strong id="designation">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ATTENDANCE
+    ================================================== -->
+
+    <section class="attendance-card">
 
         <div class="attendance-header">
 
-            <h2>
-                📅 Attendance Details
-            </h2>
+            <div class="attendance-title">
+
+                <div class="attendance-title-icon">
+                    📅
+                </div>
+
+                <h2>
+                    Attendance Details
+                </h2>
+
+            </div>
 
 
             <div class="month-filter">
 
                 <label>
-                    Select Month:
+                    Select Month
                 </label>
 
                 <select id="monthSelect"
@@ -278,7 +513,6 @@
             </div>
 
         </div>
-
 
 
         <div class="attendance-container">
@@ -308,15 +542,141 @@
 
         </div>
 
+    </section>
+
+
+
+    <!-- =================================================
+         BOTTOM INFORMATION
+    ================================================== -->
+
+    <section class="bottom-grid">
+
+
+        <div class="bottom-stat">
+
+            <div class="bottom-stat-icon green">
+                🌿
+            </div>
+
+            <div>
+
+                <span>
+                    Attendance
+                </span>
+
+                <strong>
+                    Overview
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="bottom-stat">
+
+            <div class="bottom-stat-icon purple">
+                📅
+            </div>
+
+            <div>
+
+                <span>
+                    Leave
+                </span>
+
+                <strong>
+                    Balance
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="bottom-stat">
+
+            <div class="bottom-stat-icon blue">
+                📄
+            </div>
+
+            <div>
+
+                <span>
+                    Pay Slip
+                </span>
+
+                <strong>
+                    View Details
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="bottom-stat">
+
+            <div class="bottom-stat-icon orange">
+                🔔
+            </div>
+
+            <div>
+
+                <span>
+                    HR Notices
+                </span>
+
+                <strong>
+                    View Updates
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <span>
+        © 2026 Greenpack HRMS. All rights reserved.
+    </span>
+
+    <div>
+
+        <a href="#">
+            Privacy Policy
+        </a>
+
+        <span>|</span>
+
+        <a href="#">
+            Terms & Conditions
+        </a>
+
+        <span>|</span>
+
+        <a href="#">
+            Support
+        </a>
 
     </div>
 
-
-</div>
+</footer>
 
 
 <script src="dashboard.js?v=3"></script>
 
-
 </body>
+
 </html>
