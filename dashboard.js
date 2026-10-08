@@ -318,7 +318,7 @@ function toggleMenu() {
 document.addEventListener("click", function(event) {
 
     var menu = document.getElementById("sideMenu");
-    var button = document.querySelector(".menu-dots");
+    var button = document.querySelector(".menu-button");
 
     if (!menu || !button) {
         return;
