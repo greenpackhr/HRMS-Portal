@@ -74,118 +74,51 @@
 </header>
 
 
-<!-- =====================================================
-     SIDEBAR
-===================================================== -->
+<!-- =========================
+     COMMON SIDEBAR
+========================= -->
 
-<aside class="side-menu" id="sideMenu">
+<div class="side-menu" id="sideMenu">
 
-    <div class="sidebar-brand">
-
-        <div class="brand-logo">
-            🌿
-        </div>
-
-        <div class="brand-text">
-
-            <strong>
-                GREENPACK
-            </strong>
-
-            <span>
-                HRMS
-            </span>
-
-            <small>
-                HUMAN RESOURCE MANAGEMENT
-            </small>
-
-        </div>
-
+    <!-- SIDEBAR HEADER -->
+    <div class="side-menu-brand">
+        <span class="brand-leaf">🌿</span>
+        <span class="brand-name">GREENPACK HRMS</span>
     </div>
 
+    <!-- MENU ITEMS -->
 
-    <nav class="sidebar-nav">
+    <a href="dashboard-home.html">
+        <span class="menu-icon">🏠</span>
+        <span>Dashboard</span>
+    </a>
 
-        <a href="dashboard-home.html"
-           class="sidebar-link active">
+    <a href="dashboard.html">
+        <span class="menu-icon">📊</span>
+        <span>Attendance</span>
+    </a>
 
-            <span class="sidebar-icon">⌂</span>
-            <span>Dashboard</span>
+    <a href="leave.html">
+        <span class="menu-icon">📝</span>
+        <span>Apply Leave</span>
+    </a>
 
-        </a>
+    <a href="leave.html#leaveHistory">
+        <span class="menu-icon">📋</span>
+        <span>Leave History</span>
+    </a>
 
+    <a href="payslip.html">
+        <span class="menu-icon">💰</span>
+        <span>Pay Slip</span>
+    </a>
 
-        <a href="dashboard.html"
-           class="sidebar-link">
+    <a href="#">
+        <span class="menu-icon">👤</span>
+        <span>My Profile</span>
+    </a>
 
-            <span class="sidebar-icon">▣</span>
-            <span>Attendance</span>
-
-        </a>
-
-
-        <a href="leave.html"
-           class="sidebar-link">
-
-            <span class="sidebar-icon">📝</span>
-            <span>Apply Leave</span>
-
-        </a>
-
-
-        <a href="leave.html#leaveHistory"
-           class="sidebar-link">
-
-            <span class="sidebar-icon">↻</span>
-            <span>Leave History</span>
-
-        </a>
-
-
-        <a href="hr-leave.html"
-           id="leaveApprovalBtn"
-           class="sidebar-link"
-           style="display:none;">
-
-            <span class="sidebar-icon">♙</span>
-            <span>HR Leave Approval</span>
-
-        </a>
-
-
-        <a href="payslip.html"
-           class="sidebar-link">
-
-            <span class="sidebar-icon">₹</span>
-            <span>Pay Slip</span>
-
-        </a>
-
-
-        <a href="#"
-           class="sidebar-link">
-
-            <span class="sidebar-icon">♙</span>
-            <span>My Profile</span>
-
-        </a>
-
-    </nav>
-
-
-    <div class="sidebar-bottom">
-
-        <button onclick="logout()"
-                class="sidebar-logout">
-
-            <span class="sidebar-icon">↪</span>
-            <span>Logout</span>
-
-        </button>
-
-    </div>
-
+</div>
 </aside>
 
 
