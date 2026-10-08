@@ -1,7 +1,15 @@
-/* ==========================================
-   GREENPACK HRMS DASHBOARD
-   PART 1
-========================================== */
+/* =========================================================
+   GREENPACK HRMS
+   GLASSMORPHISM CORPORATE THEME
+   UI ONLY — NO JS / LOGIC CHANGES
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 *{
     margin:0;
@@ -10,1219 +18,1191 @@
     font-family:'Poppins',sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    background:#f4f7fb;
-    color:#333;
-}
-
-/* Main Container */
-
-.container{
-    width:75%;
-    max-width:1200px;
-    margin:20px auto;
-}
-
-/* Header */
-
-.header{
-    width:100%;
-    background:linear-gradient(90deg,#0b7d3b,#16984d);
-    color:#fff;
-    padding:20px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
-}
-
-.header h1{
-    font-size:32px;
-    font-weight:700;
-}
-
-.header p{
-    font-size:16px;
-    opacity:.95;
-    margin-top:5px;
-}
-
-/* Welcome */
-
-.welcome{
-    background:#fff;
-    padding:12px 20px;
-    border-radius:12px;
-    margin-top:15px;
-}
-
-.welcome h2{
-    font-size:18px;
-    color:#0b7d3b;
-    font-weight:600;
-}
-#empName{
-    color:#0b7d3b !important;
-    font-weight:700;
-}
-/* Employee Cards */
-
-.employee-card{
-
-    margin-top:25px;
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:20px;
-
-}
-
-.employee-card div{
-    background:#fff;
-    border-radius:8px;
-    padding:5px;
-    height:50px;
-    text-align:center;
-    box-shadow:0 2px 6px rgba(0,0,0,.08);
-    transition:.3s;
-}
-.employee-card div:hover{
-
-    transform:translateY(-4px);
-
-}
-
-.employee-card label{
-    display:block;
-    color:#777;
-    margin-bottom:2px;
-    font-size:10px;
-}
-.employee-card h3{
-    color:#0b7d3b;
-    font-size:15px;
-    margin-top:2px;
-}
-/* Summary */
-
-.box{
-    background:#fff;
-    padding:10px;
-    height:80px;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.box:hover{
-
-    transform:translateY(-4px);
-
-}
-
-.box h2{
-    color:#0b7d3b;
-    font-size:28px;
-    margin-bottom:2px;
-}
-
-.box p{
-    color:#666;
-    font-size:13px;
-    font-weight:600;
-}
-
-/* Attendance Title */
-
-.container h2{
-
-    margin-top:35px;
-
-    margin-bottom:15px;
-
-    color:#0b7d3b;
-
-}
-/* ==========================================
-   GREENPACK HRMS DASHBOARD
-   PART 2
-========================================== */
-
-/* Attendance Table */
-
-table{
-    width:100%;
-    border-collapse:separate;
-    border-spacing:0;
-    background:#fff;
-    border-radius:15px;
-    box-shadow:0 8px 18px rgba(0,0,0,.08);
-}
-
-thead{
-    background:#0b7d3b;
-    color:#fff;
-}
-
-thead th{
-    padding:15px;
-    font-size:15px;
-    text-align:center;
-}
-
-tbody td{
-    padding:14px;
-    text-align:center;
-    border-bottom:1px solid #e5e5e5;
-    font-size:14px;
-}
-
-tbody tr:nth-child(even){
-    background:#f7f9fb;
-}
-
-tbody tr:hover{
-    background:#eaf7ef;
-}
-
-/* Logout Button */
-
-button{
-
-    background:#d32f2f;
-
-    color:#fff;
-
-    border:none;
-
-    padding:12px 28px;
-
-    border-radius:8px;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    float:right;
-
-    margin-top:20px;
-
-    transition:.3s;
-
-}
-
-button:hover{
-
-    background:#b71c1c;
-
-}
-
-/* Clear Float */
-
-.container::after{
-    content:"";
-    display:block;
-    clear:both;
-}
-
-/* Responsive */
-
-@media(max-width:1000px){
-
-    .employee-card{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .summary{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-}
-
-@media(max-width:600px){
-
-    .header{
-
-        flex-direction:column;
-
-        text-align:center;
-
-        gap:10px;
-
-        padding:20px;
-
-    }
-
-    .header h1{
-
-        font-size:24px;
-
-    }
-
-    .welcome h2{
-
-        font-size:22px;
-
-    }
-
-    .summary{
-
-        grid-template-columns:1fr;
-
-    }
-
-    table{
-
-        display:block;
-        overflow-x:auto;
-
-    }
-
-    button{
-
-        width:100%;
-        float:none;
-
-    }
-
-}
-
-/* ==========================================
-   ATTENDANCE STATUS COLORS
-========================================== */
-
-.status-p,
-.status-a,
-.status-halfday,
-.status-wo,
-.status-ph,
-.status-cl,
-.status-sl,
-.status-pl,
-.status-od,
-.status-default{
-    display:inline-block;
-    min-width:65px;
-    padding:5px 12px;
-    border-radius:20px;
-    text-align:center;
-    font-size:13px;
-    font-weight:600;
-    border:1px solid transparent;
-}
-
-/* Present */
-.status-p{
-    background:#E8F5E9;
-    color:#2E7D32;
-    border-color:#A5D6A7;
-}
-
-/* Absent */
-.status-a{
-    background:#FFEBEE;
-    color:#C62828;
-    border-color:#EF9A9A;
-}
-
-/* Half Day (P | A / A | P) */
-.status-halfday{
-    background:#FFF3CD;
-    color:#856404;
-    border-color:#FFD54F;
-}
-
-/* Week Off */
-.status-wo{
-    background:#E0F7FA;
-    color:#006064;
-    border-color:#80DEEA;
-}
-
-/* Public Holiday */
-.status-ph{
-    background:#E3F2FD;
-    color:#1565C0;
-    border-color:#90CAF9;
-}
-
-/* Casual Leave */
-.status-cl{
-    background:#FFF3E0;
-    color:#EF6C00;
-    border-color:#FFCC80;
-}
-
-/* Sick Leave */
-.status-sl{
-    background:#FCE4EC;
-    color:#AD1457;
-    border-color:#F48FB1;
-}
+    min-height:100vh;
+    color:#123b29;
 
-/* Privilege Leave */
-.status-pl{
-    background:#F3E5F5;
-    color:#6A1B9A;
-    border-color:#CE93D8;
-}
-
-/* On Duty */
-.status-od{
-    background:#E8EAF6;
-    color:#283593;
-    border-color:#9FA8DA;
-}
-
-/* Other Status */
-.status-default{
-    background:#ECEFF1;
-    color:#455A64;
-    border-color:#CFD8DC;
-}
-
-/* ==========================================
-   SUMMARY CARD COLORS
-========================================== */
-
-.present-card{
-    border-left:6px solid #4CAF50;
-}
-
-.absent-card{
-    border-left:6px solid #F44336;
-}
-
-.wo-card{
-    border-left:6px solid #009688;
-}
-
-.payday-card{
-    border-left:6px solid #2196F3;
-}
-
-
-/* Fixed Attendance Header */
-
-.attendance-container {
-    height:450px;
-    overflow-y:auto;
-}
-
-.attendance-table {
-    width:100%;
-    border-collapse:separate;
-    border-spacing:0;
-}
-
-.attendance-table thead th {
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:#1B5E20;
-    color:white;
-}
-
-.attendance-table th,
-.attendance-table td {
-    padding:8px;
-    border:1px solid #333;
-}
-/* Month Filter Label */
-.month-filter label {
-    font-weight: 600;
-    color: #0b7d3b;
-}
-.summary-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.summary-card h3 {
-    margin-bottom: 5px;
-    text-align: center;
-}
-
-.summary-card p {
-    text-align: center;
-}
-.attendance-section label {
-    font-weight: 600;
-    color: #0b7d3b;
-}
-/* FINAL MONTH FILTER FIX */
-
-.month-filter{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    margin:20px 0;
-}
-
-.month-filter label{
-    color:#0b7d3b !important;
-    font-weight:700;
-}
-
-.month-filter select{
-    color:#0b7d3b;
-    border:2px solid #0b7d3b;
-    padding:6px 15px;
-    border-radius:6px;
-    font-weight:600;
-    background:#fff;
-}
-
-
-/* FINAL SUMMARY CENTER FIX */
-
-.summary .box{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-
-.summary .box h2,
-.summary .box p{
-    text-align:center;
-    width:100%;
-}
-/* Summary complete alignment */
-
-.summary{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-    margin-top:50px;
-}
-
-.summary .box{
-    height:50px;
-    background:#fff;
-    border-radius:8px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:4px;
-}
-.summary .box h2{
-    margin:0;
-    font-size:18px;
-    color:#0b7d3b;
-}
-.summary .box p{
-    margin:2px 0 0;
-    font-size:10px;
-    font-weight:600;
-    color:#555;
-}
-.header-menu {
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.header-menu a {
-    color:white;
-    text-decoration:none;
-    background:#2e7d32;
-    padding:10px 18px;
-    border-radius:6px;
-    font-weight:600;
-}
-
-.header-menu a:hover {
-    background:#388e3c;
-}
-.header-menu button{
-    float:none;
-    margin-top:0;
-}
-
-.header-menu{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.header-menu a{
-    display:inline-block;
-    color:white;
-    text-decoration:none;
-    background:#1B5E20;
-    padding:10px 18px;
-    border-radius:6px;
-    font-weight:600;
-}
-/* HR Leave Approval Buttons */
-
-.leave-action button{
-    float:none;
-    margin:3px;
-    padding:6px 12px;
-    font-size:12px;
-    border-radius:5px;
-}
-
-.approve-btn{
-    background:#2e7d32;
-}
-
-.reject-btn{
-    background:#c62828;
-}
-/* HR Leave Buttons Fix */
-
-.leave-action{
-    display:flex;
-    justify-content:center;
-    gap:8px;
-}
-
+    background:
+        radial-gradient(circle at 10% 15%, rgba(83,178,119,.16), transparent 28%),
+        radial-gradient(circle at 90% 25%, rgba(102,190,137,.12), transparent 30%),
+        radial-gradient(circle at 20% 90%, rgba(57,145,91,.12), transparent 30%),
+        linear-gradient(135deg,#eef8f1,#f8fbf9 45%,#edf7f1);
 
-.leave-action button{
-    float:none !important;
-    margin:0 !important;
-    padding:6px 12px !important;
-    width:auto !important;
-    border-radius:5px;
-    font-size:12px;
-    cursor:pointer;
+    overflow-x:hidden;
 }
 
-
-.approve-btn{
-    background:#2e7d32 !important;
-}
-
-
-.reject-btn{
-    background:#c62828 !important;
-}
-
-/* ==========================================
-   LEFT SIDE HRMS MENU
-========================================== */
-
-.menu-container {
-    position: relative;
-    display: inline-block;
-}
-
-.menu-dots {
-    background: transparent !important;
-    border: none !important;
-    color: #ffffff !important;
-    font-size: 28px !important;
-    line-height: 1;
-    cursor: pointer;
-    padding: 4px 10px !important;
-    margin: 0 !important;
-    float: none !important;
-    border-radius: 6px !important;
-}
-
-.menu-dots:hover {
-    background: rgba(255,255,255,0.15) !important;
-}
-
-
-/* Side Menu */
-
-.side-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 300px;
-    height: 100vh;
-
-    background: #ffffff;
-
-    border-right: 1px solid #d6d6d6;
-
-    box-shadow: 5px 0 18px rgba(0,0,0,0.18);
-
-    z-index: 9999;
-
-    padding: 0;
-
-    overflow-y: auto;
-}
-
-
-/* Menu Header */
-
-.side-menu::before {
-    content: "GREENPACK HRMS";
-    display: block;
-    background: linear-gradient(135deg, #0c6f3b, #149653);
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: 700;
-    padding: 24px 22px;
-    letter-spacing: .5px;
-    border-bottom: none;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-}
-
-/* Menu Links */
-
-.side-menu a,
-.side-menu button {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    width: calc(100% - 24px);
-    min-height: 58px;
-    margin: 6px 12px;
-    padding: 10px 14px;
-    box-sizing: border-box;
-
-    text-align: left;
-    text-decoration: none;
-    color: #263238;
-    background: transparent;
-    border: none;
-    border-radius: 10px;
-
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-
-    transition: background .2s ease,
-                color .2s ease,
-                transform .2s ease;
-}
-
-/* Hover */
-
-.side-menu a:hover,
-.side-menu button:hover {
-    background: #eaf7ef;
-    color: #0b7d3b;
-    transform: translateX(3px);
-}
-
-/* Logout */
-
-.side-menu button:last-child {
-
-    margin-top: 15px;
-
-    border-top: 1px solid #dddddd;
-
-    border-bottom: 1px solid #dddddd;
-
-    color: #c62828;
-
-    background: #fffafa;
-
-}
-
-
-/* Logout Hover */
-
-.side-menu button:last-child:hover {
-
-    background: #ffebee;
-
-    color: #b71c1c;
-
-}
-
-
-/* Active Menu */
-
-.side-menu a:first-of-type {
-
-    color: #0b7d3b;
-
-    background: #eaf7ef;
-
-    font-weight: 600;
-
-    border-left: 4px solid #0b7d3b;
-
-}
-
-
-/* Open */
-
-.side-menu.active {
-
-    display: block;
-}
-.menu-icon {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: 600;
-    background: #eef7f1;
-    color: #147443;
-    transition: transform .2s ease;
-}
-
-.side-menu a:hover .menu-icon {
-    transform: scale(1.06);
-}
 
 /* =========================================================
-   PROFESSIONAL ATTENDANCE DASHBOARD - FINAL UI OVERRIDE
+   SOFT BACKGROUND GLASS EFFECT
 ========================================================= */
 
-body{
-    background:#f3f7f4;
-    color:#24352b;
+body::before{
+    content:"";
+    position:fixed;
+    width:360px;
+    height:360px;
+    left:-120px;
+    bottom:-100px;
+
+    background:rgba(40,139,82,.13);
+
+    border-radius:50%;
+
+    filter:blur(45px);
+
+    pointer-events:none;
+
+    z-index:-1;
 }
 
-/* MAIN WIDTH */
+body::after{
+    content:"";
+    position:fixed;
+    width:300px;
+    height:300px;
+    right:-100px;
+    top:80px;
+
+    background:rgba(100,190,135,.12);
+
+    border-radius:50%;
+
+    filter:blur(50px);
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
 
 .container{
     width:92%;
     max-width:1450px;
-    margin:24px auto 40px;
+    margin:24px auto 45px;
 }
 
 
 /* =========================================================
-   HEADER
+   TOP GLASS HEADER
 ========================================================= */
 
 .header{
-    min-height:82px;
-    padding:16px 38px;
-    background:linear-gradient(135deg,#075b32,#0b7d3b);
-    border-bottom:1px solid rgba(255,255,255,.15);
-    box-shadow:0 5px 18px rgba(11,77,45,.18);
-}
 
-.header-left{
-    flex:1;
-}
+    position:relative;
 
-.header-left h1{
-    font-size:24px;
-    line-height:1.15;
-    letter-spacing:.4px;
-    margin:0;
-}
+    width:92%;
+    max-width:1450px;
 
-.header-left p{
-    font-size:13px;
-    margin-top:5px;
-    opacity:.85;
-}
+    min-height:88px;
 
-.header-menu{
-    gap:10px;
-}
+    margin:20px auto 0;
 
-.header-menu a{
-    background:rgba(255,255,255,.12);
-    border:1px solid rgba(255,255,255,.18);
-    border-radius:9px;
-    padding:9px 14px;
-    font-size:13px;
-}
+    padding:16px 26px;
 
-.header-menu a:hover{
-    background:rgba(255,255,255,.20);
-}
+    display:flex;
+    align-items:center;
 
-.header-menu .logout-btn{
-    background:#ffffff !important;
-    color:#166137 !important;
-    border-radius:9px;
-    padding:9px 16px !important;
-    font-size:13px;
-    box-shadow:none;
+    gap:18px;
+
+    color:#0d4a2b;
+
+    background:rgba(255,255,255,.38);
+
+    border:1px solid rgba(71,157,105,.30);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 10px 35px rgba(30,95,55,.10),
+        inset 0 1px 0 rgba(255,255,255,.65);
+
+    z-index:1000;
 }
 
 
 /* =========================================================
-   WELCOME CARD
+   HEADER LEFT / BRAND
+========================================================= */
+
+.header-left{
+    flex:1;
+    min-width:0;
+}
+
+.header-left h1{
+
+    margin:0;
+
+    color:#07562f;
+
+    font-size:25px;
+
+    line-height:1.15;
+
+    font-weight:700;
+
+    letter-spacing:.4px;
+}
+
+.header-left p{
+
+    margin-top:5px;
+
+    color:#527364;
+
+    font-size:12px;
+
+    letter-spacing:.25px;
+}
+
+
+/* =========================================================
+   MENU BUTTON
+========================================================= */
+
+.menu-container{
+    position:relative;
+
+    flex-shrink:0;
+
+    z-index:10001;
+}
+
+.menu-dots{
+
+    width:44px !important;
+    height:44px !important;
+
+    margin:0 !important;
+    padding:0 !important;
+
+    float:none !important;
+
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+
+    color:#075d34 !important;
+
+    background:rgba(255,255,255,.55) !important;
+
+    border:1px solid rgba(55,139,88,.25) !important;
+
+    border-radius:13px !important;
+
+    font-size:22px !important;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 4px 12px rgba(22,92,50,.08);
+
+    transition:.25s ease;
+}
+
+.menu-dots:hover{
+
+    background:rgba(222,244,231,.75) !important;
+
+    transform:translateY(-1px);
+}
+
+
+/* =========================================================
+   HEADER MENU
+========================================================= */
+
+.header-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    flex-shrink:0;
+}
+
+.header-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:40px;
+
+    padding:8px 14px;
+
+    color:#075d34;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    background:rgba(255,255,255,.45);
+
+    border:1px solid rgba(55,139,88,.20);
+
+    border-radius:11px;
+
+    backdrop-filter:blur(10px);
+
+    transition:.25s ease;
+}
+
+.header-menu a:hover{
+
+    background:rgba(218,242,226,.75);
+
+    transform:translateY(-1px);
+}
+
+
+/* Logout */
+
+.header-menu .logout-btn{
+
+    width:auto !important;
+
+    min-height:40px;
+
+    margin:0 !important;
+
+    padding:8px 16px !important;
+
+    float:none !important;
+
+    color:#145b35 !important;
+
+    background:rgba(255,255,255,.72) !important;
+
+    border:1px solid rgba(55,139,88,.22) !important;
+
+    border-radius:11px !important;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    box-shadow:none;
+
+}
+
+.header-menu .logout-btn:hover{
+
+    background:#ffffff !important;
+
+    color:#0b7d3b !important;
+
+}
+
+
+/* =========================================================
+   GLASS SIDEBAR
+========================================================= */
+
+.side-menu{
+
+    display:none;
+
+    position:fixed;
+
+    top:18px;
+    left:18px;
+
+    width:285px;
+
+    height:calc(100vh - 36px);
+
+    padding:18px 14px;
+
+    background:rgba(228,247,235,.70);
+
+    border:1px solid rgba(72,155,103,.32);
+
+    border-radius:24px;
+
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+
+    box-shadow:
+        0 18px 45px rgba(24,82,48,.18),
+        inset 0 1px 0 rgba(255,255,255,.70);
+
+    overflow-y:auto;
+
+    z-index:10000;
+}
+
+
+/* =========================================================
+   SIDEBAR BRAND
+========================================================= */
+
+.side-menu::before{
+
+    content:"GREENPACK HRMS";
+
+    display:block;
+
+    padding:17px 14px 4px;
+
+    color:#07552f;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+}
+
+.side-menu::after{
+
+    content:"HUMAN RESOURCE MANAGEMENT";
+
+    display:block;
+
+    padding:0 14px 20px;
+
+    color:#628073;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    border-bottom:1px solid rgba(71,139,96,.18);
+
+    margin-bottom:12px;
+}
+
+
+/* =========================================================
+   SIDEBAR LINKS
+========================================================= */
+
+.side-menu a,
+.side-menu button{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    width:100%;
+
+    min-height:48px;
+
+    margin:4px 0;
+
+    padding:9px 14px;
+
+    gap:11px;
+
+    color:#173d2a;
+
+    background:transparent;
+
+    border:none;
+
+    border-radius:13px;
+
+    text-decoration:none;
+
+    font-family:inherit;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:
+        background .22s ease,
+        color .22s ease,
+        transform .22s ease;
+}
+
+.side-menu a:hover,
+.side-menu button:hover{
+
+    color:#075c34;
+
+    background:rgba(255,255,255,.52);
+
+    transform:translateX(2px);
+}
+
+
+/* =========================================================
+   SIDEBAR ACTIVE
+========================================================= */
+
+.side-menu a:first-of-type{
+
+    color:#ffffff;
+
+    background:linear-gradient(
+        135deg,
+        rgba(40,145,88,.82),
+        rgba(24,116,68,.78)
+    );
+
+    box-shadow:
+        0 6px 15px rgba(25,108,61,.16);
+
+    font-weight:600;
+
+    border-left:none;
+}
+
+
+/* =========================================================
+   SIDEBAR LOGOUT
+========================================================= */
+
+.side-menu button:last-child{
+
+    margin-top:25px !important;
+
+    padding-top:13px;
+
+    border-top:1px solid rgba(71,139,96,.18);
+
+    border-radius:0 0 13px 13px;
+
+    color:#a94444;
+
+    background:transparent;
+
+}
+
+.side-menu button:last-child:hover{
+
+    color:#b52d2d;
+
+    background:rgba(255,235,235,.55);
+
+    transform:none;
+}
+
+
+/* =========================================================
+   SIDEBAR SCROLLBAR
+========================================================= */
+
+.side-menu::-webkit-scrollbar{
+    width:5px;
+}
+
+.side-menu::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.side-menu::-webkit-scrollbar-thumb{
+
+    background:rgba(41,125,75,.25);
+
+    border-radius:10px;
+}
+
+
+/* =========================================================
+   SIDEBAR OPEN
+========================================================= */
+
+.side-menu.active{
+
+    display:block;
+
+    animation:glassMenuIn .22s ease;
+}
+
+@keyframes glassMenuIn{
+
+    from{
+        opacity:0;
+        transform:translateX(-15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+
+/* =========================================================
+   WELCOME GLASS CARD
 ========================================================= */
 
 .welcome-card{
-    display:flex;
-    align-items:center;
-    gap:18px;
+
     position:relative;
-    overflow:hidden;
-    min-height:125px;
+
+    min-height:130px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-top:22px;
+
     padding:22px 28px;
-    background:linear-gradient(135deg,#eaf8ef,#dff2e6);
-    border:1px solid #d1e8d8;
-    border-radius:18px;
-    box-shadow:0 7px 24px rgba(24,90,52,.08);
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.50);
+
+    border:1px solid rgba(77,153,105,.20);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 9px 30px rgba(29,91,53,.08),
+        inset 0 1px 0 rgba(255,255,255,.70);
+}
+
+
+/* Decorative glass circles */
+
+.welcome-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    right:-60px;
+    top:-100px;
+
+    border-radius:50%;
+
+    background:rgba(71,163,103,.10);
+
+    filter:blur(2px);
 }
 
 .welcome-card::after{
+
     content:"";
+
     position:absolute;
-    width:210px;
-    height:210px;
+
+    width:120px;
+    height:120px;
+
+    right:130px;
+    bottom:-80px;
+
     border-radius:50%;
-    background:rgba(27,107,58,.06);
-    right:-65px;
-    top:-100px;
+
+    background:rgba(105,190,132,.08);
 }
+
+
+/* Avatar */
 
 .welcome-avatar{
+
+    position:relative;
+    z-index:2;
+
     width:62px;
     height:62px;
+
     min-width:62px;
-    border-radius:50%;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    background:#ffffff;
-    color:#0b7d3b;
-    font-size:28px;
-    border:1px solid #d7eadd;
-    box-shadow:0 5px 14px rgba(0,0,0,.07);
+
+    color:#0c7140;
+
+    background:rgba(221,243,229,.70);
+
+    border:1px solid rgba(75,154,101,.20);
+
+    border-radius:50%;
+
+    font-size:27px;
+
+    box-shadow:
+        inset 0 1px 3px rgba(255,255,255,.8),
+        0 5px 15px rgba(26,91,52,.08);
 }
 
+
+/* Welcome text */
+
 .welcome-text{
+
     position:relative;
+
     z-index:2;
 }
 
 .welcome-small{
+
     display:block;
-    color:#577064;
-    font-size:13px;
-    font-weight:600;
+
     margin-bottom:3px;
+
+    color:#60786b;
+
+    font-size:12px;
+
+    font-weight:600;
 }
 
 .welcome-card h2{
+
     margin:0 !important;
+
+    color:#124e2d !important;
+
     font-size:25px !important;
+
     line-height:1.2;
-    color:#124f2d !important;
 }
 
 .welcome-card #empName{
-    color:#124f2d !important;
+
+    color:#124e2d !important;
+
+    font-weight:700;
 }
 
 .welcome-card p{
+
     margin-top:6px;
-    color:#687b70;
-    font-size:13px;
+
+    color:#6b8075;
+
+    font-size:12px;
 }
 
 .welcome-art{
-    margin-left:auto;
-    padding-right:24px;
-    font-size:50px;
-    opacity:.75;
+
     position:relative;
+
     z-index:2;
+
+    margin-left:auto;
+
+    padding-right:25px;
+
+    color:#197746;
+
+    font-size:48px;
+
+    opacity:.55;
 }
 
 
 /* =========================================================
-   EMPLOYEE INFORMATION
+   EMPLOYEE INFORMATION CARDS
 ========================================================= */
 
 .employee-card{
-    margin-top:20px;
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:16px;
+
+    margin-top:20px;
 }
 
 .employee-card .employee-detail-card{
+
+    min-height:82px;
+
     height:auto;
-    min-height:78px;
-    padding:15px 18px;
-    background:#ffffff;
-    border:1px solid #e1e9e4;
-    border-radius:14px;
-    box-shadow:0 5px 16px rgba(25,66,42,.055);
+
     display:flex;
+
     align-items:center;
+
     gap:13px;
+
+    padding:15px 18px;
+
     text-align:left;
+
+    background:rgba(255,255,255,.58);
+
+    border:1px solid rgba(75,153,104,.18);
+
+    border-radius:17px;
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 7px 22px rgba(28,78,47,.06),
+        inset 0 1px 0 rgba(255,255,255,.70);
+
+    transition:.25s ease;
 }
 
 .employee-card .employee-detail-card:hover{
+
     transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(25,66,42,.09);
+
+    box-shadow:
+        0 10px 25px rgba(28,78,47,.10);
 }
 
+
+/* Detail icon */
+
 .detail-icon{
-    width:42px;
-    height:42px !important;
-    min-width:42px;
+
+    width:43px !important;
+    height:43px !important;
+
+    min-width:43px;
+
     padding:0 !important;
-    border-radius:11px !important;
+
     display:flex !important;
+
     align-items:center;
     justify-content:center;
-    background:#edf7f0 !important;
+
+    border-radius:12px !important;
+
+    background:rgba(222,243,230,.72) !important;
+
+    color:#167445;
+
     box-shadow:none !important;
-    font-size:19px;
+
+    font-size:18px;
 }
 
 .employee-detail-card label{
+
     display:block;
-    color:#87958d;
-    font-size:10px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:.7px;
+
     margin-bottom:4px;
+
+    color:#81938a;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.7px;
 }
 
 .employee-detail-card h3{
+
     margin:0;
-    color:#213a2b;
+
+    color:#213c2c;
+
     font-size:14px;
+
     font-weight:700;
 }
 
 
 /* =========================================================
-   ATTENDANCE SUMMARY
+   SUMMARY CARDS
 ========================================================= */
 
 .summary{
+
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:16px;
+
     margin-top:20px;
 }
 
 .summary .box{
+
     position:relative;
+
     min-height:92px;
+
     height:auto;
-    padding:17px 18px;
-    border-radius:15px;
-    border:none;
+
     display:flex;
-    flex-direction:row;
+
     align-items:center;
+
     justify-content:flex-start;
+
     gap:14px;
-    text-align:left;
+
+    padding:17px 18px;
+
     overflow:hidden;
-    box-shadow:0 6px 18px rgba(31,67,44,.07);
+
+    border:none;
+
+    border-radius:17px;
+
+    text-align:left;
+
+    box-shadow:
+        0 8px 23px rgba(25,76,45,.08);
+
+    transition:.25s ease;
+}
+
+.summary .box:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(25,76,45,.12);
 }
 
 .summary .box::after{
+
     content:"";
+
     position:absolute;
-    width:75px;
-    height:75px;
+
+    width:90px;
+    height:90px;
+
+    right:-30px;
+    top:-30px;
+
     border-radius:50%;
+
     background:rgba(255,255,255,.13);
-    right:-20px;
-    top:-25px;
 }
 
+
+/* Summary icon */
+
 .summary-icon{
-    width:43px;
-    height:43px;
-    min-width:43px;
-    border-radius:12px;
+
+    position:relative;
+    z-index:2;
+
+    width:44px;
+    height:44px;
+
+    min-width:44px;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
+    border-radius:13px;
+
+    background:rgba(255,255,255,.20);
+
     font-size:20px;
-    background:rgba(255,255,255,.25);
 }
 
 .summary-content{
+
+    position:relative;
+
+    z-index:2;
+
     text-align:left;
 }
 
 .summary .box h2{
-    width:auto;
+
     margin:0;
+
+    width:auto;
+
+    color:#fff;
+
     font-size:25px;
+
     line-height:1;
-    text-align:left;
-    color:inherit;
 }
 
 .summary .box p{
+
+    margin:6px 0 0;
+
     width:auto;
-    margin-top:6px;
-    font-size:12px;
-    font-weight:700;
-    text-align:left;
-    color:inherit;
+
+    color:#fff;
+
+    font-size:11px;
+
+    font-weight:600;
+
     opacity:.88;
 }
 
+
+/* Summary colors */
+
 .present-card{
-    background:linear-gradient(135deg,#188749,#29a55d) !important;
-    color:#ffffff;
-    border-left:none;
+
+    background:linear-gradient(
+        135deg,
+        rgba(24,135,73,.94),
+        rgba(42,168,94,.88)
+    ) !important;
 }
 
 .absent-card{
-    background:linear-gradient(135deg,#d9534f,#ed706c) !important;
-    color:#ffffff;
-    border-left:none;
+
+    background:linear-gradient(
+        135deg,
+        rgba(207,73,78,.92),
+        rgba(235,104,108,.86)
+    ) !important;
 }
 
 .wo-card{
-    background:linear-gradient(135deg,#168c8c,#24aaa8) !important;
-    color:#ffffff;
-    border-left:none;
+
+    background:linear-gradient(
+        135deg,
+        rgba(19,137,137,.92),
+        rgba(39,172,168,.85)
+    ) !important;
 }
 
 .payday-card{
-    background:linear-gradient(135deg,#417ec4,#5698dd) !important;
-    color:#ffffff;
-    border-left:none;
-}
 
-.summary .present-card h2,
-.summary .present-card p,
-.summary .absent-card h2,
-.summary .absent-card p,
-.summary .wo-card h2,
-.summary .wo-card p,
-.summary .payday-card h2,
-.summary .payday-card p{
-    color:#ffffff !important;
+    background:linear-gradient(
+        135deg,
+        rgba(58,119,184,.92),
+        rgba(79,151,216,.86)
+    ) !important;
 }
 
 
 /* =========================================================
-   ATTENDANCE CARD
+   ATTENDANCE GLASS CARD
 ========================================================= */
 
 .attendance-card{
+
     margin-top:22px;
-    background:#ffffff;
-    border:1px solid #e0e8e3;
-    border-radius:18px;
-    box-shadow:0 7px 24px rgba(27,68,43,.07);
+
     overflow:hidden;
+
+    background:rgba(255,255,255,.60);
+
+    border:1px solid rgba(75,153,104,.18);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(17px);
+    -webkit-backdrop-filter:blur(17px);
+
+    box-shadow:
+        0 9px 28px rgba(27,76,46,.07),
+        inset 0 1px 0 rgba(255,255,255,.75);
 }
 
+
+/* Attendance header */
+
 .attendance-header{
+
     min-height:72px;
+
     padding:17px 22px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:20px;
-    border-bottom:1px solid #e7ece9;
+
+    border-bottom:1px solid rgba(74,135,94,.15);
 }
 
 .attendance-header h2{
+
     margin:0 !important;
-    color:#183f29 !important;
+
+    color:#17492d !important;
+
     font-size:18px !important;
+
     font-weight:700;
-}
-
-.month-filter{
-    margin:0;
-    justify-content:flex-end;
-}
-
-.month-filter label{
-    font-size:12px;
-    color:#52685b !important;
-}
-
-.month-filter select{
-    min-width:130px;
-    padding:8px 12px;
-    border:1px solid #cddbd2;
-    border-radius:9px;
-    color:#185c34;
-    background:#f8fbf9;
-    font-size:12px;
 }
 
 
 /* =========================================================
-   PROFESSIONAL ATTENDANCE TABLE
+   MONTH FILTER
+========================================================= */
+
+.month-filter{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+    margin:0;
+}
+
+.month-filter label{
+
+    color:#62786c !important;
+
+    font-size:11px;
+
+    font-weight:600;
+}
+
+.month-filter select{
+
+    min-width:130px;
+
+    padding:8px 12px;
+
+    color:#145d35;
+
+    background:rgba(246,251,248,.75);
+
+    border:1px solid rgba(76,145,99,.25);
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+.month-filter select:focus{
+
+    border-color:#5eae7b;
+
+    box-shadow:0 0 0 3px rgba(65,157,96,.10);
+}
+
+
+/* =========================================================
+   ATTENDANCE TABLE
 ========================================================= */
 
 .attendance-container{
+
     height:475px;
+
     overflow:auto;
 }
 
 .attendance-table{
+
     width:100%;
+
     border-collapse:collapse;
-    border-radius:0;
+
+    border:none;
+
     box-shadow:none;
 }
 
 .attendance-table thead th{
+
     position:sticky;
+
     top:0;
+
     z-index:10;
+
     padding:13px 12px;
-    background:#f5f8f6;
-    color:#52655a;
-    border:none;
-    border-bottom:1px solid #dfe7e2;
-    font-size:11px;
+
+    color:#50665a;
+
+    background:rgba(242,248,244,.92);
+
+    border:1px solid rgba(205,220,211,.75) !important;
+
+    font-size:10px;
+
     font-weight:700;
+
     text-transform:uppercase;
+
     letter-spacing:.4px;
 }
 
 .attendance-table tbody td{
+
     padding:12px;
-    border:none;
-    border-bottom:1px solid #edf1ee;
-    font-size:13px;
-    color:#35473d;
+
+    color:#354a3d;
+
+    background:rgba(255,255,255,.35);
+
+    border:1px solid rgba(215,226,219,.75) !important;
+
+    font-size:12px;
+
     font-weight:500;
+
+    text-align:center;
 }
 
 .attendance-table tbody tr{
-    transition:background .15s ease;
-}
 
-.attendance-table tbody tr:nth-child(even){
-    background:#fbfcfb;
+    transition:.15s ease;
 }
 
 .attendance-table tbody tr:hover{
-    filter:brightness(.98);
+
+    background:rgba(225,244,232,.55);
 }
 
 
-/* STATUS PILLS */
+/* =========================================================
+   STATUS PILLS
+========================================================= */
 
 .status-p,
 .status-a,
@@ -1234,130 +1214,328 @@ body{
 .status-pl,
 .status-od,
 .status-default{
-    min-width:78px;
+
+    display:inline-block;
+
+    min-width:70px;
+
     padding:5px 11px;
+
     border-radius:20px;
-    font-size:11px;
+
+    text-align:center;
+
+    font-size:10px;
+
     font-weight:700;
-    letter-spacing:.2px;
+
+    border:1px solid transparent;
+}
+
+.status-p{
+    background:#e8f5e9;
+    color:#2e7d32;
+    border-color:#a5d6a7;
+}
+
+.status-a{
+    background:#ffebee;
+    color:#c62828;
+    border-color:#ef9a9a;
+}
+
+.status-halfday{
+    background:#fff3cd;
+    color:#856404;
+    border-color:#ffd54f;
+}
+
+.status-wo{
+    background:#e0f7fa;
+    color:#006064;
+    border-color:#80deea;
+}
+
+.status-ph{
+    background:#e3f2fd;
+    color:#1565c0;
+    border-color:#90caf9;
+}
+
+.status-cl{
+    background:#fff3e0;
+    color:#ef6c00;
+    border-color:#ffcc80;
+}
+
+.status-sl{
+    background:#fce4ec;
+    color:#ad1457;
+    border-color:#f48fb1;
+}
+
+.status-pl{
+    background:#f3e5f5;
+    color:#6a1b9a;
+    border-color:#ce93d8;
+}
+
+.status-od{
+    background:#e8eaf6;
+    color:#283593;
+    border-color:#9fa8da;
+}
+
+.status-default{
+    background:#eceff1;
+    color:#455a64;
+    border-color:#cfd8dc;
 }
 
 
 /* =========================================================
-   FULL ROW STATUS HIGHLIGHTING
-   dashboard.js will connect these classes next
+   ROW STATUS
 ========================================================= */
 
 .attendance-table tbody tr.row-present{
-    background:#edf9f1 !important;
+    background:rgba(237,249,241,.70) !important;
 }
 
 .attendance-table tbody tr.row-present td:first-child{
-    border-left:4px solid #3fa45d;
+    border-left:4px solid #3fa45d !important;
 }
 
 .attendance-table tbody tr.row-absent{
-    background:#fff0f1 !important;
+    background:rgba(255,240,241,.70) !important;
 }
 
 .attendance-table tbody tr.row-absent td:first-child{
-    border-left:4px solid #dc5358;
+    border-left:4px solid #dc5358 !important;
 }
 
 .attendance-table tbody tr.row-halfday{
-    background:#fff9e8 !important;
+    background:rgba(255,249,232,.70) !important;
 }
 
 .attendance-table tbody tr.row-halfday td:first-child{
-    border-left:4px solid #e1ad34;
+    border-left:4px solid #e1ad34 !important;
 }
 
 .attendance-table tbody tr.row-wo{
-    background:#edf9f9 !important;
+    background:rgba(237,249,249,.70) !important;
 }
 
 .attendance-table tbody tr.row-wo td:first-child{
-    border-left:4px solid #309a9a;
+    border-left:4px solid #309a9a !important;
 }
 
 .attendance-table tbody tr.row-ph{
-    background:#eef5ff !important;
+    background:rgba(238,245,255,.70) !important;
 }
 
 .attendance-table tbody tr.row-ph td:first-child{
-    border-left:4px solid #4b8dd7;
+    border-left:4px solid #4b8dd7 !important;
 }
 
 .attendance-table tbody tr.row-leave{
-    background:#faf3ff !important;
+    background:rgba(250,243,255,.70) !important;
 }
 
 .attendance-table tbody tr.row-leave td:first-child{
-    border-left:4px solid #9a69bc;
+    border-left:4px solid #9a69bc !important;
 }
 
 
 /* =========================================================
-   MOBILE
+   GLOBAL BUTTON SAFETY
 ========================================================= */
 
-@media(max-width:900px){
+button{
+
+    font-family:inherit;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .header{
+
+        width:94%;
+
+        padding:14px 18px;
+    }
 
     .container{
+
         width:94%;
     }
 
     .employee-card{
+
         grid-template-columns:1fr;
     }
 
     .summary{
-        grid-template-columns:repeat(2,1fr);
-    }
 
-    .welcome-art{
-        display:none;
+        grid-template-columns:repeat(2,1fr);
     }
 }
 
-@media(max-width:600px){
+
+@media(max-width:700px){
 
     .header{
-        padding:14px 18px;
+
+        flex-wrap:wrap;
+
+        min-height:auto;
+
+        border-radius:17px;
+
+        padding:13px 15px;
+    }
+
+    .header-left{
+
+        order:2;
+
+        width:calc(100% - 55px);
+
+        flex:none;
+    }
+
+    .header-menu{
+
+        order:3;
+
+        width:100%;
+
+        justify-content:flex-end;
+    }
+
+    .header-menu a{
+
+        display:none;
     }
 
     .header-left h1{
-        font-size:20px;
+
+        font-size:19px;
+    }
+
+    .header-left p{
+
+        font-size:10px;
+    }
+
+    .menu-dots{
+
+        width:42px !important;
+        height:42px !important;
+    }
+
+    .welcome-card{
+
+        min-height:115px;
+
+        padding:18px;
+
+        border-radius:17px;
+    }
+
+    .welcome-avatar{
+
+        width:52px;
+        height:52px;
+        min-width:52px;
+
+        font-size:22px;
+    }
+
+    .welcome-card h2{
+
+        font-size:21px !important;
+    }
+
+    .welcome-art{
+
+        display:none;
     }
 
     .summary{
+
         grid-template-columns:1fr;
     }
 
     .attendance-header{
+
         flex-direction:column;
+
         align-items:flex-start;
     }
 
     .month-filter{
+
         width:100%;
+
         justify-content:flex-start;
+    }
+
+    .attendance-container{
+
+        height:400px;
+    }
+
+    .side-menu{
+
+        top:10px;
+        left:10px;
+
+        width:calc(100% - 20px);
+
+        height:calc(100vh - 20px);
+
+        border-radius:20px;
     }
 }
 
-/* ==========================================
-   ATTENDANCE TABLE BORDER
-========================================== */
 
-.attendance-table{
-    border-collapse: collapse;
-    border: 1px solid #cfd8d2;
-}
+@media(max-width:450px){
 
-.attendance-table thead th{
-    border: 1px solid #cfd8d2 !important;
-}
+    .header-menu .logout-btn{
 
-.attendance-table tbody td{
-    border: 1px solid #d9e1dc !important;
+        padding:7px 12px !important;
+
+        font-size:11px;
+    }
+
+    .container{
+
+        width:94%;
+
+        margin-top:15px;
+    }
+
+    .employee-card .employee-detail-card{
+
+        min-height:70px;
+
+        padding:12px 14px;
+    }
+
+    .attendance-table{
+
+        min-width:650px;
+    }
+
+    .attendance-container{
+
+        overflow-x:auto;
+    }
 }
