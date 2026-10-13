@@ -998,68 +998,6 @@ body {
 
 .attendance-table {
 
-    width: 100%;
-
-    border-collapse: separate;
-
-    border-spacing: 0;
-
-    overflow: hidden;
-
-}
-
-
-.attendance-table th {
-
-    padding: 12px 13px;
-
-    background:
-        #f0f6f4;
-
-    color: #315e56;
-
-    font-size: 11px;
-
-    font-weight: 600;
-
-    text-align: left;
-
-    border-bottom:
-        1px solid rgba(0,80,60,0.08);
-
-}
-
-
-.attendance-table th:first-child {
-
-    border-radius: 10px 0 0 10px;
-
-}
-
-
-.attendance-table th:last-child {
-
-    border-radius: 0 10px 10px 0;
-
-}
-
-
-.attendance-table td {
-
-    padding: 12px 13px;
-
-    color: #355b55;
-
-    font-size: 11px;
-
-    border-bottom:
-        1px solid rgba(0,80,60,0.07);
-
-}
-
-
-.attendance-table tbody tr:hover {
-
     background:
         #f8fcfa;
 
