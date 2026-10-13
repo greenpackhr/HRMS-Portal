@@ -1663,28 +1663,23 @@ body {
 .side-menu a:active {
     background: #dff3e8;
 }
-/* ===== GREENPACK HRMS DASHBOARD ALIGNMENT ===== */
+/* ===== GREENPACK HRMS SIDEBAR ALIGNMENT FIX ===== */
 
 :root {
     --sidebar-width: 300px;
 }
 
-/* Header */
-.header {
-    position: fixed;
-    top: 0;
+/* Desktop header */
+.top-header {
     left: var(--sidebar-width);
-    right: 0;
-    width: auto;
-    z-index: 900;
+    padding-left: 28px;
 }
 
-/* Dashboard content */
-.container {
-    width: auto;
+/* Desktop dashboard */
+.main-content {
+    margin-left: var(--sidebar-width);
     max-width: none;
-    margin: 0 0 0 var(--sidebar-width);
-    padding: 95px 25px 30px;
+    padding: 100px 30px 30px;
 }
 
 /* Sidebar */
@@ -1696,22 +1691,33 @@ body {
     height: 100vh;
     z-index: 1100;
     overflow-y: auto;
+    background: #fff;
 }
 
-/* Keep dashboard aligned on smaller screens */
+/* Desktop: keep sidebar visible */
+@media (min-width: 1101px) {
+    .side-menu {
+        transform: translateX(0);
+    }
+}
+
+/* Tablet and mobile */
 @media (max-width: 1100px) {
-    .header {
+    .top-header {
         left: 0;
+        padding-left: 30px;
     }
 
-    .container {
+    .main-content {
         margin-left: 0;
-        padding: 90px 20px 25px;
+        padding: 100px 20px 25px;
     }
-}
 
-@media (max-width: 760px) {
-    .container {
-        padding: 80px 14px 20px;
+    .side-menu {
+        transform: translateX(-100%);
+    }
+
+    .side-menu.active {
+        transform: translateX(0);
     }
 }
