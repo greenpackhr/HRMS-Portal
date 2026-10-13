@@ -26,11 +26,21 @@ if (role === "Superuser") {
 }
 
 // Display Employee Details
-document.getElementById("empId").innerText = empId;
-document.getElementById("empName").innerText = empName;
-document.getElementById("department").innerText = department || "-";
-document.getElementById("designation").innerText = designation || "-";
+if (document.getElementById("empId")) {
+    document.getElementById("empId").innerText = empId;
+}
 
+if (document.getElementById("empName")) {
+    document.getElementById("empName").innerText = empName;
+}
+
+if (document.getElementById("department")) {
+    document.getElementById("department").innerText = department || "-";
+}
+
+if (document.getElementById("designation")) {
+    document.getElementById("designation").innerText = designation || "-";
+}
 // Attendance Summary
 let present = 0;
 let absent = 0;
