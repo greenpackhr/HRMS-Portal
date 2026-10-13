@@ -799,102 +799,80 @@ body {
 }
 
 
+```css
+/* EMPLOYEE INFORMATION LAYOUT */
 .employee-details {
-
-    min-height: 88px;
-
     display: grid;
-
-    grid-template-columns:
-        1fr auto 1fr auto 1fr;
-
-    align-items: center;
-
-    gap: 20px;
-
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 16px;
 }
-
 
 .employee-detail {
-
     display: flex;
-
     align-items: center;
-
-    gap: 15px;
-
+    gap: 12px;
+    min-width: 0;
+    padding: 16px;
+    background: #f7faf8;
+    border: 1px solid #e5eee8;
+    border-radius: 12px;
 }
-
 
 .detail-icon {
-
-    width: 48px;
-    height: 48px;
-
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
     display: flex;
-
     align-items: center;
     justify-content: center;
-
-    border-radius: 50%;
-
+    border-radius: 12px;
     font-size: 20px;
-
 }
-
 
 .detail-icon.green {
-
     background: #e1f5e9;
-
 }
-
 
 .detail-icon.blue {
-
     background: #e3efff;
-
 }
-
 
 .detail-icon.purple {
-
     background: #eee5fa;
-
 }
-
 
 .employee-detail label {
-
     display: block;
-
-    margin-bottom: 5px;
-
+    margin-bottom: 6px;
     color: var(--text-light);
-
-    font-size: 11px;
-
+    font-size: 12px;
 }
-
 
 .employee-detail strong {
-
+    display: block;
     color: var(--text-dark);
-
     font-size: 14px;
-
+    line-height: 1.4;
+    overflow-wrap: anywhere;
 }
 
-
 .detail-divider {
+    display: none;
+}
 
-    height: 48px;
+/* TABLET */
+@media (max-width: 900px) {
+    .employee-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
 
-    width: 1px;
-
-    background:
-        rgba(0,90,65,0.10);
-
+/* MOBILE */
+@media (max-width: 520px) {
+    .employee-details {
+        grid-template-columns: 1fr;
+    }
 }
 
 
