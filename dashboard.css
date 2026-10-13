@@ -1612,3 +1612,17 @@ body {
 .side-menu a:active {
     background: #dff3e8;
 }
+/* FIX ATTENDANCE STATUS COLUMN */
+.attendance-table th:last-child,
+.attendance-table td:last-child {
+    min-width: 100px;
+    width: 120px;
+    text-align: center !important;
+    white-space: nowrap;
+    padding: 14px 20px;
+    font-weight: 700;
+}
+
+.attendance-table td:last-child {
+    color: #075b32 !important;
+}
