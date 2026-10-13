@@ -1015,7 +1015,29 @@ body {
 .attendance-table td:nth-child(2) {
     min-width: 250px;
 }
+```css
+.attendance-table th {
+    background-color: #075b32 !important;
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: 700;
+}
 
+.attendance-table tbody td {
+    background-color: #edf5ef !important;
+    color: #1f3328 !important;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.attendance-table tbody tr:nth-child(even) td {
+    background-color: #dcebe0 !important;
+}
+
+.attendance-table tbody tr:hover td {
+    background-color: #c9e2d0 !important;
+}
+```
 
 /* =========================================================
    STATUS
