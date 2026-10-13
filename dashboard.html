@@ -227,101 +227,81 @@
 
 
 
-    <!-- =================================================
-         EMPLOYEE INFORMATION
-    ================================================== -->
+    ```html
+<!-- =================================================
+     EMPLOYEE INFORMATION
+================================================== -->
 
-    <section class="employee-information">
+<section class="employee-information">
 
-        <div class="section-title">
+    <div class="section-title">
+        <div class="section-title-icon">
+            👤
+        </div>
 
-            <div class="section-title-icon">
+        <h2>Employee Information</h2>
+    </div>
+
+    <div class="employee-details">
+
+        <!-- Employee Name -->
+        <div class="employee-detail">
+            <div class="detail-icon green">
                 👤
             </div>
 
-            <h2>
-                Employee Information
-            </h2>
-
+            <div>
+                <label>Employee Name</label>
+                <strong id="empName">-</strong>
+            </div>
         </div>
 
+        <div class="detail-divider"></div>
 
-        <div class="employee-details">
-
-
-            <div class="employee-detail">
-
-                <div class="detail-icon green">
-                    🪪
-                </div>
-
-                <div>
-
-                    <label>
-                        Employee ID
-                    </label>
-
-                    <strong id="empId">
-                    </strong>
-
-                </div>
-
+        <!-- Employee ID -->
+        <div class="employee-detail">
+            <div class="detail-icon green">
+                🪪
             </div>
 
-
-            <div class="detail-divider"></div>
-
-
-            <div class="employee-detail">
-
-                <div class="detail-icon blue">
-                    🏢
-                </div>
-
-                <div>
-
-                    <label>
-                        Department
-                    </label>
-
-                    <strong id="department">
-                        -
-                    </strong>
-
-                </div>
-
+            <div>
+                <label>Employee ID</label>
+                <strong id="empId"></strong>
             </div>
-
-
-            <div class="detail-divider"></div>
-
-
-            <div class="employee-detail">
-
-                <div class="detail-icon purple">
-                    💼
-                </div>
-
-                <div>
-
-                    <label>
-                        Designation
-                    </label>
-
-                    <strong id="designation">
-                        -
-                    </strong>
-
-                </div>
-
-            </div>
-
         </div>
 
-    </section>
+        <div class="detail-divider"></div>
 
+        <!-- Department -->
+        <div class="employee-detail">
+            <div class="detail-icon blue">
+                🏢
+            </div>
 
+            <div>
+                <label>Department</label>
+                <strong id="department">-</strong>
+            </div>
+        </div>
 
+        <div class="detail-divider"></div>
+
+        <!-- Designation -->
+        <div class="employee-detail">
+            <div class="detail-icon purple">
+                💼
+            </div>
+
+            <div>
+                <label>Designation</label>
+                <strong id="designation">-</strong>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+```
     <!-- =================================================
          ATTENDANCE
     ================================================== -->
