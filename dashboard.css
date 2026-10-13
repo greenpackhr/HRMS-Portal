@@ -989,19 +989,34 @@ body {
 }
 
 
+```css
 .attendance-container {
-
+    width: 100%;
     overflow-x: auto;
-
+    border-radius: 12px;
 }
-
 
 .attendance-table {
-
-    background:
-        #f8fcfa;
-
+    width: 100%;
+    min-width: 850px;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
 }
+
+.attendance-table th,
+.attendance-table td {
+    padding: 14px 16px;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.attendance-table th:nth-child(2),
+.attendance-table td:nth-child(2) {
+    min-width: 250px;
+}
+```
 
 
 /* =========================================================
