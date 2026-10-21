@@ -320,14 +320,34 @@ function filterMonth() {
 }
 
 
+
 function toggleMenu(event) {
     if (event) event.stopPropagation();
 
-    document.getElementById("sideMenu").classList.toggle("active");
-    document.getElementById("menuOverlay").classList.toggle("active");
+    var menu = document.getElementById("sideMenu");
+    if (!menu) {
+        console.error("Sidebar element #sideMenu not found");
+        return;
+    }
+
+    var overlay = document.getElementById("menuOverlay");
+
+    // Create the overlay if it is missing from dashboard.html
+    if (!overlay) {
+        overlay = document.createElement("div");
+        overlay.id = "menuOverlay";
+        document.body.appendChild(overlay);
+    }
+
+    var isOpen = menu.classList.toggle("active");
+    overlay.classList.toggle("active", isOpen);
 }
 
 function closeMenu() {
-    document.getElementById("sideMenu").classList.remove("active");
-    document.getElementById("menuOverlay").classList.remove("active");
+    var menu = document.getElementById("sideMenu");
+    var overlay = document.getElementById("menuOverlay");
+
+    if (menu) menu.classList.remove("active");
+    if (overlay) overlay.classList.remove("active");
 }
+
