@@ -1901,3 +1901,19 @@ body .side-menu a.active-menu {
 #attendanceTable tr.row-sl > td { background-color: #FCE4EC !important; }
 #attendanceTable tr.row-pl > td { background-color: #FFF4CC !important; }
 #attendanceTable tr.row-od > td { background-color: #DDF5F0 !important; }
+
+/* Greenpack HRMS - Attendance Details Borders */
+#attendanceTable td {
+    border: 1px solid #B7D9C5 !important;
+}
+
+#attendanceTable {
+    border-collapse: collapse !important;
+    outline: 2px solid #087443;
+    outline-offset: -2px;
+}
+
+#attendanceTable td {
+    padding: 8px 10px;
+}
+
