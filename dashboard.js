@@ -319,31 +319,15 @@ function filterMonth() {
 
 }
 
-function toggleMenu() {
-    var menu = document.getElementById("sideMenu");
 
-    if (menu.classList.contains("active")) {
-        menu.classList.remove("active");
-    } else {
-        menu.classList.add("active");
-    }
+function toggleMenu(event) {
+    if (event) event.stopPropagation();
+
+    document.getElementById("sideMenu").classList.toggle("active");
+    document.getElementById("menuOverlay").classList.toggle("active");
 }
 
-document.addEventListener("click", function(event) {
-
-    var menu = document.getElementById("sideMenu");
-    var button = document.querySelector(".menu-button");
-
-    if (!menu || !button) {
-        return;
-    }
-
-    if (
-        menu.classList.contains("active") &&
-        !menu.contains(event.target) &&
-        event.target !== button
-    ) {
-        menu.classList.remove("active");
-    }
-
-});
+function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("active");
+    document.getElementById("menuOverlay").classList.remove("active");
+}
