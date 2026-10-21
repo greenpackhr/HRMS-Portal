@@ -614,18 +614,27 @@ transition: transform 0.3s ease;
 
 <body>
     
+
 <!-- =========================
      HEADER
 ========================= -->
 
 <header class="dashboard-header">
     <div class="menu-container">
+        <button type="button"
+                class="menu-button"
+                onclick="toggleMenu(event)"
+                aria-label="Open navigation menu">
+            ☰
+        </button>
+    </div>
+</header>
 
-    <button class="menu-button" onclick="toggleMenu(event)">
-    ☰
-</button>
+<!-- =========================
+     COMMON HRMS SIDEBAR
+========================= -->
 
-    <div class="side-menu" id="sideMenu">
+<nav class="side-menu" id="sideMenu">
 
     <div class="side-menu-brand">
         <span class="brand-leaf">🌿</span>
@@ -652,7 +661,9 @@ transition: transform 0.3s ease;
         <span>Leave History</span>
     </a>
 
-    <a href="hr-leave.html" id="hrLeaveApprovalMenu" style="display:none;">
+    <a href="hr-leave.html"
+       id="hrLeaveApprovalMenu"
+       style="display:none;">
         <span class="menu-icon">✅</span>
         <span>Leave Approval</span>
     </a>
@@ -662,20 +673,31 @@ transition: transform 0.3s ease;
         <span>Pay Slip</span>
     </a>
 
-    <a href="#">
+    <a href="#" onclick="return false;">
         <span class="menu-icon">👤</span>
         <span>My Profile</span>
     </a>
 
-    <button type="button" class="logout-menu" id="logoutMenu">
+    <button type="button"
+            class="logout-menu"
+            id="logoutMenu">
         <span class="menu-icon logout-icon">↳</span>
         <span>Logout</span>
     </button>
 
-</div>
-<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
-</header>
+</nav>
 
+<!-- =========================
+     SIDEBAR OVERLAY
+========================= -->
+
+<div class="menu-overlay"
+     id="menuOverlay"
+     onclick="closeMenu()"></div>
+
+<!-- =========================
+     MAIN DASHBOARD CONTENT
+========================= -->
 
 <main class="dashboard-container">
 
