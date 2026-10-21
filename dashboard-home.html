@@ -514,52 +514,30 @@ body {
     content: none !important;
 }
 
+
 /* Sidebar branding */
 .side-menu .side-menu-brand {
-    min-height: 100px;
-    padding: 25px 22px;
-    display: flex;
-    align-items: center;
-    gap: 11px;
+    padding: 28px 24px 24px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    margin-bottom: 8px;
+    display: block;
     flex-shrink: 0;
-
-    background: linear-gradient(135deg, #075b32, #168348);
-    border-bottom: 1px solid rgba(255,255,255,0.15);
+    background: #123b28;
 }
 
-.side-menu .brand-leaf {
-    font-size: 27px;
-}
-
-.side-menu .brand-name {
+.side-menu .brand-heading {
     color: #ffffff;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 800;
-    letter-spacing: 0.4px;
+    letter-spacing: .5px;
 }
 
-/* Navigation links */
-.side-menu a {
-    min-height: 49px;
-    margin: 4px 12px 0;
-    padding: 12px 14px;
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    box-sizing: border-box;
-    border: none;
-    border-radius: 8px;
-    background: transparent;
-
-    color: rgba(255,255,255,0.86);
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-
-    transition: background 0.2s ease, color 0.2s ease;
+.side-menu .brand-subtitle {
+    display: block;
+    margin-top: 6px;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    color: rgba(255,255,255,.65);
 }
 
 .side-menu a .menu-icon {
