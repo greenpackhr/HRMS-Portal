@@ -1646,3 +1646,24 @@ body {
 .attendance-table td:last-child {
     color: #075b32 !important;
 }
+
+/* FORCE COMMON SIDEBAR DESIGN ON DASHBOARD */
+body .side-menu {
+    background: #123b28 !important;
+    z-index: 9999 !important;
+}
+
+body .side-menu .side-menu-brand {
+    background: #0d2f20 !important;
+    color: #ffffff !important;
+}
+
+body .side-menu a {
+    color: #e7f2eb !important;
+}
+
+body .side-menu a:hover,
+body .side-menu a.active-menu {
+    background: #1f7045 !important;
+    color: #ffffff !important;
+}
