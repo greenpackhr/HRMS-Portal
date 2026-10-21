@@ -954,7 +954,7 @@ function loadDashboardHomeData() {
     )
     .then(response => response.json())
     .then(data => {
-
+    console.log("DASHBOARD API RESPONSE:", data);
         if (data.status !== "success") {
             console.error("Dashboard data error:", data.message);
             return;
