@@ -45,45 +45,34 @@
 ========================= -->
 
 
-<div class="side-menu" id="sideMenu">
-    <div class="side-menu-brand">
-        <span class="brand-leaf">🌿</span>
-        <span class="brand-name">GREENPACK HRMS</span>
-        <span class="brand-subtitle">HUMAN RESOURCE MANAGEMENT</span>
+
+<!-- SIDEBAR OVERLAY -->
+<div id="menuOverlay" onclick="closeMenu()"></div>
+
+<!-- COMMON HRMS SIDEBAR -->
+<nav id="sideMenu" class="side-menu">
+
+    <div class="side-menu-title">
+        <div class="brand-name">GREENPACK HRMS</div>
+        <span>HUMAN RESOURCE MANAGEMENT</span>
     </div>
 
-    <a href="dashboard-home.html">
-        <span class="menu-icon">🏠</span> Dashboard Home
-    </a>
-
-    <a href="dashboard.html" class="active-menu">
-        <span class="menu-icon">📊</span> Attendance
-    </a>
-
-    <a href="leave.html">
-        <span class="menu-icon">📝</span> Apply Leave
-    </a>
-
-    <a href="leave.html#leaveHistory">
-        <span class="menu-icon">📋</span> Leave History
-    </a>
+    <a href="dashboard-home.html">🏠 Dashboard Home</a>
+    <a href="dashboard.html" class="active-menu">🕐 Attendance</a>
+    <a href="leave.html">📝 Apply Leave</a>
+    <a href="leave.html#leaveHistory">📋 Leave History</a>
 
     <a href="hr-leave.html" id="leaveApprovalBtn"
-       style="display:none;">
-        <span class="menu-icon">✅</span> Leave Approval
-    </a>
+       style="display:none;">✅ Leave Approval</a>
 
-    <a href="payslip.html">
-        <span class="menu-icon">💰</span> Pay Slip
-    </a>
+    <a href="payslip.html">💰 Pay Slip</a>
+    <a href="#" onclick="return false;">👤 My Profile</a>
 
-    <a href="#">
-        <span class="menu-icon">👤</span> My Profile
-    </a>
-</div>
-</escape>
+    <a href="#" class="sidebar-logout"
+       onclick="logout(); return false;">🚪 Logout</a>
 
-</aside>
+</nav>
+
 
 
 <!-- =====================================================
