@@ -1015,11 +1015,10 @@ body {
 .attendance-table td:nth-child(2) {
     min-width: 250px;
 }
-```css
 .attendance-table th {
     background-color: #075b32 !important;
     color: #ffffff !important;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
 }
 
@@ -1037,7 +1036,6 @@ body {
 .attendance-table tbody tr:hover td {
     background-color: #c9e2d0 !important;
 }
-```
 
 /* =========================================================
    STATUS
