@@ -509,10 +509,59 @@ body {
     transform: translateX(0);
 }
 
+
 /* Prevent duplicate branding */
 .side-menu::before {
     content: none !important;
 }
+
+/* Sidebar navigation links */
+.side-menu a {
+    min-height: 49px;
+    width: calc(100% - 24px);
+    margin: 4px 12px;
+    padding: 13px 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    color: rgba(255,255,255,.82);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.side-menu a .menu-icon {
+    width: 24px;
+    min-width: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.side-menu a:hover {
+    background: rgba(255,255,255,.09);
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+.side-menu a.active-menu {
+    background: #1f7045;
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: inset 3px 0 0 #8ee0ad;
+}
+
+.side-menu a::after {
+    content: none !important;
+}
+
 
 
 /* Sidebar branding */
