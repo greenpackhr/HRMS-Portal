@@ -1917,3 +1917,12 @@ body .side-menu a.active-menu {
     padding: 8px 10px;
 }
 
+/* Freeze Attendance Table Header */
+#attendanceTable thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #087443;
+    color: #ffffff;
+}
+
