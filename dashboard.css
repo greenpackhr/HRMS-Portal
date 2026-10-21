@@ -1630,8 +1630,6 @@ body {
     background: #245e3d;
 }
 
-    background: #dff3e8;
-}
 /* FIX ATTENDANCE STATUS COLUMN */
 .attendance-table th:last-child,
 .attendance-table td:last-child {
