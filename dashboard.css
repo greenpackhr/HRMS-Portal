@@ -1890,3 +1890,14 @@ body .side-menu a.active-menu {
         left: 12px;
     }
 }
+
+/* Attendance row colors */
+#attendanceTable tr.row-present > td { background-color: #E2F3E8 !important; }
+#attendanceTable tr.row-absent > td { background-color: #FCE4E4 !important; }
+#attendanceTable tr.row-halfday > td { background-color: #D4A017 !important; }
+#attendanceTable tr.row-wo > td { background-color: #E8EAF6 !important; }
+#attendanceTable tr.row-ph > td { background-color: #DFF3FA !important; }
+#attendanceTable tr.row-cl > td { background-color: #F0E3FA !important; }
+#attendanceTable tr.row-sl > td { background-color: #FCE4EC !important; }
+#attendanceTable tr.row-pl > td { background-color: #FFF4CC !important; }
+#attendanceTable tr.row-od > td { background-color: #DDF5F0 !important; }
