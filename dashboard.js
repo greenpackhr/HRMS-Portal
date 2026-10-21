@@ -286,10 +286,23 @@ switch (row.status.trim()) {
 
     });
 
+    
+if (document.getElementById("present")) {
     document.getElementById("present").innerText = present;
+}
+
+if (document.getElementById("absent")) {
     document.getElementById("absent").innerText = absent;
+}
+
+if (document.getElementById("wo")) {
     document.getElementById("wo").innerText = weeklyOff;
+}
+
+if (document.getElementById("payday")) {
     document.getElementById("payday").innerText = payDays;
+}
+
 
 }
 function filterMonth() {
