@@ -268,12 +268,13 @@ switch (row.status.trim()) {
 
         tr.className = rowClass;
         tr.innerHTML =
-            `<td>${row.shiftDate}</td>
-             <td>${row.schedule}</td>
-             <td>${row.actualIn}</td>
-             <td>${row.actualOut}</td>
-             <td>${row.workTime}</td>
-             <td><span class="${statusClass}">${row.status}</span></td>`;
+            tr.innerHTML =
+    `<td>${row.shiftDate}</td>
+     <td>${row.schedule}</td>
+     <td>${row.actualIn}</td>
+     <td>${row.actualOut}</td>
+     <td>${row.workTime}</td>
+     <td><span class="${statusClass}">${row.status}</span></td>`;
 
         table.appendChild(tr);
 
