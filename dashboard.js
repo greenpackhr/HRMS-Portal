@@ -219,54 +219,53 @@ function displayAttendance(data) {
 
         let tr = document.createElement("tr");
 
-        let statusClass = "";
+        
+let statusClass = "";
 let rowClass = "";
 
-switch (row.status) {
-
+switch (row.status.trim()) {
     case "P":
-    statusClass = "status-p";
-    rowClass = "row-present";
-    break;
-
+        statusClass = "status-p";
+        rowClass = "row-present";
+        break;
     case "A":
         statusClass = "status-a";
         rowClass = "row-absent";
         break;
-
     case "P | A":
     case "A | P":
         statusClass = "status-halfday";
         rowClass = "row-halfday";
         break;
-
     case "WO":
         statusClass = "status-wo";
         rowClass = "row-wo";
         break;
-
     case "PH":
         statusClass = "status-ph";
         rowClass = "row-ph";
         break;
-
     case "CL":
-    case "SL":
-    case "PL":
-    case "OD":
-        statusClass =
-            row.status === "CL" ? "status-cl" :
-            row.status === "SL" ? "status-sl" :
-            row.status === "PL" ? "status-pl" :
-            "status-od";
-
-        rowClass = "row-leave";
+        statusClass = "status-cl";
+        rowClass = "row-cl";
         break;
-
+    case "SL":
+        statusClass = "status-sl";
+        rowClass = "row-sl";
+        break;
+    case "PL":
+        statusClass = "status-pl";
+        rowClass = "row-pl";
+        break;
+    case "OD":
+        statusClass = "status-od";
+        rowClass = "row-od";
+        break;
     default:
         statusClass = "status-default";
         rowClass = "";
 }
+
         tr.className = rowClass;
         tr.innerHTML =
             `<td>${row.shiftDate}</td>
