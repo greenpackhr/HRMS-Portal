@@ -1769,11 +1769,11 @@ body .side-menu a.active-menu {
     border: none;
     border-radius: 9px;
     background: #155b35;
-    color: white;
+    color: #ffffff;
     font-size: 25px;
     cursor: pointer;
-    z-index: 10000;
-    box-shadow: 0 3px 10px rgba(0,0,0,.12);
+    z-index: 10001;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 .sidebar-menu-btn:hover {
