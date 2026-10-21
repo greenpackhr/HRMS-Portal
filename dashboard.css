@@ -1867,7 +1867,28 @@ body .side-menu a.active-menu {
 }
 
 .sidebar-menu-btn {
-    position: relative;
-    z-index: 10000;
+    position: fixed;
+    top: 18px;
+    left: 20px;
+    width: 46px;
+    height: 42px;
+    border: none;
+    border-radius: 9px;
+    background: #155b35;
+    color: #ffffff;
+    font-size: 25px;
     cursor: pointer;
+    z-index: 10001;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-menu-btn:hover {
+    background: #0f472a;
+}
+
+@media (max-width: 700px) {
+    .sidebar-menu-btn {
+        top: 12px;
+        left: 12px;
+    }
 }
