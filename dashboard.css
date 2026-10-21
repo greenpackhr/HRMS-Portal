@@ -1926,3 +1926,10 @@ body .side-menu a.active-menu {
     color: #ffffff;
 }
 
+/* Uniform Attendance Status Font Size */
+#attendanceTable td span[class^="status-"] {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+}
+
