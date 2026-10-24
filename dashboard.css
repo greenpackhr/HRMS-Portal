@@ -2508,15 +2508,18 @@ body .side-menu a.active-menu {
    PC + MOBILE | DESIGN ONLY
 ===================================================== */
 
-/* PC VIEW */
+
 @media screen and (min-width: 1101px) {
-    .main-content {
-        width: calc(100% - 285px) !important;
-        max-width: none !important;
-        margin-left: 285px !important;
+    main.main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 305px !important;
+        padding-right: 20px !important;
         box-sizing: border-box !important;
     }
 }
+
 
 /* TABLET AND MOBILE VIEW */
 @media screen and (max-width: 1100px) {
