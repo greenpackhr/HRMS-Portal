@@ -995,7 +995,20 @@ function loadDashboardHomeData() {
 /* =========================
    BIRTHDAYS
 ========================= */
-function formatBirthday(value) {
+
+function getFirstAndLastName(fullName) {
+    if (!fullName) return "";
+
+    var parts = fullName.trim().split(/\s+/);
+
+    if (parts.length <= 2) {
+        return fullName.trim();
+    }
+
+    return parts[0] + " " + parts[parts.length - 1];
+}
+
+    function formatBirthday(value) {
 
     if (!value) return "";
 
