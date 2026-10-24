@@ -345,15 +345,17 @@ body {
    MAIN - FULL AVAILABLE WIDTH
 ========================================================= */
 
+
 .main-content {
     display: block;
-    width: auto;
+    width: 100%;
     max-width: none;
     min-width: 0;
-    margin-left: 285px;
+    margin-left: 0;
     padding: 100px 20px 30px;
     box-sizing: border-box;
 }
+
 
 /* TABLET AND MOBILE */
 @media screen and (max-width: 1100px) {
@@ -2465,206 +2467,5 @@ body .side-menu a.active-menu {
     /* Avoid page-wide horizontal overflow */
     body {
         overflow-x: hidden;
-    }
-}
-/* ATTENDANCE PAGE - USE FULL AVAILABLE WIDTH */
-
-.main-content {
-    width: auto !important;
-    max-width: none !important;
-    box-sizing: border-box !important;
-}
-
-.attendance-container,
-.attendance-card,
-.attendance-section {
-    width: 100% !important;
-    max-width: none !important;
-    box-sizing: border-box !important;
-}
-
-@media screen and (max-width: 1100px) {
-    .main-content {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-left: 0 !important;
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-        box-sizing: border-box !important;
-    }
-
-    .attendance-container,
-    .attendance-card,
-    .attendance-section {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-}
-/* =====================================================
-   GREENPACK HRMS - ATTENDANCE FULL WIDTH
-   PC + MOBILE | DESIGN ONLY
-===================================================== */
-
-
-
-@media screen and (min-width: 1101px) {
-    main.main-content {
-        display: block !important;
-        margin-left: 285px !important;
-        margin-right: 0 !important;
-        width: calc(100% - 285px) !important;
-        max-width: none !important;
-        min-width: 0 !important;
-        padding: 100px 20px 30px !important;
-        box-sizing: border-box !important;
-    }
-
-    main.main-content > .employee-information,
-    main.main-content > .attendance-card {
-        width: 100% !important;
-        max-width: none !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        box-sizing: border-box !important;
-    }
-}
-
-
-/* TABLET AND MOBILE VIEW */
-@media screen and (max-width: 1100px) {
-    .main-content {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-left: 0 !important;
-        box-sizing: border-box !important;
-    }
-}
-
-/* ATTENDANCE CONTENT */
-.attendance-card,
-.attendance-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-}
-/* =====================================================
-   GREENPACK HRMS - FIX ATTENDANCE BLANK SPACE
-   PC + MOBILE | DESIGN ONLY
-===================================================== */
-
-.main-content {
-    width: auto !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    flex: 1 1 auto !important;
-    box-sizing: border-box !important;
-}
-
-/* Remove width restrictions from attendance wrappers */
-.attendance-card,
-.attendance-container,
-.attendance-section,
-.attendance-table-wrapper {
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-}
-
-/* PC: use the space beside the sidebar */
-@media screen and (min-width: 1101px) {
-    .main-content {
-        margin-left: 285px !important;
-    }
-}
-
-/* Mobile and tablet */
-@media screen and (max-width: 1100px) {
-    .main-content {
-        margin-left: 0 !important;
-        width: 100% !important;
-    }
-}
-/* =====================================================
-   GREENPACK HRMS - ATTENDANCE FULL WIDTH FIX
-   PC + MOBILE | DESIGN ONLY
-===================================================== */
-
-main.main-content {
-    display: block !important;
-    width: auto !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-}
-
-/* Use the full width of the main content area */
-main.main-content > .employee-information,
-main.main-content > .attendance-card {
-    display: block !important;
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    box-sizing: border-box !important;
-}
-
-/* Expand the attendance table container */
-.attendance-container {
-    display: block !important;
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-}
-
-/* PC */
-@media screen and (min-width: 1101px) {
-    main.main-content {
-        margin-left: 285px !important;
-        padding-right: 20px !important;
-    }
-}
-
-/* Mobile and tablet */
-@media screen and (max-width: 1100px) {
-    main.main-content {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-left: 0 !important;
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-    }
-}
-/* =====================================================
-   FINAL FIX - ATTENDANCE PC AVAILABLE WIDTH
-   DESIGN ONLY
-===================================================== */
-
-@media screen and (min-width: 1101px) {
-    body > main.main-content {
-        display: block !important;
-        width: auto !important;
-        max-width: none !important;
-        min-width: 0 !important;
-        margin-left: 285px !important;
-        margin-right: 0 !important;
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        box-sizing: border-box !important;
-    }
-
-    body > main.main-content > .employee-information,
-    body > main.main-content > .attendance-card {
-        width: 100% !important;
-        max-width: none !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        box-sizing: border-box !important;
     }
 }
