@@ -2494,3 +2494,36 @@ body .side-menu a.active-menu {
         margin-right: 0 !important;
     }
 }
+/* =====================================================
+   GREENPACK HRMS - ATTENDANCE FULL WIDTH
+   PC + MOBILE | DESIGN ONLY
+===================================================== */
+
+/* PC VIEW */
+@media screen and (min-width: 1101px) {
+    .main-content {
+        width: calc(100% - 285px) !important;
+        max-width: none !important;
+        margin-left: 285px !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* TABLET AND MOBILE VIEW */
+@media screen and (max-width: 1100px) {
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* ATTENDANCE CONTENT */
+.attendance-card,
+.attendance-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
