@@ -1019,7 +1019,7 @@ body {
 @media (max-width: 600px) {
 
     .attendance-card {
-        padding: 10px;
+        padding: 14px;
         margin-top: 12px;
         width: 100%;
         box-sizing: border-box;
