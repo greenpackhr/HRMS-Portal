@@ -1430,17 +1430,17 @@ if (menu && role === "Superuser") {
 
 
 
+
 var logoutButton = document.getElementById("logoutMenu");
 
 if (logoutButton) {
-    logoutButton.addEventListener("click", function (event) {
+    logoutButton.onclick = function (event) {
         event.preventDefault();
-        localStorage.clear();
-        sessionStorage.clear();
         window.location.href = "index.html";
-    });
+    };
+} else {
+    console.error("Logout button not found!");
 }
-
 </script>
 </body>
 </html>
