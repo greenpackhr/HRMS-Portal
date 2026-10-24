@@ -274,7 +274,7 @@ switch (row.status.trim()) {
         tr.className = rowClass;
         tr.innerHTML =
             tr.innerHTML =
-    `<td>${row.shiftDate}</td>
+    `<td>${formatAttendanceDate(row.shiftDate)}</td>
      <td>${row.schedule}</td>
      <td>${row.actualIn}</td>
      <td>${row.actualOut}</td>
