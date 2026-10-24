@@ -47,6 +47,28 @@ body {
     position: relative;
     overflow: visible;
 }
+    /* CENTERED GREENPACK BRAND */
+.header-brand {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    text-align: center;
+    z-index: 3;
+    pointer-events: none;
+}
+
+@media (max-width: 560px) {
+    .header-brand {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+}
 .dashboard-header::after {
     content: "";
     position: absolute;
