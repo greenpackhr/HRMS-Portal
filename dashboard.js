@@ -94,17 +94,23 @@ fetch(ATTENDANCE_API_URL + "?orgId=" + encodeURIComponent(empId))
             attendanceData[0].shiftDate
         );
 
-        attendanceData.sort((a, b) => {
+        
+attendanceData.sort((a, b) => {
+    function parseAttendanceDate(value) {
+        const parts = value.includes("/")
+            ? value.split("/")
+            : value.split("-");
 
-            let [dayA, monthA, yearA] =
-                a.shiftDate.split("-");
+        const day = Number(parts[0]);
+        const month = Number(parts[1]);
+        const year = Number(parts[2]);
 
-            let [dayB, monthB, yearB] =
-                b.shiftDate.split("-");
+        return new Date(year, month - 1, day).getTime();
+    }
 
-            return new Date(yearA, monthA - 1, dayA) -
-                   new Date(yearB, monthB - 1, dayB);
-        });
+    return parseAttendanceDate(b.shiftDate) -
+           parseAttendanceDate(a.shiftDate);
+});
 
     } else {
 
