@@ -2076,3 +2076,150 @@ body .side-menu a.active-menu {
         word-break: normal !important;
     }
 }
+
+/* =====================================================
+   GREENPACK HRMS - ATTENDANCE VIEW FINAL OVERRIDE
+   DESIGN ONLY - NO LOGIC CHANGES
+===================================================== */
+
+/* Desktop and tablet */
+.attendance-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.attendance-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#attendanceTable,
+.attendance-table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse !important;
+    table-layout: auto !important;
+}
+
+#attendanceTable th,
+#attendanceTable td,
+.attendance-table th,
+.attendance-table td {
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    vertical-align: middle;
+}
+
+/* MOBILE PORTRAIT */
+@media screen and (max-width: 600px) {
+
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        padding: 78px 8px 16px !important;
+    }
+
+    .attendance-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-top: 12px !important;
+        padding: 10px !important;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .attendance-header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .attendance-title {
+        width: 100% !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+    }
+
+    .attendance-title h2 {
+        font-size: 15px !important;
+        white-space: nowrap !important;
+    }
+
+    .month-filter {
+        display: flex !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: space-between !important;
+        gap: 8px !important;
+    }
+
+    .month-filter select {
+        flex: 1 !important;
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .attendance-container {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: auto !important;
+        border-radius: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #attendanceTable,
+    .attendance-table {
+        width: 850px !important;
+        min-width: 850px !important;
+        max-width: none !important;
+        margin: 0 !important;
+        table-layout: auto !important;
+    }
+
+    #attendanceTable th,
+    #attendanceTable td,
+    .attendance-table th,
+    .attendance-table td {
+        padding: 9px 10px !important;
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+        text-align: center !important;
+        white-space: nowrap !important;
+    }
+
+    #attendanceTable th,
+    .attendance-table th {
+        font-size: 12px !important;
+    }
+
+    #attendanceTable th:nth-child(2),
+    #attendanceTable td:nth-child(2),
+    .attendance-table th:nth-child(2),
+    .attendance-table td:nth-child(2) {
+        min-width: 250px !important;
+    }
+
+    #attendanceTable td span[class^="status-"],
+    .attendance-table td span[class^="status-"] {
+        font-size: 12px !important;
+        white-space: nowrap !important;
+    }
+
+    .footer {
+        margin-left: 0 !important;
+        padding: 14px 8px !important;
+    }
+}
