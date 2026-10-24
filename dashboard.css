@@ -2591,3 +2591,15 @@ body .side-menu a.active-menu {
         min-width: 0 !important;
     }
 }
+
+/* MOBILE ATTENDANCE - HEADING BORDERS ONLY */
+@media screen and (max-width: 600px) {
+    .attendance-table th {
+        border: 1px solid #FFFFFF !important;
+        box-sizing: border-box !important;
+    }
+
+    .attendance-table td {
+        border: none !important;
+    }
+}
