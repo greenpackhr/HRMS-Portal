@@ -2326,3 +2326,134 @@ body .side-menu a.active-menu {
         overflow-wrap: anywhere !important;
     }
 }
+
+/* =====================================================
+   GREENPACK HRMS - ATTENDANCE
+   MATCH LEAVE PAGE MOBILE SPACING
+   DESIGN ONLY - KEEP LOGIC UNCHANGED
+===================================================== */
+
+@media screen and (max-width: 600px) {
+
+    /* Same full-width page spacing as Leave page */
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 78px 12px 35px !important;
+    }
+
+    /* Attendance card uses the full available width */
+    .attendance-card {
+        display: block;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 12px 0 !important;
+        padding: 12px !important;
+        border-radius: 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Heading and month selector */
+    .attendance-header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .attendance-title {
+        width: 100% !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+    }
+
+    .attendance-title h2 {
+        font-size: 16px !important;
+        white-space: nowrap !important;
+    }
+
+    .month-filter {
+        display: flex !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    .month-filter label {
+        flex-shrink: 0;
+        align-self: center;
+    }
+
+    .month-filter select {
+        flex: 1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    /* Responsive attendance table */
+    .attendance-container {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #attendanceTable,
+    .attendance-table {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        table-layout: auto !important;
+        border-collapse: collapse !important;
+    }
+
+    #attendanceTable th,
+    #attendanceTable td,
+    .attendance-table th,
+    .attendance-table td {
+        padding: 9px 4px !important;
+        font-size: 11px !important;
+        line-height: 1.35 !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
+    }
+
+    /* Remove the forced wide second column */
+    #attendanceTable th:nth-child(2),
+    #attendanceTable td:nth-child(2),
+    .attendance-table th:nth-child(2),
+    .attendance-table td:nth-child(2) {
+        width: auto !important;
+        min-width: 0 !important;
+    }
+
+    /* Keep status labels compact */
+    #attendanceTable th:last-child,
+    #attendanceTable td:last-child,
+    .attendance-table th:last-child,
+    .attendance-table td:last-child {
+        width: auto !important;
+        min-width: 0 !important;
+        padding: 8px 3px !important;
+    }
+
+    #attendanceTable td span,
+    .attendance-table td span {
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    /* Avoid page-wide horizontal overflow */
+    body {
+        overflow-x: hidden;
+    }
+}
