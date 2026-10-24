@@ -2457,3 +2457,39 @@ body .side-menu a.active-menu {
         overflow-x: hidden;
     }
 }
+/* ATTENDANCE PAGE - USE FULL AVAILABLE WIDTH */
+
+.main-content {
+    width: auto !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+}
+
+.attendance-container,
+.attendance-card,
+.attendance-section {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+}
+
+@media screen and (max-width: 1100px) {
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    .attendance-container,
+    .attendance-card,
+    .attendance-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
