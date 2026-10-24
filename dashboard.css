@@ -2020,3 +2020,83 @@ body .side-menu a.active-menu {
     vertical-align: middle;
 }
 
+/* =====================================================
+   FIX: ATTENDANCE TABLE ON MOBILE PORTRAIT
+   Add at the VERY END of dashboard.css
+===================================================== */
+
+@media screen and (max-width: 600px) {
+
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        padding: 76px 6px 16px !important;
+    }
+
+    .attendance-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 8px !important;
+        margin-top: 10px !important;
+        overflow: hidden !important;
+    }
+
+    .attendance-header {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+
+    .attendance-title h2 {
+        font-size: 14px !important;
+    }
+
+    .attendance-container {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .attendance-table,
+    #attendanceTable {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        table-layout: fixed !important;
+        margin: 0 !important;
+    }
+
+    .attendance-table th,
+    .attendance-table td,
+    #attendanceTable th,
+    #attendanceTable td {
+        min-width: 0 !important;
+        padding: 6px 2px !important;
+        font-size: 10px !important;
+        line-height: 1.25 !important;
+        text-align: center !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
+    }
+
+    .attendance-table th:nth-child(2),
+    .attendance-table td:nth-child(2),
+    #attendanceTable th:nth-child(2),
+    #attendanceTable td:nth-child(2) {
+        min-width: 0 !important;
+    }
+
+    #attendanceTable td span[class^="status-"] {
+        min-width: 0 !important;
+        padding: 3px 2px !important;
+        font-size: 9px !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+    }
+}
+
