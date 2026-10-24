@@ -2469,3 +2469,46 @@ body .side-menu a.active-menu {
         overflow-x: hidden;
     }
 }
+
+/* MOBILE: INCREASE ATTENDANCE BOX SIZE */
+@media screen and (max-width: 600px) {
+
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+        box-sizing: border-box !important;
+    }
+
+    .attendance-card {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 12px 0 !important;
+        padding: 16px 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    .attendance-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .attendance-table {
+        min-width: 850px !important;
+        width: max-content !important;
+        table-layout: auto !important;
+    }
+
+    .attendance-table th,
+    .attendance-table td {
+        white-space: nowrap !important;
+        overflow-wrap: normal !important;
+        word-break: keep-all !important;
+    }
+}
