@@ -76,7 +76,10 @@ function createEmployeeRow(emp, dateText, anniversary) {
 
     const name = document.createElement("div");
     name.className = "employee-name";
-    name.textContent = emp.empName || "-";
+    const nameParts = String(emp.empName || "-").trim().split(/\s+/);
+name.textContent = nameParts.length >= 3
+    ? nameParts[0] + " " + nameParts[nameParts.length - 1]
+    : nameParts.join(" ");
 
     const detail = document.createElement("div");
     detail.className = "employee-detail";
