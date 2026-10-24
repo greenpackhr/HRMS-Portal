@@ -157,15 +157,14 @@ function loadMonthDropdown() {
 
     }))];
 
-    months.sort((a, b) => {
+    
+months.sort((a, b) => {
+    let [monthA, yearA] = a.split("-");
+    let [monthB, yearB] = b.split("-");
 
-        let [monthA, yearA] = a.split("-");
-        let [monthB, yearB] = b.split("-");
-
-        return new Date(yearA, monthA - 1) -
-               new Date(yearB, monthB - 1);
-
-    });
+    return new Date(yearB, monthB - 1) -
+           new Date(yearA, monthA - 1);
+});
 
     months.forEach(month => {
 
