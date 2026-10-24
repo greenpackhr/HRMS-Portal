@@ -209,6 +209,19 @@ months.sort((a, b) => {
     }
 
 }
+function formatAttendanceDate(value) {
+    if (!value) return "";
+
+    const parts = String(value).split(/[-/]/);
+
+    if (parts.length !== 3) return value;
+
+    const day = String(parts[0]).padStart(2, "0");
+    const month = String(parts[1]).padStart(2, "0");
+    const year = parts[2];
+
+    return `${day}-${month}-${year}`;
+}
 function displayAttendance(data) {
 
     let table = document.getElementById("attendanceTable");
