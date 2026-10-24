@@ -1933,3 +1933,35 @@ body .side-menu a.active-menu {
     line-height: 1.4 !important;
 }
 
+/* CENTER ATTENDANCE HEADING AND TABLE */
+
+.attendance-header {
+    position: relative;
+    justify-content: center;
+}
+
+.attendance-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.attendance-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.attendance-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.attendance-table th,
+.attendance-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
