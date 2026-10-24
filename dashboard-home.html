@@ -1436,17 +1436,16 @@ if (menu && role === "Superuser") {
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    var logoutButton = document.getElementById("logoutMenu");
 
-    if (logoutButton) {
-        logoutButton.onclick = function (event) {
-            event.preventDefault();
-            localStorage.clear();
-            sessionStorage.clear();
-            window.location.href = "index.html";
-        };
-    }
-});
+var logoutButton = document.getElementById("logoutMenu");
+
+if (logoutButton) {
+    logoutButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.href = "index.html";
+    });
+}
 
 </script>
