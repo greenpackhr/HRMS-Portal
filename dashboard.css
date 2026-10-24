@@ -2204,3 +2204,230 @@ body .side-menu a.active-menu {
         font-size: 10px !important;
     }
 }
+/* ==========================================
+   GREENPACK HRMS - ATTENDANCE VIEW DESIGN
+   CSS ONLY — NO LOGIC CHANGES
+========================================== */
+
+/* Main page width */
+.main-content {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    box-sizing: border-box !important;
+    padding: 96px 24px 28px !important;
+}
+
+.footer {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+}
+
+.top-header {
+    box-sizing: border-box !important;
+    padding-left: 82px !important;
+}
+
+/* Attendance panel */
+.attendance-card {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 18px !important;
+    padding: 22px !important;
+    background: #ffffff !important;
+    border: 1px solid #e1eee8 !important;
+    box-shadow: 0 8px 24px rgba(0, 80, 50, 0.07) !important;
+}
+
+/* Attendance heading */
+.attendance-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 14px !important;
+    margin-bottom: 20px !important;
+}
+
+.attendance-title h2 {
+    color: #075b46 !important;
+    font-weight: 700 !important;
+}
+
+/* Month filter and controls */
+.month-filter select {
+    min-height: 42px !important;
+    border: 1px solid #d7e8e0 !important;
+    border-radius: 12px !important;
+    background: #ffffff !important;
+    box-sizing: border-box !important;
+}
+
+/* Table wrapper: allow horizontal swipe */
+.attendance-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    -webkit-overflow-scrolling: touch !important;
+    border: 1px solid #e2eee8 !important;
+    border-radius: 14px !important;
+    background: #ffffff !important;
+}
+
+/* Keep every heading and value on one line */
+.attendance-table,
+#attendanceTable {
+    width: max-content !important;
+    min-width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    table-layout: auto !important;
+    background: #ffffff !important;
+}
+
+.attendance-table th,
+#attendanceTable th {
+    background: #dff6ee !important;
+    color: #064e43 !important;
+    font-weight: 700 !important;
+    padding: 15px 14px !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: keep-all !important;
+    border-bottom: 1px solid #d4e9df !important;
+}
+
+.attendance-table td,
+#attendanceTable td {
+    padding: 14px !important;
+    color: #244b47 !important;
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: keep-all !important;
+    border-bottom: 1px solid #eaf1ed !important;
+    background: #ffffff !important;
+}
+
+.attendance-table tbody tr:last-child td,
+#attendanceTable tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+.attendance-table tbody tr:hover td,
+#attendanceTable tbody tr:hover td {
+    background: #f3fbf7 !important;
+}
+
+/* Keep status badges on one line */
+.attendance-table td span[class^="status-"],
+#attendanceTable td span[class^="status-"] {
+    display: inline-block !important;
+    width: auto !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: keep-all !important;
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+}
+
+/* Mobile portrait view */
+@media screen and (max-width: 760px) {
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 80px 10px 20px !important;
+        overflow-x: hidden !important;
+    }
+
+    .top-header {
+        padding-left: 58px !important;
+        padding-right: 10px !important;
+    }
+
+    .attendance-card {
+        width: 100% !important;
+        margin: 10px 0 !important;
+        padding: 12px 9px !important;
+        border-radius: 15px !important;
+    }
+
+    .attendance-header {
+        align-items: stretch !important;
+        gap: 12px !important;
+    }
+
+    .attendance-title {
+        width: 100% !important;
+    }
+
+    .attendance-title h2 {
+        font-size: 21px !important;
+    }
+
+    .month-filter {
+        width: 100% !important;
+    }
+
+    .month-filter select {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .attendance-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 12px !important;
+    }
+
+    .attendance-table th,
+    #attendanceTable th {
+        padding: 12px 10px !important;
+        font-size: 12px !important;
+    }
+
+    .attendance-table td,
+    #attendanceTable td {
+        padding: 12px 10px !important;
+        font-size: 12px !important;
+    }
+
+    .attendance-table td span[class^="status-"],
+    #attendanceTable td span[class^="status-"] {
+        font-size: 11px !important;
+        padding: 5px 9px !important;
+    }
+
+    .footer {
+        width: 100% !important;
+        padding: 12px 10px !important;
+    }
+}
+
+/* Small phones */
+@media screen and (max-width: 380px) {
+    .main-content {
+        padding-left: 7px !important;
+        padding-right: 7px !important;
+    }
+
+    .attendance-card {
+        padding: 9px 6px !important;
+    }
+
+    .attendance-table th,
+    #attendanceTable th,
+    .attendance-table td,
+    #attendanceTable td {
+        padding: 10px 8px !important;
+        font-size: 11px !important;
+    }
+}
