@@ -201,7 +201,7 @@ months.sort((a, b) => {
     // Select latest/current month by default
     if (months.length > 0) {
 
-        let latestMonth = months[months.length - 1];
+        let latestMonth = months[0];
 
         select.value = latestMonth;
 
