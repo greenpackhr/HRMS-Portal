@@ -347,11 +347,11 @@ body {
 
 .main-content {
     display: block;
-    width: calc(100% - 285px);
+    width: auto;
     max-width: none;
     min-width: 0;
     margin-left: 285px;
-    padding: 100px 30px 30px;
+    padding: 100px 20px 30px;
     box-sizing: border-box;
 }
 
