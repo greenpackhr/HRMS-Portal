@@ -995,6 +995,7 @@ body {
     border-radius: 12px;
 }
 
+
 .attendance-table {
     width: 100%;
     min-width: 850px;
@@ -1002,6 +1003,60 @@ body {
     border-spacing: 0;
     table-layout: auto;
 }
+
+/* MOBILE PORTRAIT ATTENDANCE VIEW */
+@media (max-width: 600px) {
+    .attendance-card {
+        padding: 10px;
+        margin-top: 12px;
+    }
+
+    .attendance-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .attendance-table {
+        min-width: 0;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .attendance-table th,
+    .attendance-table td {
+        padding: 9px 3px;
+        font-size: 10px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    .attendance-table th:nth-child(2),
+    .attendance-table td:nth-child(2) {
+        min-width: 0;
+    }
+
+    .attendance-table th {
+        font-size: 9px;
+    }
+
+    .attendance-table td span {
+        min-width: 0;
+        padding: 4px 3px;
+        font-size: 9px;
+        white-space: normal;
+    }
+
+    .attendance-title h2 {
+        font-size: 15px;
+    }
+
+    .month-filter select {
+        min-width: 0;
+    }
+}
+
 
 .attendance-table th,
 .attendance-table td {
