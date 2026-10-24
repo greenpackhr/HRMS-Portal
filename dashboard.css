@@ -1006,66 +1006,69 @@ body {
 
 /* MOBILE PORTRAIT ATTENDANCE VIEW */
 @media (max-width: 600px) {
+
     .attendance-card {
         padding: 10px;
         margin-top: 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .attendance-header {
+        flex-wrap: wrap;
+        gap: 12px;
     }
 
     .attendance-container {
         width: 100%;
+        max-width: 100%;
         overflow-x: auto;
+        overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
     }
 
     .attendance-table {
-        min-width: 0;
         width: 100%;
-        table-layout: fixed;
+        min-width: 850px;
+        table-layout: auto;
+        border-collapse: separate;
+        border-spacing: 0;
     }
 
     .attendance-table th,
     .attendance-table td {
-        padding: 9px 3px;
-        font-size: 10px;
-        white-space: normal;
-        overflow-wrap: anywhere;
-        text-align: center;
-    }
-
-    .attendance-table th:nth-child(2),
-    .attendance-table td:nth-child(2) {
-        min-width: 0;
+        padding: 10px 12px;
+        font-size: 12px;
+        white-space: nowrap;
+        overflow-wrap: normal;
+        word-break: keep-all;
+        text-align: left;
+        box-sizing: border-box;
     }
 
     .attendance-table th {
-        font-size: 9px;
+        font-size: 12px;
     }
 
     .attendance-table td span {
-        min-width: 0;
-        padding: 4px 3px;
-        font-size: 9px;
-        white-space: normal;
+        white-space: nowrap;
+        overflow-wrap: normal;
+        word-break: keep-all;
     }
 
     .attendance-title h2 {
         font-size: 15px;
     }
 
+    .month-filter {
+        max-width: 100%;
+    }
+
     .month-filter select {
         min-width: 0;
+        max-width: 100%;
     }
 }
-
-
-.attendance-table th,
-.attendance-table td {
-    padding: 14px 16px;
-    text-align: left;
-    white-space: nowrap;
-    vertical-align: middle;
-}
-
 .attendance-table th:nth-child(2),
 .attendance-table td:nth-child(2) {
     min-width: 250px;
