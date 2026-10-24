@@ -2626,3 +2626,30 @@ main.main-content > .attendance-card {
         padding-right: 12px !important;
     }
 }
+/* =====================================================
+   FINAL FIX - ATTENDANCE PC AVAILABLE WIDTH
+   DESIGN ONLY
+===================================================== */
+
+@media screen and (min-width: 1101px) {
+    body > main.main-content {
+        display: block !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        margin-left: 285px !important;
+        margin-right: 0 !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    body > main.main-content > .employee-information,
+    body > main.main-content > .attendance-card {
+        width: 100% !important;
+        max-width: none !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+}
