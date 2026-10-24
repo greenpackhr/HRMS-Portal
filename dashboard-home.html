@@ -1001,8 +1001,13 @@ function getFirstAndLastName(fullName) {
 
     var parts = fullName.trim().split(/\s+/);
 
-    return parts[0] + (parts.length > 1 ? " " + parts[parts.length - 1] : "");
-}    function formatBirthday(value) {
+    if (parts.length >= 3) {
+        return parts[0] + " " + parts[parts.length - 1];
+    }
+
+    return fullName.trim();
+}   
+    function formatBirthday(value) {
 
     if (!value) return "";
 
