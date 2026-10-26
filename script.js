@@ -21,7 +21,8 @@ localStorage.setItem("empName", data.empName);
 localStorage.setItem("department", data.department);
 localStorage.setItem("designation", data.designation);
 localStorage.setItem("role", data.role);
-
+localStorage.setItem("hrmsLoggedIn", "true");
+localStorage.setItem("hrmsLastActivity", Date.now().toString());
             alert("Login Successful");
 
             window.location.href = "dashboard-home.html";
